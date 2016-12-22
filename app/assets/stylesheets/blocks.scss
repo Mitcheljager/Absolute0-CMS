@@ -1,4 +1,7 @@
 .block {
   border: 2px solid #d9d9d9;
-  padding: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  min-height: 50px;
 }

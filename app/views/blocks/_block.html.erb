@@ -1,4 +1,6 @@
-
+<%= block.id %>
 <div class="block" data-block-id="<%= block.id %>">
-  <%= block.id %>
+  <% @columns.each do |column| %>
+    <%= render column %>
+  <% end %>
 </div>
