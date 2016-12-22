@@ -6,7 +6,8 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
     @blocks = Block.where(page_id: params[:id]).all
-    @columns = Column.where(block_id: params[:id]).all
+    @columns = Column.all
+    @components = Component.all
   end
 
   def new

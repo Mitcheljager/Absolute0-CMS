@@ -1,6 +1,6 @@
 <%= block.id %>
 <div class="block" data-block-id="<%= block.id %>">
-  <% @columns.each do |column| %>
+  <% @columns.where(:block_id => block.id).each do |column| %>
     <%= render column %>
   <% end %>
 </div>

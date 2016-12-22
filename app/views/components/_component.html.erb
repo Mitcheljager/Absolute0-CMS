@@ -1,0 +1,8 @@
+<%= component.id %>
+<div class="component" data-component-id="<%= component.id %>">
+  <% componentContent = JSON(component.content) %>
+  <h1><%= componentContent['title'] %></h1>
+  <p>
+    <%= componentContent['content'] %>
+  </p>
+</div>
