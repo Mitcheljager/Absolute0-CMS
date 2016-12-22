@@ -1,2 +1,9 @@
 <h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+
+<% @pages.each do |page| %>
+  <%= render page %>
+<% end %>
+
+<hr />
+
+<%= link_to 'New', new_page_path, :class=>'media-item__title' %>
