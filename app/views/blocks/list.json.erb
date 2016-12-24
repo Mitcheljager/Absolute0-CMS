@@ -1,0 +1,8 @@
+[
+<% @blocks.each_with_index do |block, index| %>
+  {
+    "id": <%= block.id %>,
+    "page_id": "<%= block.page_id %>"
+  }<% unless index == @blocks.size - 1 %>,<% end %>
+<% end %>
+]

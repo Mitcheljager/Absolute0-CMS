@@ -7,4 +7,8 @@ class BlocksController < ApplicationController
 
   def show
   end
+
+  def list
+    @blocks = Block.all
+  end
 end

@@ -10,10 +10,9 @@
   <body>
     <%= render 'pages/modal-new' %>
 
-    <h1>Vue</h1>
 
-    <div class="app">
-      {{ message }}
+    <div class="app app--loading">
+      <h1>{{ message }}</h1>
 
       <ul class="menu">
         <page v-for="page in pages" v-bind:pages="page"></page>
@@ -28,13 +27,6 @@
         <h3 slot="header">custom header</h3>
       </modal>
     </div>
-
-
-    <hr />
-
-    <h1>Rails</h1>
-
-    <%= yield %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>

@@ -7,4 +7,8 @@ class ColumnsController < ApplicationController
 
   def show
   end
+
+  def list
+    @columns = Column.all
+  end
 end
