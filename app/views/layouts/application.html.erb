@@ -5,10 +5,37 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <%= render 'pages/modal-new' %>
+
+    <h1>Vue</h1>
+
+    <div class="app">
+      {{ message }}
+
+      <ul class="menu">
+        <page v-for="page in pages" v-bind:pages="page"></page>
+        <button id="show-modal" @click="showModal = true">New Page</button>
+      </ul>
+
+      <modal v-if="showModal" @close="showModal = false">
+          <!--
+          you can use custom content here to overwrite
+          default content
+        -->
+        <h3 slot="header">custom header</h3>
+      </modal>
+    </div>
+
+
+    <hr />
+
+    <h1>Rails</h1>
+
     <%= yield %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

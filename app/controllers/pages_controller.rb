@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def index
     @pages = Page.all.order(created_at: :desc)
+    @page = Page.new
   end
 
   def show
@@ -16,6 +17,10 @@ class PagesController < ApplicationController
 
   def edit
     @page = Page.find(params[:id])
+  end
+
+  def list
+    @pages = Page.all
   end
 
   def update

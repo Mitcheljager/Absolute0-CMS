@@ -1,5 +1,5 @@
 <div class="form">
-  <%= form_for(@page) do |f| %>
+  <%= form_for(@page, :html => {'v-on:submit' => 'submitForm'}, :action => '#') do |f| %>
     <% if @page.errors.any? %>
       <div id="error_explanation">
         <h2>
@@ -15,7 +15,7 @@
     <% end %>
 
     <%= f.text_field :title, placeholder: 'Title', class: 'form__field form__field--large' %>
-    
+
     <%= f.submit class: 'btn btn--large' %>
   <% end %>
 </div>

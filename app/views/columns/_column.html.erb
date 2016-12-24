@@ -1,6 +1,10 @@
 <%= column.id %>
 <div class="column" data-column-id="<%= column.id %>">
-  <% @components.where(:column_id => column.id).each do |component| %>
-    <%= render component %>
+  <% unless @components.where(:column_id => column.id).blank? %>
+    <ul id="components">
+    <% @components.where(:column_id => column.id).each do |component| %>
+      <%= render component %>
+    <% end %>
+    </ul>
   <% end %>
 </div>

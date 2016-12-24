@@ -1,0 +1,31 @@
+<script type="text/x-template" id="modal--new-page">
+  <transition name="modal">
+    <div class="modal__mask">
+      <div class="modal__wrapper">
+        <div class="modal__container">
+
+          <div class="modal__header">
+            <slot name="header">
+              default header
+            </slot>
+          </div>
+
+          <div class="modal__body">
+            <slot name="body">
+              <%= render 'form' %>
+            </slot>
+          </div>
+
+          <div class="modal__footer">
+            <slot name="footer">
+              default footer
+              <button class="modal__default-button" @click="$emit('close')">
+                OK
+              </button>
+            </slot>
+          </div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</script>

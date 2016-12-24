@@ -5,6 +5,7 @@ class ComponentsController < ApplicationController
   def edit
   end
 
-  def show
+  def template
+    @component = Component.find(params[:id])
   end
 end
