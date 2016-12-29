@@ -15,15 +15,16 @@
       <h1>{{ message }}</h1>
 
       <ul class="menu">
-        <page v-for="page in pages" v-bind:pages="page"></page>
-        <button id="show-modal" @click="showModal = true">New Page</button>
+        <li v-for="page in pages" class="menu__item">
+          <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
+        </li>
       </ul>
 
+      <button id="show-modal" @click="showModal = true">New Page</button>
+
+      <%= render 'pages/page' %>
+
       <modal v-if="showModal" @close="showModal = false">
-          <!--
-          you can use custom content here to overwrite
-          default content
-        -->
         <h3 slot="header">custom header</h3>
       </modal>
     </div>

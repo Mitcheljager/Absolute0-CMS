@@ -23,6 +23,13 @@ class PagesController < ApplicationController
     @pages = Page.all
   end
 
+  def template
+    @page = Page.find(params[:id])
+    @blocks = Block.where(page_id: params[:id]).all
+    @columns = Column.all
+    @components = Component.all
+  end
+
   def update
     @page = Page.find(params[:id])
 

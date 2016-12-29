@@ -1,4 +1,13 @@
-<div class="media-item">
-  <%= link_to page.title, page_path(page), :class=>'media-item__title' %>
-  <%= link_to 'edit', edit_page_path(page), :class=>'media-item__title' %>
+<div v-if="currentPage" v-for="page in currentPageData" v-bind:currentPage="currentPage" class="page">
+  <h1>{{ page.title }}</h1>
+
+  <div v-for="block in page.blocks" class="block">
+    <div v-for="column in block.columns" class="column">
+      <div v-for="component in column.components" class="component">
+        <div v-for="(value, key) in component.content">
+          {{ value }}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

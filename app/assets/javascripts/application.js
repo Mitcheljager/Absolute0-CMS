@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require vue
-//= require_tree .
+
+//= require pages
+//= require blocks
+//= require columns
+//= require components
+//= require modal
+
+//= require app

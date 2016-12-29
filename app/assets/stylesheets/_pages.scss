@@ -5,8 +5,25 @@
 .app {
   opacity: 1;
   transition: opacity 1200ms;
+
+  &--loading {
+    opacity: 0;
+  }
 }
 
-.app--loading {
-  opacity: 0;
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+.page {
+  animation: fadeInPage 300ms;
+  transition: opacity 300ms, transform 300ms;
+
+  &--fade-out {
+    opacity: 0;
+  }
 }

@@ -8,4 +8,8 @@ class ComponentsController < ApplicationController
   def template
     @component = Component.find(params[:id])
   end
+
+  def list
+    @components = Component.all
+  end
 end

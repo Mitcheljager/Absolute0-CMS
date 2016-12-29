@@ -1,0 +1,29 @@
+[{
+  "id": <%= @page.id %>,
+  "title": "<%= @page.title %>",
+  "blocks": [
+    <% @blocks.each_with_index do |block, index| %>
+      {
+        "id": <%= block.id %>,
+        "page_id": <%= block.page_id %>,
+        "columns": [
+          <% @columns.where(:block_id => block.id).each_with_index do |column, index| %>
+          {
+            "id": <%= column.id %>,
+            "block_id": <%= column.block_id %>,
+            "components": [
+              <% @components.where(:column_id => column.id).each_with_index do |component, index| %>
+              {
+                "id": <%= component.id %>,
+                "column_id": <%= component.column_id %>,
+                "content": <%= component.content.to_json.html_safe %>
+              }<% unless index == @components.size - 1 %>,<% end %>
+              <% end %>
+            ]
+          }<% unless index == @columns.size - 1 %>,<% end %>
+          <% end %>
+        ]
+      }<% unless index == @blocks.size - 1 %>,<% end %>
+    <% end %>
+  ]
+}]
