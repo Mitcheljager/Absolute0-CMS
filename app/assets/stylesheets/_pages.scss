@@ -22,6 +22,7 @@
 .page {
   animation: fadeInPage 300ms;
   transition: opacity 300ms, transform 300ms;
+  position: relative;
 
   &--fade-out {
     opacity: 0;

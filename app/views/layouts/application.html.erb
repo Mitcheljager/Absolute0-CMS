@@ -12,17 +12,23 @@
 
 
     <div class="app app--loading">
-      <h1>{{ message }}</h1>
+      <a class="menu-trigger" @click="toggleMenu">&equiv;</a>
 
-      <ul class="menu">
+      <ul class="menu" v-bind:class="{ 'menu--is-active': menuVisible }">
         <li v-for="page in pages" class="menu__item">
           <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
         </li>
+        <li>
+          <a id="show-modal" class="button" @click="showModal = true">New Page</a>
+        </li>
       </ul>
 
-      <button id="show-modal" @click="showModal = true">New Page</button>
+      <div class="board">
+        <h1>{{ message }}</h1>
 
-      <%= render 'pages/page' %>
+        <%= render 'pages/page' %>
+      </div>
+
 
       <modal v-if="showModal" @close="showModal = false">
         <h3 slot="header">custom header</h3>

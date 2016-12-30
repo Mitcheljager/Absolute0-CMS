@@ -9,7 +9,8 @@ var app = new Vue({
     items: [],
     currentPage: 0,
     currentPageData: [],
-    page: this.currentPageData
+    page: this.currentPageData,
+    menuVisible: false
   },
   beforeCreate: function() {
     var self = this;
@@ -45,12 +46,17 @@ var app = new Vue({
 
         setTimeout(function() {
           self.currentPageData = json;
-          
+
           $('.page').removeClass('page--fade-out');
         }, 300);
 
         console.log('Page Loaded');
       });
+
+      this.toggleMenu();
+    },
+    toggleMenu: function(){
+      this.menuVisible = !this.menuVisible;
     }
   },
   watch: {
