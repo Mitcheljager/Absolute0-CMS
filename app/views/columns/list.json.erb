@@ -2,7 +2,8 @@
 <% @columns.each_with_index do |column, index| %>
   {
     "id": <%= column.id %>,
-    "block_id": "<%= column.block_id %>"
+    "block_id": "<%= column.block_id %>",
+    "size": <%= column.size %>
   }<% unless index == @columns.size - 1 %>,<% end %>
 <% end %>
 ]

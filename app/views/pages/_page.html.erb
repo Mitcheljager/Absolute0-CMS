@@ -2,7 +2,7 @@
   <h1>{{ page.title }}</h1>
 
   <div v-for="block in page.blocks" class="block">
-    <div v-for="column in block.columns" class="column">
+    <div v-for="column in block.columns" class="column" v-bind:class="'column--' + column.size">
       <div v-for="component in column.components" class="component">
         <div v-for="(value, key) in component.content">
           {{ value }}

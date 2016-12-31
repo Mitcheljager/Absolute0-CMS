@@ -11,6 +11,7 @@
           {
             "id": <%= column.id %>,
             "block_id": <%= column.block_id %>,
+            "size": "<%= column.size %>",
             "components": [
               <% @components.where(:column_id => column.id).each_with_index do |component, index| %>
               {

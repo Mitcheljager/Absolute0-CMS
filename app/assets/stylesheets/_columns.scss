@@ -1,7 +1,12 @@
 .column {
   border: 2px solid #999;
-  flex-grow: 1;
-  margin: 0 10px;
+  flex-grow: 0;
   min-height: 50px;
-  padding: 20px;
+  padding: 0 10px;
+}
+
+@for $i from 1 through 12 {
+  .column--#{$i} {
+     width: ((100% / 12) * $i);
+  }
 }

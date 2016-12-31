@@ -10,25 +10,14 @@ var app = new Vue({
     currentPage: 0,
     currentPageData: [],
     page: this.currentPageData,
-    menuVisible: false
+    menuVisible: false,
+    newPage: false
   },
   beforeCreate: function() {
     var self = this;
 
     $.getJSON('/pages/json/list.json', function(json){
       self.pages = json;
-    });
-
-    $.getJSON('/blocks/json/list.json', function(json){
-      self.blocks = json;
-    });
-
-    $.getJSON('/columns/json/list.json', function(json){
-      self.columns = json;
-    });
-
-    $.getJSON('/components/json/list.json', function(json){
-      self.items = json;
     });
   },
   created: function() {
@@ -60,8 +49,19 @@ var app = new Vue({
     }
   },
   watch: {
-    'currentPage': function(val, oldVal){
-      this.loadPage();
+    'currentPage': function(val, oldVal) {
+      var self = this;
+
+      self.loadPage();
+    },
+    'menuVisible': function(val, oldVal) {
+      if (this.menuVisible) {
+        var self = this;
+
+        $.getJSON('/pages/json/list.json', (json) => {
+          self.pages = json;
+        });
+      }
     }
   }
 })
