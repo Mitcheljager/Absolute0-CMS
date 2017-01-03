@@ -18,10 +18,10 @@
                 "id": <%= component.id %>,
                 "column_id": <%= component.column_id %>,
                 "content": <%= component.content.to_json.html_safe %>
-              }<% unless index == @components.size - 1 %>,<% end %>
+              }<% unless index == @components.where(:column_id => column.id).size - 1 %>,<% end %>
               <% end %>
             ]
-          }<% unless index == @columns.size - 1 %>,<% end %>
+          }<% unless index == @columns.where(:block_id => block.id).size - 1 %>,<% end %>
           <% end %>
         ]
       }<% unless index == @blocks.size - 1 %>,<% end %>

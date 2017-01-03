@@ -1,3 +1,11 @@
+@keyframes slideInMenu {
+  from {
+    transform: translateX(-200px);
+  } to {
+    transform: translateX(0);
+  }
+}
+
 .menu {
   padding: 60px 10px 10px;
   background: #222;
@@ -7,9 +15,10 @@
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 100;
   transform: translateX(-100%);
   transition: transform 500ms;
-  z-index: 100;
+  animation: slideInMenu 500ms;
 
   &--is-active {
     transform: translateX(0);

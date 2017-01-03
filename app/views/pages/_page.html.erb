@@ -1,13 +1,13 @@
-<div v-if="currentPage" v-for="page in currentPageData" v-bind:currentPage="currentPage" class="page">
+<article v-if="currentPage" v-for="page in currentPageData" v-bind:currentPage="currentPage" class="page">
   <h1>{{ page.title }}</h1>
 
-  <div v-for="block in page.blocks" class="block">
-    <div v-for="column in block.columns" class="column" v-bind:class="'column--' + column.size">
+  <section v-for="block in page.blocks" class="block">
+    <section v-for="column in block.columns" class="column" v-bind:class="'column--' + column.size">
       <div v-for="component in column.components" class="component">
         <div v-for="(value, key) in component.content">
           {{ value }}
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </section>
+  </section>
+</article>

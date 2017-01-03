@@ -6,13 +6,12 @@ Vue.component('modal', {
 
       $.ajax({
         type: 'POST',
-        url: '/pages',
+        url: postUrl,
         data: $(formElement).serialize(), // serializes the form's elements.
         success: function(data) {
           console.log(data); // show response from the php script.
         }
       });
-
     }
   },
   created: function() {
