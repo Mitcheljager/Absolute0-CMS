@@ -42,10 +42,26 @@ var app = new Vue({
         console.log('Page Loaded');
       });
 
-      this.toggleMenu();
+      if (self.menuVisible) {
+        this.toggleMenu();
+      }
     },
     toggleMenu: function(){
       this.menuVisible = !this.menuVisible;
+    },
+    addNewBlock(postUrl) {
+      event.preventDefault();
+
+      var pageId = '1';
+
+      $.ajax({
+        type: 'POST',
+        url: postUrl,
+        data: pageId,
+        success: function(data) {
+          console.log(data);
+        }
+      });
     }
   },
   watch: {

@@ -10,6 +10,8 @@ Vue.component('modal', {
         data: $(formElement).serialize(), // serializes the form's elements.
         success: function(data) {
           console.log(data); // show response from the php script.
+        }, error: function(data) {
+          alert('Error creating page, try again');
         }
       });
     }

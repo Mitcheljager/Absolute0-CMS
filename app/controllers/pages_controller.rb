@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   def index
     @pages = Page.all.order(created_at: :desc)
     @page = Page.new
+    @block = Block.new
   end
 
   def show

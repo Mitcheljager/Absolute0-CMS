@@ -1,4 +1,4 @@
-<article v-if="currentPage" v-for="page in currentPageData" v-bind:currentPage="currentPage" class="page">
+<article v-if="currentPage" v-for="page in currentPageData" class="page" v-bind:data-page="page.id">
   <h1>{{ page.title }}</h1>
 
   <section v-for="block in page.blocks" class="block">
@@ -10,4 +10,10 @@
       </div>
     </section>
   </section>
+
+  <%= form_for(@block, :remote => true, :html => {'@submit' => 'loadPage'}) do |f| %>
+    <input type="hidden" name="block[page_id]" id="block_page_id" :value="page.id"> <!-- Temp solution, would like to use Rails input instead -->
+    <%= f.submit class: 'btn btn--large' %>
+  <% end %>
+
 </article>
