@@ -7,11 +7,12 @@
         <div v-for="(value, key) in component.content">
           {{ value }}
         </div>
+        {{ component.content }}
       </div>
     </section>
   </section>
 
-  <%= form_for(@block, :remote => true, :html => {'@submit' => 'loadPage'}) do |f| %>
+  <%= form_for(@block, :remote => true, :html => {'@submit' => 'addBlock'}) do |f| %>
     <input type="hidden" name="block[page_id]" id="block_page_id" :value="page.id"> <!-- Temp solution, would like to use Rails input instead -->
     <%= f.submit class: 'btn btn--large' %>
   <% end %>

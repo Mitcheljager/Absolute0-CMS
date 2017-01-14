@@ -15,7 +15,7 @@ Vue.component('page', {
         currentPageData = json;
         self.currentPage = pageId;
 
-        console.log('Page Loaded');
+        console.log('Block Added');
       });
     }
   },

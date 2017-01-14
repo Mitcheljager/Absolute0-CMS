@@ -49,19 +49,12 @@ var app = new Vue({
     toggleMenu: function(){
       this.menuVisible = !this.menuVisible;
     },
-    addNewBlock(postUrl) {
-      event.preventDefault();
+    addBlock: function() {
+      var self = this;
 
-      var pageId = '1';
-
-      $.ajax({
-        type: 'POST',
-        url: postUrl,
-        data: pageId,
-        success: function(data) {
-          console.log(data);
-        }
-      });
+      setTimeout(function() {
+        self.loadPage();
+      }, 100)
     }
   },
   watch: {
