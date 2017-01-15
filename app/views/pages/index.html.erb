@@ -14,9 +14,11 @@
   </ul>
 
   <div class="board">
-    <h1>{{ message }}</h1>
+    <h1>{{ title }}</h1>
 
     <%= render 'pages/page' %>
+
+    <message v-if="flashMessage" v-bind:content="flashMessage"></message>
   </div>
 
 

@@ -1,7 +1,7 @@
 var app = new Vue({
   el: '.app',
   data: {
-    message: 'Absolute 0 CMS',
+    title: 'Absolute 0 CMS',
     showModal: false,
     pages: [],
     blocks: [],
@@ -11,7 +11,9 @@ var app = new Vue({
     currentPageData: [],
     page: this.currentPageData,
     menuVisible: false,
-    newPage: false
+    newPage: false,
+    columnFullSize: 0,
+    flashMessage: '',
   },
   beforeCreate: function() {
     var self = this;
@@ -29,27 +31,22 @@ var app = new Vue({
     loadPage: function() {
       var self = this;
 
-      $('.page').addClass('page--fade-out');
-
       $.getJSON('/pages/template/'+ self.currentPage +'.json', function(json){
-
         setTimeout(function() {
           self.currentPageData = json;
-
-          $('.page').removeClass('page--fade-out');
-        }, 300);
+        }, 100);
 
         console.log('Page Loaded');
       });
 
       if (self.menuVisible) {
-        this.toggleMenu();
+        self.toggleMenu();
       }
     },
     toggleMenu: function(){
       this.menuVisible = !this.menuVisible;
     },
-    addBlock: function() {
+    updatePage: function() {
       var self = this;
 
       setTimeout(function() {

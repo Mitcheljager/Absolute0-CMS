@@ -1,8 +1,11 @@
 class PagesController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def index
     @pages = Page.all.order(created_at: :desc)
     @page = Page.new
     @block = Block.new
+    @column = Column.new
   end
 
   def show
@@ -47,9 +50,7 @@ class PagesController < ApplicationController
 
     if @page.save
       flash[:notice] = 'Page successfully created'
-      render 'index'
     else
-      render 'new'
     end
   end
 

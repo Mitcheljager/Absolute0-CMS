@@ -1,0 +1,5 @@
+<%= form_for(@column, :remote => true, :html => {'@submit' => 'updatePage'}) do |f| %>
+  <input type="hidden" name="column[block_id]" id="column_block_id" :value="block.id"> <!-- Temp solution, would like to use Rails input instead -->
+  <%= f.number_field :size, min: '1', max: '12', value: '1', placeholder: 'Size', class: 'form__field form__field--large' %>
+  <%= f.submit class: 'btn btn--large' %>
+<% end %>
