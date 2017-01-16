@@ -26,4 +26,9 @@
   top: 10px;
   left: 10px;
   z-index: 10;
+  display: none;
+}
+
+.block:hover .new_column {
+  display: block;
 }
