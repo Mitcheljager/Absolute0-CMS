@@ -25,7 +25,7 @@ var app = new Vue({
   created: function() {
     setTimeout(function() {
       $('.app').removeClass('app--loading');
-    }); 
+    });
   },
   methods: {
     loadPage: function() {
@@ -59,11 +59,6 @@ var app = new Vue({
       var self = this;
 
       self.loadPage();
-    },
-    'menuVisible': function(val, oldVal) {
-      if (this.menuVisible) {
-        var self = this;
-      }
     }
   }
 })
