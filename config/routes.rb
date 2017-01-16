@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :blocks
   resources :columns
 
+  get 'admin' => 'pages#index'
+
   get 'pages/json/list.json' => 'pages#list'
   get 'blocks/json/list.json' => 'blocks#list'
   get 'columns/json/list.json' => 'columns#list'
