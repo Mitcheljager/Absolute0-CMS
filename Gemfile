@@ -29,6 +29,10 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'vuejs-rails'
 
+platforms :mswin do
+  gem 'wdm', :group => [:development]
+end
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
