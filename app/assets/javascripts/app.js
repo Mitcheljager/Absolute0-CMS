@@ -25,7 +25,7 @@ var app = new Vue({
   created: function() {
     setTimeout(function() {
       $('.app').removeClass('app--loading');
-    });
+    }); 
   },
   methods: {
     loadPage: function() {
@@ -34,7 +34,7 @@ var app = new Vue({
       $.getJSON('/pages/template/'+ self.currentPage +'.json', function(json){
         setTimeout(function() {
           self.currentPageData = json;
-        }, 100);
+        }, 100);  // FIXME Using Timeout is stupid, as the time required is not set.
 
         console.log('Page Loaded');
       });
@@ -51,7 +51,7 @@ var app = new Vue({
 
       setTimeout(function() {
         self.loadPage();
-      }, 100)
+      }, 100);  // FIXME Using Timeout is stupid, as the time required is not set.
     }
   },
   watch: {
@@ -63,10 +63,6 @@ var app = new Vue({
     'menuVisible': function(val, oldVal) {
       if (this.menuVisible) {
         var self = this;
-
-        $.getJSON('/pages/json/list.json', (json) => {
-          self.pages = json;
-        });
       }
     }
   }
