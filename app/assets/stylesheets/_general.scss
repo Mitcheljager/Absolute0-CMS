@@ -7,8 +7,15 @@ body {
   margin: 0;
   font-family: sans-serif;
   font-size: 16px;
+  background:map-get($color, background-color);
 }
 
 .board {
-  padding: 60px 10px 10px;
+  position: fixed;
+  z-index: 1;
+  top:70px;
+  left:300px;
+  width: calc(100% - 300px);
+  height: calc(100% - 70px);
+  overflow: auto;
 }

@@ -2,7 +2,53 @@
 
 
 <div class="app app--loading">
-  <a class="menu-trigger" @click="toggleMenu">&equiv;</a>
+
+  <div class="leftMenu">
+    <div class="LoggedUser">
+      <div class="overlay"></div>
+      <div class="infoUser">
+        <div class="userImage" style="background:url(https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1017px-Starbucks_Corporation_Logo_2011.svg.png) center; background-size:cover;"></div>
+        <span class="userName">Starbucks</span>
+      </div>
+    </div>
+    <div class="tabs">
+      <span v-on:click="tabClick('tabPage')" class="tabTitle" v-bind:class="{ active: tabPage }">Pages</span>
+      <span v-on:click="tabClick('tabComp')" class="tabTitle" v-bind:class="{ active: tabComp }">Components</span>
+      <div v-if="tabPage" class="tab Pages">
+        <ul>
+          <li v-for="page in pages" class="menu__item">
+            <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
+          </li>
+          <li @click="toggleMenu">
+            <a id="show-modal" class="button" @click="showModal = true">New Page</a>
+          </li>
+        </ul>
+      </div>
+      <div v-if="tabComp" class="tab Comp">
+        <div class="compGroup">
+          <span class="title">Opmaak</span>
+          <div class="comp">Title</div>
+          <div class="comp">Text</div>
+          <div class="comp">Button</div>
+        </div>
+        <div class="compGroup">
+          <span class="title">Video components</span>
+          <div class="comp">Video</div>
+          <div class="comp">Youtube</div>
+          <div class="comp">Vimeo</div>
+          <div class="comp">Brightcove</div>
+        </div>
+        <div class="compGroup">
+          <span class="title">Iets anders</span>
+          <div class="comp">Column control</div>
+          <div class="comp">Templated Section</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="topMenu"></div>
+
+  <!-- <a class="menu-trigger" @click="toggleMenu">&equiv;</a>
 
   <ul class="menu" v-if="menuVisible" v-bind:class="{ 'menu--is-active': menuVisible }">
     <li v-for="page in pages" class="menu__item">
@@ -11,10 +57,9 @@
     <li>
       <a id="show-modal" class="button" @click="showModal = true">New Page</a>
     </li>
-  </ul>
+  </ul> -->
 
   <div class="board">
-    <h1>{{ title }}</h1>
 
     <%= render 'pages/page' %>
 
