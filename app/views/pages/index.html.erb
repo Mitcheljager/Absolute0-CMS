@@ -11,14 +11,23 @@
         <span class="userName">Starbucks</span>
       </div>
     </div>
-    <ul>
-      <li v-for="page in pages" class="menu__item">
-        <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
-      </li>
-      <li @click="toggleMenu">
-        <a id="show-modal" class="button" @click="showModal = true">New Page</a>
-      </li>
-    </ul>
+    <div class="tabs">
+      <span v-on:click="tabClick('tabPage')" class="tabTitle" v-bind:class="{ active: tabPage }">Pages</span>
+      <span v-on:click="tabClick('tabComp')" class="tabTitle" v-bind:class="{ active: tabComp }">Components</span>
+      <div v-if="tabPage" class="tab Pages">
+        <ul>
+          <li v-for="page in pages" class="menu__item">
+            <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
+          </li>
+          <li @click="toggleMenu">
+            <a id="show-modal" class="button" @click="showModal = true">New Page</a>
+          </li>
+        </ul>
+      </div>
+      <div v-if="tabComp" class="tab Comp">
+        components
+      </div>
+    </div>
   </div>
   <div class="topMenu"></div>
 
@@ -36,7 +45,6 @@
   <div class="board">
 
     <div class="workPage">
-      <h1>{{title}}</h1>
       <%= render 'pages/page' %>
     </div>
 

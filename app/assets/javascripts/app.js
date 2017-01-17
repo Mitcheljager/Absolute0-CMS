@@ -14,6 +14,8 @@ var app = new Vue({
     newPage: false,
     columnFullSize: 0,
     flashMessage: '',
+    tabPage: true,
+    tabComp: false,
   },
   beforeCreate: function() {
     var self = this;
@@ -36,11 +38,23 @@ var app = new Vue({
           self.currentPageData = json;
         }, 100);
 
+        self.tabPage = false;
+        self.tabComp = true;
+
         console.log('Page Loaded');
       });
 
       if (self.menuVisible) {
         self.toggleMenu();
+      }
+    },
+    tabClick: function(name){
+      if(name == "tabPage"){
+        this.tabPage = true;
+        this.tabComp = false;
+      } else {
+        this.tabPage = false;
+        this.tabComp = true;
       }
     },
     toggleMenu: function(){
@@ -51,7 +65,7 @@ var app = new Vue({
 
       setTimeout(function() {
         self.loadPage();
-      }, 100)
+      }, 100);
     }
   },
   watch: {

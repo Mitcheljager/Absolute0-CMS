@@ -20,5 +20,6 @@
 //= require components
 //= require modal
 //= require message
+//= require menu
 
 //= require app
