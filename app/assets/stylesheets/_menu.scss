@@ -112,9 +112,12 @@
           font-size: 14px;
           color: map-get($color, dark-blue);
           cursor:move;
-          &:first-of-type{
-            margin-top:5px;
-          }
+        }
+        span.title{
+          color: map-get($color, colorWhite);
+          font-size: 14px;
+          padding: 16px 17px;
+          float: left;
         }
       }
     }
