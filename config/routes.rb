@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :pages
   resources :blocks
   resources :columns
+  resources :components
+
+  get 'admin' => 'pages#index'
 
   get 'pages/json/list.json' => 'pages#list'
   get 'blocks/json/list.json' => 'blocks#list'

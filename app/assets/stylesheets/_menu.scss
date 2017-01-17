@@ -6,6 +6,16 @@
   }
 }
 
+@keyframes slideInMenuItem {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  } to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .menu {
   padding: 60px 10px 10px;
   background: #222;
@@ -28,6 +38,7 @@
 .menu__item {
   list-style: none;
   padding: 2px 0;
+  animation: slideInMenuItem 300ms forwards;
 }
 
 .menu__link {

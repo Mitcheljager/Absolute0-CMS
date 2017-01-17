@@ -2,3 +2,14 @@
   border: 2px solid #ff0000;
   min-height: 50px;
 }
+
+.new_component {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: none;
+}
+
+.column:hover .new_component {
+  display: block;
+}

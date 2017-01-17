@@ -1,0 +1,31 @@
+@keyframes flyInAlert {
+  from {
+    transform: translateY(calc(100% + 50px)) translateX(-50%);
+  } to {
+    transform: translateY(0) translateX(-50%);
+  }
+}
+
+@keyframes flyOutAlert {
+  from {
+    transform: translateY(0) translateX(-50%);
+  } to {
+    transform: translateY(calc(100% + 50px)) translateX(-50%);
+  }
+}
+
+.alert {
+  position: fixed;
+  z-index: 50;
+  width: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50px;
+  padding: 10px;
+  background: #4db2fc;
+  animation: flyInAlert 500ms forwards;
+}
+
+.alert--is-flying-out {
+  animation: flyOutAlert 500ms forwards;
+}
