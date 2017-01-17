@@ -139,8 +139,6 @@
   box-shadow: 6px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
-
-/* need to be removed later */
 .menu {
   padding: 60px 10px 10px;
   background: #222;
@@ -158,11 +156,6 @@
   &--is-active {
     transform: translateX(0);
   }
-}
-
-.menu__item {
-  list-style: none;
-  padding: 2px 0;
 }
 
 .menu__link {

@@ -54,7 +54,7 @@
     <li v-for="page in pages" class="menu__item">
       <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
     </li>
-    <li @click="toggleMenu">
+    <li>
       <a id="show-modal" class="button" @click="showModal = true">New Page</a>
     </li>
   </ul> -->
@@ -63,7 +63,7 @@
 
     <%= render 'pages/page' %>
 
-    <message v-if="flashMessage" v-bind:content="flashMessage"></message>
+    <alert v-if="flashMessage" v-bind:content="flashMessage"></alert>
   </div>
 
 

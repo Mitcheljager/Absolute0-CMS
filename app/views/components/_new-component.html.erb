@@ -1,0 +1,5 @@
+<%= form_for(@component, :remote => true, :html => {'@submit' => 'updatePage'}) do |f| %>
+  <input type="hidden" name="component[column_id]" id="component_column_id" :value="column.id"> <!-- Temp solution, would like to use Rails input instead -->
+  <%= f.text_field :content, placeholder: 'Content', class: 'form__field form__field--large' %>
+  <%= f.submit class: 'btn btn--large' %>
+<% end %>

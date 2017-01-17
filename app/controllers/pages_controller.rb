@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @page = Page.new
     @block = Block.new
     @column = Column.new
+    @component = Component.new
   end
 
   def show

@@ -19,7 +19,7 @@
 //= require columns
 //= require components
 //= require modal
-//= require message
 //= require menu
+//= require alert
 
 //= require app
