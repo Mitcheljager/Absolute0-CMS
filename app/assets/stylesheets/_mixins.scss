@@ -1,8 +1,3 @@
-@mixin blueGradient(){
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f35b48+0,e04095+100 */
-  background: map-get($color, dark-blue); /* Old browsers */
-  background: -moz-linear-gradient(left, map-get($color, dark-blue) 0%, map-get($color, light-blue) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left,  map-get($color, dark-blue) 0%,map-get($color, light-blue) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right,  map-get($color, dark-blue) 0%,map-get($color, light-blue) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0081b3', endColorstr='#1bbcbe',GradientType=1 ); /* IE6-9 */
+@mixin blueGradient() {
+  background: linear-gradient(to right,  map-get($color, dark-blue) 0%,map-get($color, light-blue) 100%);
 }
