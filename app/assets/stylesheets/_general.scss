@@ -18,4 +18,9 @@ body {
   width: calc(100% - 300px);
   height: calc(100% - 70px);
   overflow: auto;
+  transition: left 0.5s ease, width 0.5s ease;
+  &.expand{
+    left:0;
+    width: 100%;
+  }
 }

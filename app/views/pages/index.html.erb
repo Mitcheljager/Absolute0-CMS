@@ -56,13 +56,13 @@
   </div>
   <div class="topMenu" v-bind:class="{expand: !menuVisible}">
     <div class="actions">
-      <button class="blue" v-on:click="menuVisible = !menuVisible">Preview</button>
+      <button class="blue" v-on:click="menuVisible = !menuVisible"><span v-if="menuVisible">Preview</span><span v-else>Edit</span></button>
       <button>Publish</button>
     </div>
     <div class="actions"></div>
   </div>
 
-  <div class="board">
+  <div class="board" v-bind:class="{expand: !menuVisible}">
     <%= render 'pages/page' %>
     <alert v-if="flashMessage" v-bind:content="flashMessage"></alert>
   </div>

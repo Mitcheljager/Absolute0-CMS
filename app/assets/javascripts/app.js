@@ -39,10 +39,6 @@ var app = new Vue({
 
         console.log('Page Loaded');
       });
-
-      if (self.menuVisible) {
-        self.toggleMenu();
-      }
     },
     tabClick: function(target){
       var self = this;
