@@ -13,6 +13,7 @@ var app = new Vue({
     newPage: false,
     columnFullSize: 0,
     flashMessage: '',
+    menuVisible: true,
     currentTab: 'pages',
   },
   beforeCreate: function() {
@@ -63,4 +64,4 @@ var app = new Vue({
       self.loadPage();
     }
   }
-})
+});
