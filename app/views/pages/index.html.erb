@@ -12,8 +12,10 @@
       </div>
     </div>
     <div class="tabs">
-      <span v-on:click="tabClick('pages')" class="tabTitle" v-bind:class="{ active : currentTab === 'pages' }">Pages</span>
-      <span v-on:click="tabClick('components')" class="tabTitle" v-bind:class="{ active : currentTab === 'components' }">Components</span>
+      <div class="tabsTitles">
+        <span v-on:click="tabClick('pages')" class="tabTitle" v-bind:class="{ active : currentTab === 'pages' }">Pages</span>
+        <span v-on:click="tabClick('components')" class="tabTitle" v-bind:class="{ active : currentTab === 'components' }">Components</span>
+      </div>
       <div v-if="currentTab === 'pages'" class="tab Pages">
         <ul>
           <li v-for="page in pages" class="menu__item">
