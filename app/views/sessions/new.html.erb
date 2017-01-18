@@ -1,0 +1,11 @@
+<div class="form form--card">
+  <h1 class="title title--main">Sign in</h1>
+
+  <%= form_tag '/login' do %>
+
+    <%= text_field_tag :email, '', placeholder: 'Email', class: 'form__field' %>
+    <%= password_field_tag :password, '', placeholder: 'Password', class: 'form__field' %>
+    <%= submit_tag "Submit", class: 'btn' %>
+
+  <% end %>
+</div>

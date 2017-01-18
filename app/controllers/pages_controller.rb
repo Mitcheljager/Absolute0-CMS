@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+  before_action :authorize, except: [:show]
 
   def index
     @pages = Page.all.order(created_at: :desc)
