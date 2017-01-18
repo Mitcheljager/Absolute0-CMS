@@ -61,11 +61,17 @@
   border-radius: 100%;
 }
 
-.userName {
+.compName {
   font-size: 20px;
   font-weight: bold;
   color: map-get($color, colorWhite);
   margin-top: 10px;
+}
+
+.userName {
+  font-size: 12px;
+  font-weight: bold;
+  color: map-get($color, colorWhite);
 }
 
 .tabs {

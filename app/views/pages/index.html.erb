@@ -8,7 +8,8 @@
       <div class="overlay"></div>
       <div class="infoUser">
         <div class="userImage" style="background:url(https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1017px-Starbucks_Corporation_Logo_2011.svg.png) center; background-size:cover;"></div>
-        <span class="userName">Starbucks</span>
+        <span class="compName"><%= current_user.companyname %></span>
+        <span class="userName">(<%= current_user.name %>)</span>
       </div>
     </div>
     <div class="tabs">
