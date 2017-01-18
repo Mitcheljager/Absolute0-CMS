@@ -69,11 +69,19 @@
   position: relative;
   height: calc(100% - 170px);
   width: 100%;
-  float: left;
+  overflow: auto;
+  animation: fadeInTab 500ms forwards;
+}
+
+.tabsTitles {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: row;
 }
 
 .tabTitle {
-  float: left;
+  display: block;
   width: 50%;
   padding:20px;
   background: map-get($color, light-grey);
@@ -108,20 +116,17 @@
 }
 
 .tab {
-  float: left;
   width: 100%;
-  height: 100%;
   padding: 25px;
+  transition: opacity 500ms, transform 500ms;
 }
 
 .compGroup {
-  float:left;
   width: 100%;
   margin-bottom: 20px;
   @include blueGradient();
 
   .comp {
-    float: left;
     width: 100%;
     background: map-get($color, colorWhite);
     border: 1px solid darken(map-get($color, light-grey), 15%);
@@ -137,7 +142,7 @@
     color: map-get($color, colorWhite);
     font-size: 14px;
     padding: 16px 17px;
-    float: left;
+    display: block;
   }
 }
 
@@ -189,4 +194,23 @@
   top: 0;
   z-index: 150;
   cursor: pointer;
+}
+
+.tabswap-enter-active {
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-50px);
+  transition-delay: 500ms;
+  transition: opacity 500ms, transform 500ms, height 0ms, padding 0ms;
+}
+
+.tabswap-leave-active {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.tabswap-leave {
+
 }
