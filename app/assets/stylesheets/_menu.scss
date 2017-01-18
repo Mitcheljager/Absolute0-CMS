@@ -70,9 +70,12 @@
   height: calc(100% - 170px);
   width: 100%;
   overflow: auto;
+  animation: fadeInTab 500ms forwards;
 }
 
 .tabsTitles {
+  position: relative;
+  z-index: 5;
   display: flex;
   flex-direction: row;
 }
@@ -115,6 +118,7 @@
 .tab {
   width: 100%;
   padding: 25px;
+  transition: opacity 500ms, transform 500ms;
 }
 
 .compGroup {
@@ -190,4 +194,23 @@
   top: 0;
   z-index: 150;
   cursor: pointer;
+}
+
+.tabswap-enter-active {
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-50px);
+  transition-delay: 500ms;
+  transition: opacity 500ms, transform 500ms, height 0ms, padding 0ms;
+}
+
+.tabswap-leave-active {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.tabswap-leave {
+
 }

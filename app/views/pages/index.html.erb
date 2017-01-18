@@ -16,36 +16,42 @@
         <span v-on:click="tabClick('pages')" class="tabTitle" v-bind:class="{ active : currentTab === 'pages' }">Pages</span>
         <span v-on:click="tabClick('components')" class="tabTitle" v-bind:class="{ active : currentTab === 'components' }">Components</span>
       </div>
-      <div v-if="currentTab === 'pages'" class="tab Pages">
-        <ul>
-          <li v-for="page in pages" class="menu__item">
-            <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
-          </li>
-          <li>
-            <a id="show-modal" class="button" @click="showModal = true">New Page</a>
-          </li>
-        </ul>
-      </div>
-      <div v-if="currentTab === 'components'" class="tab Comp">
-        <div class="compGroup">
-          <span class="title">Opmaak</span>
-          <div class="comp">Title</div>
-          <div class="comp">Text</div>
-          <div class="comp">Button</div>
+      
+      <transition name="tabswap">
+        <div v-if="currentTab === 'pages'" class="tab Pages">
+          <ul>
+            <li v-for="page in pages" class="menu__item">
+              <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
+            </li>
+            <li>
+              <a id="show-modal" class="button" @click="showModal = true">New Page</a>
+            </li>
+          </ul>
         </div>
-        <div class="compGroup">
-          <span class="title">Video components</span>
-          <div class="comp">Video</div>
-          <div class="comp">Youtube</div>
-          <div class="comp">Vimeo</div>
-          <div class="comp">Brightcove</div>
+      </transition>
+
+      <transition name="tabswap">
+        <div v-if="currentTab === 'components'" class="tab Comp">
+          <div class="compGroup">
+            <span class="title">Opmaak</span>
+            <div class="comp">Title</div>
+            <div class="comp">Text</div>
+            <div class="comp">Button</div>
+          </div>
+          <div class="compGroup">
+            <span class="title">Video components</span>
+            <div class="comp">Video</div>
+            <div class="comp">Youtube</div>
+            <div class="comp">Vimeo</div>
+            <div class="comp">Brightcove</div>
+          </div>
+          <div class="compGroup">
+            <span class="title">Iets anders</span>
+            <div class="comp">Column control</div>
+            <div class="comp">Templated Section</div>
+          </div>
         </div>
-        <div class="compGroup">
-          <span class="title">Iets anders</span>
-          <div class="comp">Column control</div>
-          <div class="comp">Templated Section</div>
-        </div>
-      </div>
+      </transition>
     </div>
   </div>
   <div class="topMenu"></div>
