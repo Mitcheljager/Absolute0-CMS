@@ -1,24 +1,9 @@
-# README
+# Absolute 0 CMS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Absolute 0 is a Rails and VueJS based components CMS.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Dynamic editting and adding of page elements
+* Live updates of others working in the CMS
+* Create any component through simple HTML, Ruby and Javascript
