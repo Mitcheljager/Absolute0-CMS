@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get 'admin' => 'pages#index'
 
+  post '/blocks/sort' => 'blocks#sort'
+
   get 'pages/json/list.json' => 'pages#list'
   get 'blocks/json/list.json' => 'blocks#list'
   get 'columns/json/list.json' => 'columns#list'

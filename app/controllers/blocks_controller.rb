@@ -23,6 +23,13 @@ class BlocksController < ApplicationController
     @blocks = Block.all
   end
 
+  def sort
+    params[:order].each do |key,value|
+      Block.find(value[:id]).update_attribute(:priority,value[:position])
+    end
+    render :nothing => true
+  end
+
   private
 
   def block_params

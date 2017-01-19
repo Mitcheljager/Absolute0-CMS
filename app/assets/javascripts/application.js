@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require vue
 
+//= require sortable
+//= require vuedraggable
+
 //= require pages
 //= require blocks
 //= require columns

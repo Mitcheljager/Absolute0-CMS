@@ -51,6 +51,23 @@ var app = new Vue({
       setTimeout(function() {
         self.loadPage();
       }, 100);  // FIXME Using Timeout is stupid, as the time required is not set.
+    },
+    onUpdateOfBlockDrag: function(evt) {
+      var updated_order = []
+
+      $('.block').each(function(i) {
+        $(this).attr('data-position', i+1);
+      });
+
+      $('.block').each(function() {
+        updated_order.push({ id: $(this).data('block-id'), position: $(this).data('position') });
+      });
+
+      $.ajax({
+        type: 'POST',
+        url: '/blocks/sort',
+        data: { order: updated_order }
+      });
     }
   },
   watch: {
