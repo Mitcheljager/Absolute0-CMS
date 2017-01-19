@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find(params[:id])
-    @blocks = Block.where(page_id: params[:id]).all
+    @blocks = Block.where(page_id: params[:id]).all.order(priority: :asc)
     @columns = Column.all
     @components = Component.all
   end
@@ -39,7 +39,7 @@ class PagesController < ApplicationController
 
   def template
     @page = Page.find(params[:id])
-    @blocks = Block.where(page_id: params[:id]).all
+    @blocks = Block.where(page_id: params[:id]).all.order(priority: :asc)
     @columns = Column.all
     @components = Component.all
   end
