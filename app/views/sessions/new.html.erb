@@ -1,11 +1,17 @@
-<div class="form form--card">
-  <h1 class="title title--main">Sign in</h1>
+<div class="app login">
+  <div class="background"></div>
 
-  <%= form_tag '/login' do %>
+  <div class="content">
 
-    <%= text_field_tag :email, '', placeholder: 'Email', class: 'form__field' %>
-    <%= password_field_tag :password, '', placeholder: 'Password', class: 'form__field' %>
-    <%= submit_tag "Submit", class: 'btn' %>
+    <%= image_tag "logoBig.png" %>
 
-  <% end %>
+    <%= form_tag '/login' do %>
+      <div class="stroke"></div>
+      <%= text_field_tag :email, '', placeholder: 'Email', class: 'form__field' %>
+      <%= password_field_tag :password, '', placeholder: 'Password', class: 'form__field' %>
+      <%= submit_tag "Submit", class: 'btn' %>
+
+    <% end %>
+  </div>
+
 </div>
