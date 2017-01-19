@@ -61,98 +61,10 @@
   border-radius: 100%;
 }
 
-.compName {
-  font-size: 20px;
-  font-weight: bold;
-  color: map-get($color, colorWhite);
-  margin-top: 10px;
-}
-
 .userName {
   font-size: 12px;
   font-weight: bold;
   color: map-get($color, colorWhite);
-}
-
-.tabs {
-  position: relative;
-  height: calc(100% - 170px);
-  width: 100%;
-  overflow: auto;
-  animation: fadeInTab 500ms forwards;
-}
-
-.tabsTitles {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  flex-direction: row;
-}
-
-.tabTitle {
-  display: block;
-  width: 50%;
-  padding:20px;
-  background: map-get($color, light-grey);
-  color: map-get($color, dark-grey);
-  font-weight: bold;
-  font-size:14px;
-  text-align: center;
-  border: 1px solid darken(map-get($color, light-grey), 6%);
-  cursor: pointer;
-  transition: background 0.3s ease;
-
-  &.active{
-    background: map-get($color, colorWhite);
-    color: map-get($color, dark-blue);
-    border: 1px solid map-get($color, colorWhite);
-    cursor: auto;
-    &:hover{
-      background: map-get($color, colorWhite);
-    }
-  }
-  &:hover{
-    background:darken(map-get($color, light-grey), 1.5%);
-  }
-  &:last-of-type{
-    border-right:0;
-    border-top:0;
-  }
-  &:first-of-type{
-    border-left:0;
-    border-top:0;
-  }
-}
-
-.tab {
-  width: 100%;
-  padding: 25px;
-  transition: opacity 500ms, transform 500ms;
-}
-
-.compGroup {
-  width: 100%;
-  margin-bottom: 20px;
-  @include blueGradient();
-
-  .comp {
-    width: 100%;
-    background: map-get($color, colorWhite);
-    border: 1px solid darken(map-get($color, light-grey), 15%);
-    border-top: 0;
-    padding: 15px;
-    font-weight: bold;
-    font-size: 14px;
-    color: map-get($color, dark-blue);
-    cursor: move;
-  }
-
-  span.title {
-    color: map-get($color, colorWhite);
-    font-size: 14px;
-    padding: 16px 17px;
-    display: block;
-  }
 }
 
 .topMenu {
@@ -168,14 +80,16 @@
   &.expand{
     width: calc(100%);
   }
-  .actions{
+  
+  .actions {
     height: 100%;
     position: relative;
     float: left;
     display: flex;
     align-items: center;
     padding: 0px 40px;
-    button{
+    
+    button {
       border: 0;
       background: darken(map-get($color, light-grey), 3%);
       padding: 12px 25px;
@@ -185,71 +99,15 @@
       border-radius: 2px;
       margin-right: 10px;
       cursor: pointer;
+      
       &.blue{
         @include blueGradient();
         color: map-get($color, colorWhite);
       }
+      
       &:focus{
         outline:none;
       }
     }
   }
-}
-
-.menu {
-  padding: 60px 10px 10px;
-  background: #222;
-  margin: 0;
-  width: 200px;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 100;
-  transform: translateX(-100%);
-  transition: transform 500ms;
-  animation: slideInMenu 500ms;
-
-  &--is-active {
-    transform: translateX(0);
-  }
-}
-
-.menu__link {
-  color: #f1f1f1;
-  cursor: pointer;
-}
-
-.menu-trigger {
-  font-size: 32px;
-  color: #fff;
-  background: #222;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 150;
-  cursor: pointer;
-}
-
-.tabswap-enter-active {
-  padding: 0;
-  height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-20px);
-  transition-delay: 500ms;
-  transition: opacity 500ms, transform 500ms, height 0ms, padding 0ms;
-}
-
-.tabswap-leave-active {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.tabswap-leave {
-
 }

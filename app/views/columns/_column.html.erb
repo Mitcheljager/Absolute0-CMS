@@ -1,10 +1,9 @@
-<%= column.id %>
-<div class="column" data-column-id="<%= column.id %>">
+<div class="column column--<%= column.size %>" data-column-id="<%= column.id %>">
   <% unless @components.where(:column_id => column.id).blank? %>
-    <ul id="components">
-    <% @components.where(:column_id => column.id).each do |component| %>
-      <%= render component %>
-    <% end %>
-    </ul>
+    <div id="components">
+      <% @components.where(:column_id => column.id).each do |component| %>
+        <%= render component %>
+      <% end %>
+    </div>
   <% end %>
 </div>

@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  get 'website_settings/edit'
+
   resources :pages
   resources :blocks
   resources :columns
   resources :components
 
-  root to: 'pages#index'
+  root to: 'pages#home'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

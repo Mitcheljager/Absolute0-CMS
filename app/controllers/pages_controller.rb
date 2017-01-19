@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  before_action :authorize, except: [:show]
+  before_action :authorize, except: [:show, :home]
+  layout 'admin', except: [:show, :home]
 
   def index
     @pages = Page.all.order(created_at: :desc)
@@ -12,6 +13,14 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
     @blocks = Block.where(page_id: params[:id]).all
+    @columns = Column.all
+    @components = Component.all
+  end
+
+  def home
+    @website_setting = WebsiteSetting.first
+    @page = Page.find(@website_setting.homepage_id)
+    @blocks = Block.all
     @columns = Column.all
     @components = Component.all
   end
