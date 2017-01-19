@@ -7,11 +7,16 @@
 }
 
 .block {
-  border: 2px solid #d9d9d9;
   display: flex;
   flex-direction: row;
-  min-height: 50px;
+  min-height: 20px;
+  padding: 20px 0;
+  border-top: 1px solid #d7d7d7;
   position: relative;
   overflow: hidden;
   animation: moveInBlock 500ms forwards;
+}
+
+.block:first-child {
+  border-top: 0;
 }
