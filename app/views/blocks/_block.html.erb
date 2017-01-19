@@ -1,4 +1,3 @@
-<%= block.id %>
 <div class="block" data-block-id="<%= block.id %>">
   <% @columns.where(:block_id => block.id).each do |column| %>
     <%= render column %>
