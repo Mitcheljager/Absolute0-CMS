@@ -15,7 +15,10 @@
   width: 300px;
   height: 100%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-
+  transition: transform 0.5s ease;
+  &.expand{
+    transform: translateX(-100%);
+  }
   a {
     color:black;
   }
@@ -59,10 +62,9 @@
 }
 
 .userName {
-  font-size: 20px;
+  font-size: 12px;
   font-weight: bold;
   color: map-get($color, colorWhite);
-  margin-top: 10px;
 }
 
 .topMenu {
@@ -74,4 +76,38 @@
   width: calc(100% - 300px);
   height: 70px;
   box-shadow: 6px 0px 5px rgba(0, 0, 0, 0.1);
+  transition: width 0.5s ease;
+  &.expand{
+    width: calc(100%);
+  }
+  
+  .actions {
+    height: 100%;
+    position: relative;
+    float: left;
+    display: flex;
+    align-items: center;
+    padding: 0px 40px;
+    
+    button {
+      border: 0;
+      background: darken(map-get($color, light-grey), 3%);
+      padding: 12px 25px;
+      color: map-get($color, dark-grey);
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 2px;
+      margin-right: 10px;
+      cursor: pointer;
+      
+      &.blue{
+        @include blueGradient();
+        color: map-get($color, colorWhite);
+      }
+      
+      &:focus{
+        outline:none;
+      }
+    }
+  }
 }
