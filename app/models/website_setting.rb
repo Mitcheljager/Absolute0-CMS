@@ -1,0 +1,2 @@
+class WebsiteSetting < ApplicationRecord
+end

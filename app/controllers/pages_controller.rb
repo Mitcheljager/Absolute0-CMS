@@ -16,6 +16,14 @@ class PagesController < ApplicationController
     @components = Component.all
   end
 
+  def home
+    @website_setting = WebsiteSetting.first
+    @page = Page.find(@website_setting.homepage_id)
+    @blocks = Block.all
+    @columns = Column.all
+    @components = Component.all
+  end
+
   def new
     @page = Page.new
   end
