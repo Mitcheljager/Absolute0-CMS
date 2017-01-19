@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  before_action :authorize, except: [:show]
+  before_action :authorize, except: [:show, :home]
+  layout 'admin', except: [:show, :home]
 
   def index
     @pages = Page.all.order(created_at: :desc)
