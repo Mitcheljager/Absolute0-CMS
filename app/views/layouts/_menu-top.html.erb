@@ -1,0 +1,7 @@
+<div class="topMenu" v-bind:class="{expand: !menuVisible}">
+  <div class="actions">
+    <button class="blue" v-on:click="menuVisible = !menuVisible"><span v-if="menuVisible">Preview</span><span v-else>Edit</span></button>
+    <button>Publish</button>
+  </div>
+  <div class="actions"></div>
+</div>

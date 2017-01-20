@@ -1,69 +1,12 @@
-<%= render 'pages/modal-new' %>
-
+<%= render 'modal-new' %>
 
 <div class="app app--loading">
 
-  <div class="leftMenu" v-bind:class="{expand: !menuVisible}">
-    <div class="LoggedUser">
-      <div class="overlay"></div>
-      <div class="infoUser">
-        <div class="userImage" style="background:url(https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1017px-Starbucks_Corporation_Logo_2011.svg.png) center; background-size:cover;"></div>
-        <span class="compName"><%= current_user.companyname %></span>
-        <span class="userName">(<%= current_user.name %>)</span>
-      </div>
-    </div>
-    <div class="tabs">
-      <div class="tabsTitles">
-        <span v-on:click="tabClick('pages')" class="tabTitle" v-bind:class="{ active : currentTab === 'pages' }">Pages</span>
-        <span v-on:click="tabClick('components')" class="tabTitle" v-bind:class="{ active : currentTab === 'components' }">Components</span>
-      </div>
+  <%= render 'layouts/menu-top' %>
 
-      <transition name="tabswap">
-        <div v-if="currentTab === 'pages'" class="tab">
-          <ul>
-            <li v-for="page in pages" class="menu__item">
-              <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
-            </li>
-            <li>
-              <a id="show-modal" class="button" @click="showModal = true">New Page</a>
-            </li>
-          </ul>
-        </div>
-      </transition>
+  <%= render 'layouts/menu-left' %>
 
-      <transition name="tabswap">
-        <div v-if="currentTab === 'components'" class="tab">
-          <div class="compGroup">
-            <span class="title">Opmaak</span>
-            <div class="comp">Title</div>
-            <div class="comp">Text</div>
-            <div class="comp">Button</div>
-          </div>
-          <div class="compGroup">
-            <span class="title">Video components</span>
-            <div class="comp">Video</div>
-            <div class="comp">Youtube</div>
-            <div class="comp">Vimeo</div>
-            <div class="comp">Brightcove</div>
-          </div>
-          <div class="compGroup">
-            <span class="title">Iets anders</span>
-            <div class="comp">Column control</div>
-            <div class="comp">Templated Section</div>
-          </div>
-        </div>
-      </transition>
-    </div>
-  </div>
-  <div class="topMenu" v-bind:class="{expand: !menuVisible}">
-    <div class="actions">
-      <button class="blue" v-on:click="menuVisible = !menuVisible"><span v-if="menuVisible">Preview</span><span v-else>Edit</span></button>
-      <button>Publish</button>
-    </div>
-    <div class="actions"></div>
-  </div>
-
-  <div class="board" v-bind:class="{expand: !menuVisible}">
+  <div class="board" v-bind:class="{expand : !menuVisible}">
     <%= render 'pages/page' %>
     <alert v-if="flashMessage" v-bind:content="flashMessage"></alert>
   </div>
