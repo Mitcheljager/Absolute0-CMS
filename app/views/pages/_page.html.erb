@@ -1,7 +1,7 @@
 <article v-if="currentPage" v-for="page in currentPageData" class="page" v-bind:data-page="page.id">
   <h1>{{ page.title }}</h1>
 
-  <draggable v-on:update="onUpdateOfBlockDrag" class="sortable-list">
+  <draggable v-on:end="onUpdateOfBlockDrag" class="sortable-list">
     <section v-for="block in page.blocks" v-bind:data-block-id="block.id" class="block">
       <section v-for="column in block.columns" class="column" v-bind:class="'column--' + column.size">
         <div v-for="component in column.components" class="component">

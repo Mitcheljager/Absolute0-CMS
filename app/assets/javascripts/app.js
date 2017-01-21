@@ -53,21 +53,26 @@ var app = new Vue({
       }, 100);  // FIXME Using Timeout is stupid, as the time required is not set.
     },
     onUpdateOfBlockDrag: function(evt) {
-      var updated_order = []
+      var self = this;
+      var updatedOrder = [];
 
       $('.block').each(function(i) {
-        $(this).attr('data-position', i+1);
-      });
-
-      $('.block').each(function() {
-        updated_order.push({ id: $(this).data('block-id'), position: $(this).data('position') });
+        updatedOrder.push({ id: $(this).data('block-id'), position: i+1 });
       });
 
       $.ajax({
         type: 'POST',
         url: '/blocks/sort',
-        data: { order: updated_order }
+        data: { order: updatedOrder },
+        success: function(data) {
+          console.log('Success')
+        },
+        error: function(data) {
+          console.log('Error')
+        }
       });
+
+      console.log(updatedOrder);
     }
   },
   watch: {
