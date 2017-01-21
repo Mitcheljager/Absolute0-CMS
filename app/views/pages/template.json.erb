@@ -5,6 +5,9 @@
     <% @blocks.each_with_index do |block, index| %>
       {
         "id": <%= block.id %>,
+        <% if block.priority %>
+        "priority": <%= block.priority %>,
+        <% end %>
         "page_id": <%= block.page_id %>,
         "columns": [
           <% @columns.where(:block_id => block.id).each_with_index do |column, index| %>
