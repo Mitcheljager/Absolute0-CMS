@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'menus/create'
+
   get 'website_settings/edit'
 
   resources :pages
