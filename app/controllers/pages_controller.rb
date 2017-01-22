@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     @block = Block.new
     @column = Column.new
     @component = Component.new
+    @menus = Menu.all
   end
 
   def show
@@ -35,6 +36,7 @@ class PagesController < ApplicationController
 
   def list
     @pages = Page.all
+    @menus = Menu.all
   end
 
   def template

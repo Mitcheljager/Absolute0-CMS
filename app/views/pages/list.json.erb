@@ -1,8 +1,16 @@
 [
-<% @pages.each_with_index do |page, index| %>
+<% @menus.each_with_index do |menu, index| %>
   {
-    "id": <%= page.id %>,
-    "title": "<%= page.title %>"
-  }<% unless index == @pages.size - 1 %>,<% end %>
+    "id": <%= menu.id %>,
+    "name": "<%= menu.name %>",
+    "pages": [
+      <% @pages.where(:menu_id => menu.id).each_with_index do |page, index| %>
+        {
+          "id": <%= page.id %>,
+          "title": "<%= page.title %>"
+        }<% unless index == @pages.where(:menu_id => menu.id).size - 1 %>,<% end %>
+      <% end %>
+    ]
+  }<% unless index == @menus.size - 1 %>,<% end %>
 <% end %>
 ]

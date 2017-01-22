@@ -16,13 +16,16 @@
     <transition name="tabswap">
       <div v-if="currentTab === 'pages'" class="tab">
         <ul>
-          <li v-for="page in pages" class="menu__item">
-            <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
-          </li>
-          <li>
-            <a id="show-modal" class="button" @click="showModal = true">New Page</a>
+          <li v-for="menu in pages" class="menu__item">
+            <h3>{{ menu.name }}</h3>
+            <ul>
+              <li v-for="page in menu.pages" class="menu__item">
+                <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
+              </li>
+            </ul>
           </li>
         </ul>
+        <a id="show-modal" class="button" @click="showModal = true">New Page</a>
       </div>
     </transition>
 
