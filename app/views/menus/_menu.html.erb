@@ -1,0 +1,5 @@
+<div class="menu main-menu">
+  <% @pages.where(:menu_id => '1').each do |page| %>
+    <%= page.title %>
+  <% end %>
+</div>

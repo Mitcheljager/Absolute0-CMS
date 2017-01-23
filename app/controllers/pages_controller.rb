@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   layout 'admin', except: [:show, :home]
 
   def index
-    @pages = Page.all.order(created_at: :desc)
+    @pages = Page.all.order(priority: :asc)
     @page = Page.new
     @block = Block.new
     @column = Column.new
@@ -12,6 +12,7 @@ class PagesController < ApplicationController
   end
 
   def show
+    @pages = Page.all.order(priority: :asc)
     @page = Page.find(params[:id])
     @blocks = Block.where(page_id: params[:id]).all.order(priority: :asc)
     @columns = Column.all
@@ -20,6 +21,7 @@ class PagesController < ApplicationController
 
   def home
     @website_setting = WebsiteSetting.first
+    @pages = Page.all.order(priority: :asc)
     @page = Page.find(@website_setting.homepage_id)
     @blocks = Block.all
     @columns = Column.all

@@ -1,0 +1,5 @@
+<div class="menu footer-menu">
+  <% @pages.where(:menu_id => '2').each do |page| %>
+    <%= page.title %>
+  <% end %>
+</div>
