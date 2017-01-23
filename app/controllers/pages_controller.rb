@@ -12,7 +12,6 @@ class PagesController < ApplicationController
   end
 
   def show
-    @pages = Page.all.order(priority: :asc)
     @page = Page.find(params[:id])
     @blocks = Block.where(page_id: params[:id]).all.order(priority: :asc)
     @columns = Column.all

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'admin' => 'pages#index'
 
+  # Pages
+  get '/:id' => 'pages#show', :as => 'page_nice_path'
+
   # Login
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

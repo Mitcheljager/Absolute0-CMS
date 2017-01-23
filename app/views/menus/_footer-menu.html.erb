@@ -1,5 +1,5 @@
 <div class="menu footer-menu">
-  <% @pages.where(:menu_id => '2').each do |page| %>
-    <%= page.title %>
+  <% @menu_pages.where(:menu_id => '2').each do |page| %>
+    <%= link_to page.title, '/' + page.id.to_s %>
   <% end %>
 </div>
