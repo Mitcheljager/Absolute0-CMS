@@ -80,8 +80,9 @@ var app = new Vue({
       var parentDiv = $(evt.to);
       var updatedOrder = [];
 
-      $(parentDiv).find('.menu__item').each(function(i) {
-        updatedOrder.push({ id: $(this).data('page-id'), position: i+1 });
+      $('.menu .menu__item').each(function(i) {
+        console.log($(parentDiv).data('menu-id'));
+        updatedOrder.push({ id: $(this).data('page-id'), menu_id: $(this).parent().data('menu-id'), position: i+1 });
       });
 
       $.ajax({
@@ -95,7 +96,8 @@ var app = new Vue({
           console.log('Error')
         }
       });
-      
+
+      console.log(evt);
       console.log(updatedOrder);
     }
   },

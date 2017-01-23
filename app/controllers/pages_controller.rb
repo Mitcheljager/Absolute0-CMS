@@ -76,7 +76,7 @@ class PagesController < ApplicationController
 
   def sort
     params[:order].each do |key, value|
-      Page.find(value[:id]).update_attribute(:priority, value[:position])
+      Page.find(value[:id]).update_attributes(:priority => value[:position], :menu_id => value[:menu_id])
     end
     render :nothing => true
   end
