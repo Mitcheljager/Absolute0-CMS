@@ -19,9 +19,11 @@
           <li v-for="menu in pages" class="menu__item">
             <h3>{{ menu.name }}</h3>
             <ul>
-              <li v-for="page in menu.pages" class="menu__item">
-                <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
-              </li>
+              <draggable  v-on:end="onUpdateOfPageDrag" class="sortable-list">
+                <li v-for="page in menu.pages" class="menu__item" v-bind:data-page-id="page.id">
+                  <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
+                </li>
+              </draggable>
             </ul>
           </li>
         </ul>

@@ -35,7 +35,7 @@ class PagesController < ApplicationController
   end
 
   def list
-    @pages = Page.all
+    @pages = Page.all.order(priority: :asc)
     @menus = Menu.all
   end
 
@@ -72,6 +72,13 @@ class PagesController < ApplicationController
 
     flash[:notice] = 'Page successfully deleted'
     render 'index'
+  end
+
+  def sort
+    params[:order].each do |key, value|
+      Page.find(value[:id]).update_attribute(:priority, value[:position])
+    end
+    render :nothing => true
   end
 
   private
