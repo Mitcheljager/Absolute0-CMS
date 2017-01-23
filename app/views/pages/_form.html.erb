@@ -1,6 +1,7 @@
 <div class="form">
   <%= form_for(@page, :remote => true, :html => {'@submit' => 'createPage'}) do |f| %>
-    <%= f.text_field :title, placeholder: 'Title', class: 'form__field form__field--large' %>
+    <%= f.text_field :title, placeholder: 'Title', class: 'form__field form__field--large' %><br />
+    <%= f.collection_select :menu_id, @menus, :id, :name %>
     <%= f.submit class: 'btn btn--large' %>
   <% end %>
 </div>

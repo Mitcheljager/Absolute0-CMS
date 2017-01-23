@@ -1,0 +1,5 @@
+<div class="menu main-menu">
+  <% @menu_pages.where(:menu_id => '1').each do |page| %>
+    <%= link_to page.title, '/' + page.id.to_s %>
+  <% end %>
+</div>

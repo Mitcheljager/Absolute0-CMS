@@ -62,7 +62,7 @@ var app = new Vue({
 
       $.ajax({
         type: 'POST',
-        url: '/blocks/sort',
+        url: '/admin/blocks/sort',
         data: { order: updatedOrder },
         success: function(data) {
           console.log('Success')
@@ -72,6 +72,32 @@ var app = new Vue({
         }
       });
 
+      console.log(updatedOrder);
+    },
+    onUpdateOfPageDrag: function(evt) {
+      var self = this;
+
+      var parentDiv = $(evt.to);
+      var updatedOrder = [];
+
+      $('.menu .menu__item').each(function(i) {
+        console.log($(parentDiv).data('menu-id'));
+        updatedOrder.push({ id: $(this).data('page-id'), menu_id: $(this).parent().data('menu-id'), position: i+1 });
+      });
+
+      $.ajax({
+        type: 'POST',
+        url: '/admin/pages/sort',
+        data: { order: updatedOrder },
+        success: function(data) {
+          console.log('Success')
+        },
+        error: function(data) {
+          console.log('Error')
+        }
+      });
+
+      console.log(evt);
       console.log(updatedOrder);
     }
   },

@@ -1,24 +1,31 @@
 Rails.application.routes.draw do
-  get 'website_settings/edit'
-
   resources :pages
   resources :blocks
   resources :columns
   resources :components
+  resources :menus
 
+  # Root
   root to: 'pages#home'
+  get 'admin' => 'pages#index'
 
+  # Pages
+  get '/:id' => 'pages#show', :as => 'page_nice_path'
+
+  # Login
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+  # Users
   get '/users/new' => 'users#new'
   post '/users' => 'users#create'
 
-  get 'admin' => 'pages#index'
+  # Sorting
+  post '/admin/blocks/sort' => 'blocks#sort'
+  post '/admin/pages/sort' => 'pages#sort'
 
-  post '/blocks/sort' => 'blocks#sort'
-
+  # Json
   get 'pages/json/list.json' => 'pages#list'
   get 'blocks/json/list.json' => 'blocks#list'
   get 'columns/json/list.json' => 'columns#list'

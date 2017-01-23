@@ -3,11 +3,12 @@ class PagesController < ApplicationController
   layout 'admin', except: [:show, :home]
 
   def index
-    @pages = Page.all.order(created_at: :desc)
+    @pages = Page.all.order(priority: :asc)
     @page = Page.new
     @block = Block.new
     @column = Column.new
     @component = Component.new
+    @menus = Menu.all
   end
 
   def show
@@ -19,6 +20,7 @@ class PagesController < ApplicationController
 
   def home
     @website_setting = WebsiteSetting.first
+    @pages = Page.all.order(priority: :asc)
     @page = Page.find(@website_setting.homepage_id)
     @blocks = Block.all
     @columns = Column.all
@@ -34,7 +36,8 @@ class PagesController < ApplicationController
   end
 
   def list
-    @pages = Page.all
+    @pages = Page.all.order(priority: :asc)
+    @menus = Menu.all
   end
 
   def template
@@ -72,9 +75,16 @@ class PagesController < ApplicationController
     render 'index'
   end
 
+  def sort
+    params[:order].each do |key, value|
+      Page.find(value[:id]).update_attributes(:priority => value[:position], :menu_id => value[:menu_id])
+    end
+    render :nothing => true
+  end
+
   private
 
   def page_params
-    params.require(:page).permit(:title)
+    params.require(:page).permit(:title, :menu_id)
   end
 end

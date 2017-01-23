@@ -24,8 +24,8 @@ class BlocksController < ApplicationController
   end
 
   def sort
-    params[:order].each do |key,value|
-      Block.find(value[:id]).update_attribute(:priority,value[:position])
+    params[:order].each do |key, value|
+      Block.find(value[:id]).update_attribute(:priority, value[:position])
     end
     render :nothing => true
   end
