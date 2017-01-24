@@ -71,9 +71,6 @@ class PagesController < ApplicationController
   def destroy
     @page = Page.find(params[:id])
     @page.destroy
-
-    flash[:notice] = 'Page successfully deleted'
-    render 'index'
   end
 
   def sort

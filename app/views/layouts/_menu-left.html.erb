@@ -23,6 +23,7 @@
               <draggable v-on:end="onUpdateOfPageDrag" :options="{group:'pages'}" v-bind:data-menu-id="menu.id" class="menu sortable-list">
                 <li v-for="page in menu.pages" class="menu__item" v-bind:data-page-id="page.id">
                   <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
+                  <a data-confirm="Are you sure?" class="media-item__action-link" data-remote="true" rel="nofollow" data-method="delete" v-bind:href="'/pages/' + page.id" v-on:click="reloadSidebar">Delete</a>
                 </li>
               </draggable>
             </ul>
