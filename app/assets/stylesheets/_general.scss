@@ -19,8 +19,20 @@ body {
   height: calc(100% - 70px);
   overflow: auto;
   transition: left 0.5s ease, width 0.5s ease;
+
   &.expand{
     left:0;
     width: 100%;
   }
+}
+
+.sortable-list {
+  min-height: 20px;
+}
+
+.sortable-list:empty::before {
+  display: block;
+  content: 'Drag stuff in me.';
+  color: #d7d7d7;
+  font-style: italic;
 }

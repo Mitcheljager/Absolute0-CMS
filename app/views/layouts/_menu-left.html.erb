@@ -15,6 +15,7 @@
 
     <transition name="tabswap">
       <div v-if="currentTab === 'pages'" class="tab">
+        <%= render '/menus/form' %>
         <ul>
           <li v-for="menu in pages" class="menu__item">
             <h3>{{ menu.name }}</h3>
