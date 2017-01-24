@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     @block = Block.new
     @column = Column.new
     @component = Component.new
+    @menu = Menu.new
     @menus = Menu.all
   end
 
