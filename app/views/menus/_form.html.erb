@@ -1,5 +1,5 @@
 <div class="form">
-  <%= form_for(@menu, :remote => true, :html => {'@submit' => 'reloadSidebar'}) do |f| %>
+  <%= form_for(@menu, :remote => true, :html => {'v-on:submit' => "reloadSidebar('Menu Created')"}) do |f| %>
     <%= f.text_field :name, placeholder: 'Name', class: 'form__field form__field--large' %>
     <%= f.submit class: 'btn btn--large' %>
   <% end %>

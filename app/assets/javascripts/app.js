@@ -100,12 +100,18 @@ var app = new Vue({
       console.log(evt);
       console.log(updatedOrder);
     },
-    reloadSidebar: function() {
+    reloadSidebar: function(message) {
+      var self = this;
+
       setTimeout(function() {
         $.getJSON('/pages/json/list.json', (json) => {
           app.pages = json;
         });
       }, 100); // FIXME Using Timeout is stupid, as the time required is not set.
+
+      if (message) {
+        self.flashMessage = message;
+      }
     }
   },
   watch: {
