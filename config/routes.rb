@@ -9,9 +9,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'admin' => 'pages#index'
 
-  # Pages
-  get '/:id' => 'pages#show', :as => 'page_nice_path'
-
   # Login
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -32,6 +29,9 @@ Rails.application.routes.draw do
   get 'components/json/list.json' => 'components#list'
   get 'pages/template/:id.json' => 'pages#template'
   get 'components/template/:id.json' => 'components#template'
+
+  # Pages
+  get '/:id' => 'pages#show', :as => 'page_nice_path'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
