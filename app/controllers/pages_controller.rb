@@ -14,7 +14,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find_by_urlname(params[:id])
-    @blocks = Block.all
+    @blocks = Block.where(page_id: @page.id).all.order(priority: :asc)
     @columns = Column.all
     @components = Component.all
   end
