@@ -13,8 +13,8 @@ class PagesController < ApplicationController
   end
 
   def show
-    @page = Page.find(params[:id])
-    @blocks = Block.where(page_id: params[:id]).all.order(priority: :asc)
+    @page = Page.find_by_urlname(params[:id])
+    @blocks = Block.all
     @columns = Column.all
     @components = Component.all
   end
@@ -83,6 +83,6 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:title, :menu_id)
+    params.require(:page).permit(:title, :urlname, :menu_id)
   end
 end
