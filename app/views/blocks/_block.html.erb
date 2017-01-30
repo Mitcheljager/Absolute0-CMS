@@ -1,5 +1,7 @@
 <div class="block" data-block-id="<%= block.id %>">
-  <% @columns.where(:block_id => block.id).each do |column| %>
-    <%= render column %>
-  <% end %>
+  <div class="columns-list">
+    <% @columns.where(:block_id => block.id).each do |column| %>
+      <%= render column %>
+    <% end %>
+  </div>
 </div>

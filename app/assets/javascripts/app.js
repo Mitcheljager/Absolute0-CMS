@@ -100,6 +100,30 @@ var app = new Vue({
       console.log(evt);
       console.log(updatedOrder);
     },
+    onUpdateOfColumnDrag: function(evt) {
+      var self = this;
+      var updatedOrder = [];
+
+      var parentDiv = $(evt.from);
+
+      $(parentDiv).find('.column').each(function(i) {
+        updatedOrder.push({ id: $(this).data('column-id'), position: i+1 });
+      });
+
+      $.ajax({
+        type: 'POST',
+        url: '/admin/columns/sort',
+        data: { order: updatedOrder },
+        success: function(data) {
+          console.log('Success')
+        },
+        error: function(data) {
+          console.log('Error')
+        }
+      });
+
+      console.log(updatedOrder);
+    },
     reloadSidebar: function(message) {
       var self = this;
 

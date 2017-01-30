@@ -31,6 +31,16 @@
   border-right: 0;
 }
 
+.columns-list {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
 .new_column {
   position: absolute;
   top: 10px;

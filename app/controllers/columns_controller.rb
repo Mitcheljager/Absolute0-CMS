@@ -20,7 +20,14 @@ class ColumnsController < ApplicationController
   end
 
   def list
-    @columns = Column.all
+    @columns = Column.all.order(priority: :asc)
+  end
+
+  def sort
+    params[:order].each do |key, value|
+      Column.find(value[:id]).update_attribute(:priority, value[:position])
+    end
+    render :nothing => true
   end
 
   private
