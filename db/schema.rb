@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125170017) do
+ActiveRecord::Schema.define(version: 20170130153031) do
 
   create_table "blocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "page_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170125170017) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "size"
+    t.integer  "priority"
   end
 
   create_table "components", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

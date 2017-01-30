@@ -15,7 +15,7 @@ class PagesController < ApplicationController
   def show
     @page = Page.find_by_urlname(params[:id])
     @blocks = Block.where(page_id: @page.id).all.order(priority: :asc)
-    @columns = Column.all
+    @columns = Column.all.order(priority: :asc)
     @components = Component.all
   end
 
@@ -23,8 +23,8 @@ class PagesController < ApplicationController
     @website_setting = WebsiteSetting.first
     @pages = Page.all.order(priority: :asc)
     @page = Page.find(@website_setting.homepage_id)
-    @blocks = Block.all
-    @columns = Column.all
+    @blocks = Block.where(page_id: @page.id).all.order(priority: :asc)
+    @columns = Column.all.order(priority: :asc)
     @components = Component.all
   end
 
@@ -44,7 +44,7 @@ class PagesController < ApplicationController
   def template
     @page = Page.find(params[:id])
     @blocks = Block.where(page_id: params[:id]).all.order(priority: :asc)
-    @columns = Column.all
+    @columns = Column.all.order(priority: :asc)
     @components = Component.all
   end
 

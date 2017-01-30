@@ -3,12 +3,14 @@
 
   <draggable v-on:end="onUpdateOfBlockDrag" class="sortable-list">
     <section v-for="block in page.blocks" v-bind:data-block-id="block.id" class="block">
-      <section v-for="column in block.columns" class="column" v-bind:class="'column--' + column.size">
-        <div v-for="component in column.components" class="component">
-          <div v-for="(value, key) in component.content">
-            {{ value }}
+      <draggable v-on:end="onUpdateOfColumnDrag" class="columns-list">
+        <section v-for="column in block.columns" class="column" v-bind:data-column-id="column.id" v-bind:class="'column--' + column.size">
+          <div v-for="component in column.components" class="component">
+            <div v-for="(value, key) in component.content">
+              {{ value }}
+            </div>
           </div>
-        </div>
+        </draggable>
 
         <%= render 'components/new-component' %>
       </section>

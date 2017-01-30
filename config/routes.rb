@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
 
   # Sorting
-  post '/admin/blocks/sort' => 'blocks#sort'
   post '/admin/pages/sort' => 'pages#sort'
+  post '/admin/blocks/sort' => 'blocks#sort'
+  post '/admin/columns/sort' => 'columns#sort'
 
   # Json
   get 'pages/json/list.json' => 'pages#list'
