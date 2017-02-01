@@ -1,9 +1,10 @@
 .editHandle {
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 0;
+  right: -3px;
   display: none;
   flex-direction: row;
+  transform: translateY(-100%);
 }
 
 .editHandleAction {
@@ -21,7 +22,7 @@
 }
 
 .column:hover {
-  box-shadow: inset 0 0 0 3px #2196F3;
+  box-shadow: 0 0 0 3px #2196F3;
 
   .editHandle {
     display: flex;
@@ -29,5 +30,5 @@
 }
 
 .component:hover {
-  
+
 }
