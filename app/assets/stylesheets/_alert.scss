@@ -26,6 +26,11 @@
   animation: flyInAlert 500ms forwards;
 }
 
+.alertDanger {
+  background: map-get($color, red500);
+  color: #fff;
+}
+
 .alert--is-flying-out {
   animation: flyOutAlert 500ms forwards;
 }
