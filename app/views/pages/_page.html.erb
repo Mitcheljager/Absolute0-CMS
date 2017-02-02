@@ -10,15 +10,18 @@
               {{ value }}
             </div>
           </div>
-        </draggable>
+          <%= render 'columns/edit-handle' %>
+          <%= render 'components/new-component' %>
+        </section>
+      </draggable>
 
-        <%= render 'columns/edit-handle' %>
-        <%= render 'components/new-component' %>
-      </section>
 
       <%= render 'columns/new-column' %>
 
+      <div class="blockDragMarker"></div>
     </section>
+
+
   </draggable>
 
   <%= render 'blocks/new-block' %>

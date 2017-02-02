@@ -32,3 +32,16 @@
 .component:hover {
 
 }
+
+.blockDragMarker {
+  height: 0;
+  border: 5px dashed #e7e7e7;
+  padding: 15px;
+  text-align: center;
+  margin: 20px 0;
+  transition: height 200ms;
+}
+
+&.is-drag-state-open .blockDragMarker {
+  height: 50px;
+}
