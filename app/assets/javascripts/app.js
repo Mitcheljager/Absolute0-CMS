@@ -15,6 +15,7 @@ var app = new Vue({
     flashMessage: '',
     menuVisible: true,
     currentTab: 'pages',
+    forgotPassword: false,
   },
   beforeCreate: function() {
     var self = this;
