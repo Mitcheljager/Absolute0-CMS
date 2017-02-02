@@ -15,6 +15,7 @@ var app = new Vue({
     flashMessage: '',
     menuVisible: true,
     currentTab: 'pages',
+    globalDragState: false
   },
   beforeCreate: function() {
     var self = this;
