@@ -1,15 +1,35 @@
 <div class="app login">
+  <div class="loginHeader">
+    <span>Absolute0</span>
+    <span class="account">No account? <a href="#">Sign up</a></span>
+  </div>
   <div class="background"></div>
+  <div class="loginWrapper" v-bind:class="{forgotPassword: forgotPassword}">
 
-  <div class="content">
+    <div class="title">
+      <h1>Log in to Absolute0</h1>
+      <h2>Log in with your <strong>email address</strong> and <strong>password</strong> below.</h2>
+    </div>
 
-    <%= image_tag "logoBig.png" %>
+    <div class="title passwordTitle">
+      <h1>Forgot password?</h1>
+      <h2>Enter your <strong>email address</strong> below.</h2>
+    </div>
 
     <%= form_tag '/login' do %>
-      <div class="stroke"></div>
       <%= text_field_tag :email, '', placeholder: 'Email', class: 'form__field' %>
-      <%= password_field_tag :password, '', placeholder: 'Password', class: 'form__field' %>
-      <%= submit_tag "Submit", class: 'btn' %>
+      <div class="password_field">
+        <%= password_field_tag :password, '', placeholder: 'Password', class: 'form__field' %>
+      </div>
+      <div class="submitField">
+        <%= submit_tag "Log in", class: 'btn' %>
+        <%= submit_tag "Re-send password", class: 'btn resend' %>
+      </div>
+
+      <div>
+        <span class="forgotPassword loginLink" v-on:click="forgotPassword = !forgotPassword">Forgot password?</span>
+        <span class="backToLogin">Back to <span class="loginLink" v-on:click="forgotPassword = !forgotPassword">Login</span></span>
+      </div>
 
     <% end %>
   </div>
