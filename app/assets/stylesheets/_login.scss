@@ -1,4 +1,4 @@
-.login{
+.login {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,22 +9,25 @@
   align-items: center;
   flex-direction: column;
   background: map-get($color, blue500);
-  h2{
+
+  h2 {
     margin-bottom: 50px;
     margin-top: 13px;
     width: 100%;
   }
-  .background{
-    position:absolute;
-    background:url('https://s-media-cache-ak0.pinimg.com/originals/65/c2/9e/65c29e4f84cc2a0c28fa582abdd53490.jpg');
-    background-size:cover;
-    top:0;
-    left:0;
+
+  .background {
+    position: absolute;
+    background: image-url('bg-login.jpg');
+    background-size: cover;
+    top: 0;
+    left: 0;
     width:100%;
     height: 100%;
     opacity: 0.08;
   }
-  .loginWrapper{
+
+  .loginWrapper {
     position: relative;
     z-index: 2;
     max-width: 650px;
@@ -33,132 +36,151 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    &.forgotPassword{
-      .password_field{
+
+    &.forgotPassword {
+
+      .password_field {
         height:0px;
         transform: translateY(25px);
       }
-      .btn{
+
+      .btn {
         opacity: 0;
-        &.resend{
+
+        &.resend {
           opacity: 1;
         }
       }
-      .backToLogin{
+
+      .backToLogin {
         opacity: 1;
         visibility: visible;
       }
-      .forgotPassword{
+
+      .forgotPassword {
         opacity: 0;
         visibility: hidden;
       }
-      .title{
+
+      .title {
         opacity: 0;
         visibility: hidden;
       }
-      .passwordTitle{
+
+      .passwordTitle {
         opacity: 1;
-        visibility: visible;;
+        visibility: visible;
       }
     }
   }
-  .title{
+
+  .title {
     opacity: 1;
     visibility: visible;
-    transition: all 0.3s ease;
+    transition: all 300ms ease;
   }
+
   .passwordTitle{
     margin-top: -135px;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 300ms ease;
   }
-  form{
+
+  form {
     position: relative;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.19);
     background: map-get($color, colorWhite);
     padding: 35px 30px 25px;
     max-width: 500px;
     width: 100%;
-    .password_field{
+
+    .password_field {
       overflow: hidden;
       height: 60px;
       transform: scale(1) translateY(0px);
       transition: transform 0.4s ease, height 0.4s ease;
     }
-    input{
+
+    input {
       width: 100%;
       margin-bottom: 10px;
       border: 1px solid darken(map-get($color, light-grey), 6%);
       padding: 16px 20px;
       border-radius: 2px;
-      font-size:14px;
-      transition: border 0.3s ease;
-      &:focus{
-        outline:none;
-        border:1px solid map-get($color, amber500);
+      font-size: 14px;
+      transition: border 300ms ease;
+
+      &:focus {
+        outline: none;
+        border: 1px solid map-get($color, amber500);
       }
     }
+
     .submitField{
-      position:relative;
+      position: relative;
       margin-top: 20px;
       background: map-get($color, amber500);
       border-radius: 2px;
       overflow: hidden;
+
       &:before{
         content: "";
         position: absolute;
-        left:50%;
-        top:50%;
+        left: 50%;
+        top: 50%;
         margin-left: 0px;
         margin-top: 0px;
-        width:0px;
+        width: 0px;
         height: 0px;
-        background:darken(map-get($color, amber500), 3.5%);
+        background: darken(map-get($color, amber500), 3.5%);
         z-index: 1;
         border-radius: 100%;
         opacity: 0;
 
         //Transition hover off
-        transition: opacity 0.3s ease, margin-left 0s 0.3s ease, margin-top 0s 0.3s ease, width 0s 0.3s ease, height 0s 0.3s ease;
+        transition: opacity 300ms ease, margin-left 0s 300ms ease, margin-top 0s 300ms ease, width 0s 300ms ease, height 0s 300ms ease;
       }
-      &:hover{
-        &:before{
-          margin-left: -250px;
-          margin-top: -250px;
-          width:500px;
-          height:500px;
-          opacity: 1;
 
-          //Transition hover on
-          transition: width 1s ease, height 1s ease, margin-top 1s ease, margin-left 1s ease;
-        }
+      &:hover:before {
+        margin-left: -250px;
+        margin-top: -250px;
+        width: 500px;
+        height: 500px;
+        opacity: 1;
+
+        //Transition hover on
+        transition: width 600ms ease, height 600ms ease, margin-top 600ms ease, margin-left 600ms ease;
       }
     }
-    .btn{
+
+    .btn {
       position: relative;
       z-index: 2;
       cursor: pointer;
       padding: 15px 20px;
-      color:map-get($color, colorWhite);
+      color: map-get($color, colorWhite);
       font-weight: bold;
-      border:0;
+      border: 0;
       border-radius: 0;
       margin-bottom: 0;
-      background:none;
+      background: none;
       opacity: 1;
-      transition: opacity 0.3s ease;
+      transition: opacity 300ms ease;
+
       &:focus{
         outline:none;
         border:0;
       }
+
       &.resend{
         margin-top: -46px;
         display: block;
         opacity: 0;
       }
     }
-    .backToLogin{
+
+    .backToLogin {
       display: block;
       font-size: 15px;
       width: 100%;
@@ -166,17 +188,19 @@
       visibility: hidden;
       margin-top: -32px;
       margin-bottom: 14px;
-      transition: all 0.3s ease;
+      transition: all 300ms ease;
     }
-    .forgotPassword{
+
+    .forgotPassword {
       margin-top: 14px;
       margin-bottom: 14px;
       display: inline-block;
       opacity: 1;
       visibility: visible;
-      transition: all 0.3s ease;
+      transition: all 300ms ease;
     }
-    .loginLink{
+
+    .loginLink {
       color: map-get($color, blue500);
       font-weight: 400;
       cursor: pointer;
@@ -184,7 +208,8 @@
     }
   }
 }
-.loginHeader{
+
+.loginHeader {
   position: absolute;
   z-index: 5;
   top: 0;
@@ -196,13 +221,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  span{
+
+  span {
     font-weight: 600;
     font-size:15px;
-    color:map-get($color, colorWhite);
+    color: map-get($color, colorWhite);
+
     &.account{
       font-weight: 300;
-      a{
+
+      a {
         color: map-get($color, colorWhite);
         text-decoration: none;
         border: 1px solid map-get($color, colorWhite);
