@@ -15,7 +15,8 @@ var app = new Vue({
     flashMessage: '',
     menuVisible: true,
     currentTab: 'pages',
-    forgotPassword: false,
+    globalDragState: false,
+    forgotPassword: false
   },
   beforeCreate: function() {
     var self = this;
@@ -46,12 +47,16 @@ var app = new Vue({
 
       self.currentTab = target;
     },
-    updatePage: function() {
+    updatePage: function(message) {
       var self = this;
 
       setTimeout(function() {
         self.loadPage();
       }, 100);  // FIXME Using Timeout is stupid, as the time required is not set.
+
+      if (message) {
+        self.flashMessage = message;
+      }
     },
     onUpdateOfBlockDrag: function(evt) {
       var self = this;

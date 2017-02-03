@@ -1,0 +1,45 @@
+.editHandle {
+  position: absolute;
+  top: 0;
+  right: -3px;
+  display: none;
+  flex-direction: row;
+  transform: translateY(-100%);
+}
+
+.editHandleAction {
+  display: block;
+  background: #2196F3;
+  padding: 5px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  margin-left: auto;
+}
+
+.editHandleActionDanger {
+  background: #E53935;
+}
+
+.column:hover {
+  box-shadow: 0 0 0 3px #2196F3;
+
+  .editHandle {
+    display: flex;
+  }
+}
+
+.component:hover {
+
+}
+
+.blockDragMarker {
+  text-align: center;
+  transition: height 300ms, margin 300ms;
+}
+
+.isDragStateActive .blockDragMarker {
+  height: 30px;
+  border: 3px dashed #e7e7e7;
+  margin: 5px 0;
+}

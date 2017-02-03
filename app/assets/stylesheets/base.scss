@@ -10,4 +10,10 @@
         'modal',
         'menu',
         'login',
-        'tabs'
+        'tabs';
+
+// Admin
+
+.admin {
+  @import 'admin';
+}
