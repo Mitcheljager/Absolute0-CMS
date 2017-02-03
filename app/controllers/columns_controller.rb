@@ -30,6 +30,11 @@ class ColumnsController < ApplicationController
     render :nothing => true
   end
 
+  def destroy
+    @column = Column.find(params[:id])
+    @column.destroy
+  end
+
   private
 
   def column_params

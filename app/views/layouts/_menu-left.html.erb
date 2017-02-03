@@ -35,6 +35,10 @@
 
     <transition name="tabswap">
       <div v-if="currentTab === 'components'" class="tab">
+        <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+          <a href="#">Add Block</a>
+        </draggable>
+
         <div class="compGroup">
           <span class="title">Opmaak</span>
           <div class="comp">Title</div>
