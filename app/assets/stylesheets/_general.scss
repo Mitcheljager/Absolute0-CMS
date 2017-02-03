@@ -22,10 +22,10 @@ body {
 .board {
   position: fixed;
   z-index: 1;
-  top:70px;
-  left:300px;
-  width: calc(100% - 300px);
-  height: calc(100% - 70px);
+  top:65px;
+  left:380px;
+  width: calc(100% - 380px);
+  height: calc(100% - 65px);
   overflow: auto;
   transition: left 0.5s ease, width 0.5s ease;
 
@@ -58,6 +58,12 @@ h2{
   font-weight: 400;
   font-size: 16px;
   line-height: 25px;
+  margin: 0;
+  padding: 0;
+}
+h3{
+  font-weight: 400;
+  font-size: 16px;
   margin: 0;
   padding: 0;
 }

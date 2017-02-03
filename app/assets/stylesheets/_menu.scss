@@ -6,108 +6,87 @@
   }
 }
 
-.leftMenu {
+.menuEdit {
   position: fixed;
   z-index: 2;
   background: map-get($color, colorWhite);
-  top: 0;
+  bottom: 0;
   left: 0;
-  width: 300px;
-  height: 100%;
+  width: 380px;
+  height: calc(100% - 65px);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease;
-  &.expand{
-    transform: translateX(-100%);
-  }
-  a {
-    color:black;
-  }
-}
-
-.LoggedUser {
-  width: 100%;
-  height: 170px;
-  @include blueGradient();
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.6;
-    background: url('bg-seamless.png');
-    background-size: 253px;
-  }
-}
-
-.infoUser {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userImage {
-  width: 70px;
-  height: 70px;
-  background: map-get($color, colorWhite);
-  border-radius: 100%;
-}
-
-.userName {
-  font-size: 12px;
-  font-weight: bold;
-  color: map-get($color, colorWhite);
-}
-
-.topMenu {
-  position:fixed;
-  z-index: 2;
-  background: map-get($color, colorWhite);
-  top: 0;
-  right: 0;
-  width: calc(100% - 300px);
-  height: 70px;
-  box-shadow: 6px 0px 5px rgba(0, 0, 0, 0.1);
-  transition: width 0.5s ease;
-  &.expand{
-    width: calc(100%);
-  }
-  
-  .actions {
+  .menu{
+    width: 80px;
     height: 100%;
     position: relative;
     float: left;
-    display: flex;
-    align-items: center;
-    padding: 0px 40px;
-    
-    button {
-      border: 0;
-      background: darken(map-get($color, light-grey), 3%);
-      padding: 12px 25px;
-      color: map-get($color, dark-grey);
-      font-weight: bold;
-      font-size: 14px;
+    background: map-get($color, colorWhite);
+    border-right:1px solid darken(map-get($color, colorWhite), 8%);
+  }
+  .edit{
+    width:300px;
+    height: 100%;
+    float:left;
+    position: relative;
+  }
+
+  h2{
+    color: map-get($color, blue500);
+    font-size: 30px;
+    padding-bottom: 22px;
+    float: left;
+    border-bottom: 1px solid #e3e3e3;
+    width: 100%;
+  }
+
+  ul.menuList{
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    margin-top: 20px;
+  }
+}
+
+.menuUsers {
+  position:fixed;
+  z-index: 20;
+  background: map-get($color, blue500);
+  top: 0;
+  right: 0;
+  color: map-get($color, colorWhite);
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  height: 65px;
+  padding: 0 23px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &.menuAdmin{
+    border-bottom: 1px solid map-get($color, blue500);
+  }
+  span {
+    font-weight: 500;
+    font-size:15px;
+    color: map-get($color, colorWhite);
+
+    &.account{
+      font-weight: 300;
+    }
+
+    a {
+      color: map-get($color, colorWhite);
+      text-decoration: none;
+      border: 1px solid map-get($color, colorWhite);
       border-radius: 2px;
-      margin-right: 10px;
-      cursor: pointer;
-      
-      &.blue{
-        @include blueGradient();
-        color: map-get($color, colorWhite);
-      }
-      
-      &:focus{
-        outline:none;
-      }
+      padding: 8px 20px;
+      margin-left: 15px;
+      font-weight: 500;
     }
   }
 }

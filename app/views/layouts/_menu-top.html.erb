@@ -1,7 +1,4 @@
-<div class="topMenu" v-bind:class="{expand: !menuVisible}">
-  <div class="actions">
-    <button class="blue" v-on:click="menuVisible = !menuVisible"><span v-if="menuVisible">Preview</span><span v-else>Edit</span></button>
-    <button>Publish</button>
-  </div>
-  <div class="actions"></div>
+<div class="menuUsers menuAdmin">
+  <span>Welcome: <%= current_user.name %></span>
+  <span><a href="/logout">Logout</a></span>
 </div>

@@ -1,13 +1,26 @@
-<div class="leftMenu" v-bind:class="{expand: !menuVisible}">
-  <div class="LoggedUser">
-    <div class="overlay"></div>
-    <div class="infoUser">
-      <div class="userImage" style="background:url(https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1017px-Starbucks_Corporation_Logo_2011.svg.png) center; background-size:cover;"></div>
-      <span class="compName"><%= current_user.companyname %></span>
-      <span class="userName">(<%= current_user.name %>)</span>
+<div class="menuEdit" v-bind:class="{expand: !menuVisible}">
+  <div class="menu"></div>
+  <div class="edit">
+    <div class="tab">
+      <h2>Page's</h2>
+      <%= render '/menus/form' %>
+      <ul class="menuList">
+        <li v-for="menu in pages" class="menu__item">
+          <h3>{{ menu.name }}</h3>
+          <ul>
+            <draggable v-on:end="onUpdateOfPageDrag" :options="{group:'pages'}" v-bind:data-menu-id="menu.id" class="sortable-list">
+              <li v-for="page in menu.pages" class="menu__item" v-bind:data-page-id="page.id">
+                <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
+                <a data-confirm="Are you sure?" class="media-item__action-link" data-remote="true" rel="nofollow" data-method="delete" v-bind:href="'/pages/' + page.id" v-on:click="reloadSidebar('Page Deleted')">Delete</a>
+              </li>
+            </draggable>
+          </ul>
+        </li>
+      </ul>
+      <a id="show-modal" class="button" @click="showModal = true">New Page</a>
     </div>
   </div>
-  <div class="tabs">
+  <!-- <div class="tabs">
     <div class="tabsTitles">
       <span v-on:click="tabClick('pages')" class="tabTitle" v-bind:class="{ active : currentTab === 'pages' }">Pages</span>
       <span v-on:click="tabClick('components')" class="tabTitle" v-bind:class="{ active : currentTab === 'components' }">Components</span>
@@ -55,5 +68,5 @@
         </div>
       </div>
     </transition>
-  </div>
+  </div> -->
 </div>
