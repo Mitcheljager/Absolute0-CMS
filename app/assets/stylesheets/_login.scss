@@ -40,6 +40,7 @@
     &.forgotPassword {
 
       .password_field {
+        overflow: hidden;
         height:0px;
         transform: translateY(25px);
       }
@@ -96,7 +97,6 @@
     width: 100%;
 
     .password_field {
-      overflow: hidden;
       height: 60px;
       transform: scale(1) translateY(0px);
       transition: transform 0.4s ease, height 0.4s ease;
@@ -223,7 +223,7 @@
   justify-content: space-between;
 
   span {
-    font-weight: 600;
+    font-weight: 500;
     font-size:15px;
     color: map-get($color, colorWhite);
 
@@ -237,7 +237,7 @@
         border-radius: 2px;
         padding: 8px 20px;
         margin-left: 15px;
-        font-weight: 600;
+        font-weight: 500;
       }
     }
   }

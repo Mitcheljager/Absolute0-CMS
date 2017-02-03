@@ -17,9 +17,17 @@
     </div>
 
     <%= form_tag '/login' do %>
-      <%= text_field_tag :email, '', placeholder: 'Email', class: 'form__field' %>
+      <% if flash[:error] %>
+        <%= text_field_tag :email, '', placeholder: 'Email', class: 'form__field errorInput' %>
+      <% else %>
+        <%= text_field_tag :email, '', placeholder: 'Email', class: 'form__field' %>
+      <% end %>
       <div class="password_field">
-        <%= password_field_tag :password, '', placeholder: 'Password', class: 'form__field' %>
+        <% if flash[:error] %>
+          <%= password_field_tag :password, '', placeholder: 'Password', class: 'form__field errorInput' %>
+        <% else %>
+          <%= password_field_tag :password, '', placeholder: 'Password', class: 'form__field' %>
+        <% end %>
       </div>
       <div class="submitField">
         <%= submit_tag "Log in", class: 'btn' %>
@@ -33,6 +41,6 @@
 
     <% end %>
 
-    <% if flash[:error] %><div class="alert alertDanger"><%= flash[:error] %></div><% end %>
+    <!-- <% if flash[:error] %><div class="alert alertDanger"><%= flash[:error] %></div><% end %> -->
   </div>
 </div>
