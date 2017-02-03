@@ -14,6 +14,33 @@
   }
 }
 
+@keyframes shakeAlert {
+  0%{
+    transform: translateX(0px);
+  }
+  15%{
+    transform: translateX(-10px);
+  }
+  30%{
+    transform: translateX(10px);
+  }
+  45%{
+    transform: translateX(-10px);
+  }
+  60%{
+    transform: translateX(10px);
+  }
+  75%{
+    transform: translateX(-10px);
+  }
+  90%{
+    transform: translateX(10px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+
 .alert {
   position: fixed;
   z-index: 50;
@@ -26,6 +53,17 @@
   animation: flyInAlert 500ms forwards;
 }
 
+.alertDanger {
+  background: map-get($color, red500);
+  color: #fff;
+}
+
 .alert--is-flying-out {
   animation: flyOutAlert 500ms forwards;
+}
+
+.errorInput{
+  border:1px solid map-get($color, red500) !important;
+  transform: translateX(0px);
+  animation: shakeAlert 500ms forwards linear;
 }
