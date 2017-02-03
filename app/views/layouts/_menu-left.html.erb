@@ -2,6 +2,10 @@
   <div class="menu"></div>
   <div class="edit">
     <div class="tab">
+      <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+        <a href="#">Add Block</a>
+      </draggable>
+      
       <h2>Page's</h2>
       <%= render '/menus/form' %>
       <ul class="menuList">
@@ -48,9 +52,6 @@
 
     <transition name="tabswap">
       <div v-if="currentTab === 'components'" class="tab">
-        <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
-          <a href="#">Add Block</a>
-        </draggable>
 
         <div class="compGroup">
           <span class="title">Opmaak</span>
