@@ -65,7 +65,7 @@
     font-size: 30px;
     padding-bottom: 22px;
     float: left;
-    border-bottom: 1px solid #e3e3e3;
+    border-bottom: 1px solid darken(map-get($color, colorWhite), 8%);
     width: 100%;
   }
 
@@ -131,6 +131,28 @@
         background: map-get($color, colorWhite);
         border: 2px solid map-get($color, blue500);
       }
+    }
+  }
+  .tab__action{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid darken(map-get($color, colorWhite), 8%);
+    height: 73px;
+    display: flex;
+    align-items: center;
+    a{
+      float: left;
+      width: 50%;
+      text-align: center;
+      text-decoration: none;
+      border-right: 1px solid darken(map-get($color, colorWhite), 8%);
+      height: 73px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
     }
   }
 }

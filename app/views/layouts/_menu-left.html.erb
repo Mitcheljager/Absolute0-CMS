@@ -15,7 +15,6 @@
       </draggable> -->
 
       <h2>Page's</h2>
-      <!-- <%= render '/menus/form' %> -->
       <ul class="menuList">
         <li v-for="menu in pages" class="menu__item">
           <h3>{{ menu.name }}</h3>
@@ -29,7 +28,13 @@
           </ul>
         </li>
       </ul>
-      <!-- <a id="show-modal" class="button" @click="showModal = true">New Page</a> -->
+
+      <div class="tab__action">
+        <!-- <%= render '/menus/form' %> -->
+        <a href="#">Create Menu</a>
+        <a id="show-modal" @click="showModal = true" href="#">Create page</a>
+        <!-- <a id="show-modal" class="button" @click="showModal = true">New Page</a> -->
+      </div>
     </div>
   </div>
   <!-- <div class="tabs">
