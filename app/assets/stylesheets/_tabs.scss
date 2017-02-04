@@ -16,42 +16,72 @@
 .tabTitle {
   display: block;
   width: 50%;
-  padding:20px;
+  padding: 20px;
   background: map-get($color, light-grey);
   color: map-get($color, dark-grey);
   font-weight: bold;
-  font-size:14px;
+  font-size: 14px;
   text-align: center;
   border: 1px solid darken(map-get($color, light-grey), 6%);
   cursor: pointer;
   transition: background 0.3s ease;
 
-  &.active{
+  &.active {
     background: map-get($color, colorWhite);
     color: map-get($color, dark-blue);
     border: 1px solid map-get($color, colorWhite);
     cursor: auto;
-    &:hover{
+
+    &:hover {
       background: map-get($color, colorWhite);
     }
   }
-  &:hover{
+
+  &:hover {
     background:darken(map-get($color, light-grey), 1.5%);
   }
-  &:last-of-type{
-    border-right:0;
-    border-top:0;
+
+  &:last-of-type {
+    border-right: 0;
+    border-top: 0;
   }
-  &:first-of-type{
-    border-left:0;
-    border-top:0;
+  &:first-of-type {
+    border-left: 0;
+    border-top: 0;
   }
 }
 
 .tab {
   width: 100%;
-  padding: 25px;
+  padding: 25px 25px 80px;
   transition: opacity 500ms, transform 500ms;
+  overflow: auto;
+  height: 100%;
+}
+
+.tabAction {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid darken(map-get($color, colorWhite), 8%);
+  height: 80px;
+  display: flex;
+  align-items: center;
+
+  a {
+    float: left;
+    width: 50%;
+    text-align: center;
+    text-decoration: none;
+    border-right: 1px solid darken(map-get($color, colorWhite), 8%);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+  }
 }
 
 .compGroup {
@@ -71,7 +101,7 @@
     cursor: move;
   }
 
-  span.title {
+  .title {
     color: map-get($color, colorWhite);
     font-size: 14px;
     padding: 16px 17px;
