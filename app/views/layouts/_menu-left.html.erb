@@ -1,13 +1,21 @@
 <div class="menuEdit" v-bind:class="{expand: !menuVisible}">
-  <div class="menu"></div>
+  <div class="menu">
+    <ul>
+      <li><i class="material-icons">add_to_queue</i></li>
+      <li><i class="material-icons">widgets</i></li>
+    </ul>
+    <ul class="bottom">
+      <li><i class="material-icons">settings</i></li>
+    </ul>
+  </div>
   <div class="edit">
     <div class="tab">
-      <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+      <!-- <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
         <a href="#">Add Block</a>
-      </draggable>
-      
+      </draggable> -->
+
       <h2>Page's</h2>
-      <%= render '/menus/form' %>
+      <!-- <%= render '/menus/form' %> -->
       <ul class="menuList">
         <li v-for="menu in pages" class="menu__item">
           <h3>{{ menu.name }}</h3>
@@ -21,7 +29,7 @@
           </ul>
         </li>
       </ul>
-      <a id="show-modal" class="button" @click="showModal = true">New Page</a>
+      <!-- <a id="show-modal" class="button" @click="showModal = true">New Page</a> -->
     </div>
   </div>
   <!-- <div class="tabs">

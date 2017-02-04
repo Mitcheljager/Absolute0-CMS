@@ -23,6 +23,35 @@
     float: left;
     background: map-get($color, colorWhite);
     border-right:1px solid darken(map-get($color, colorWhite), 8%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    ul{
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      list-style-type: none;
+      &.bottom{
+        li{
+          border-top: 1px solid darken(map-get($color, colorWhite), 8%);
+          border-bottom:0;
+        }
+      }
+    }
+    li{
+      float: left;
+      width: 100%;
+      height: 73px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid darken(map-get($color, colorWhite), 8%);
+      cursor: pointer;
+    }
+    i{
+      font-size: 28px;
+      color: map-get($color, dark-grey);
+    }
   }
   .edit{
     width:300px;
@@ -47,6 +76,62 @@
     margin: 0;
     list-style-type: none;
     margin-top: 20px;
+    > li.menu__item{
+      position: relative;
+      margin-bottom: 20px;
+    }
+    h3{
+      font-weight: 500;
+      padding: 0 23px;
+      &:before{
+        content: "";
+        width: 3px;
+        height: calc(100% - 26px);
+        background:map-get($color, blue500);
+        position: absolute;
+        top: 14px;
+        left: 2px;
+      }
+      &:after{
+        content: "";
+        width: 9px;
+        height: 9px;
+        position: absolute;
+        left: -1px;
+        top: 6px;
+        background:map-get($color, blue500);
+        border-radius: 100%;
+      }
+    }
+    ul{
+      margin-top: 10px;
+      li{
+        padding: 5px 0;
+      }
+    }
+    a.menu__link{
+      position: relative;
+      &:before{
+        content: "";
+        position: absolute;
+        left: -36px;
+        top: 10px;
+        width: 20px;
+        height: 3px;
+        background: map-get($color, blue500);
+      }
+      &:after{
+        content: "";
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        left: -18px;
+        top: 7px;
+        border-radius: 100%;
+        background: map-get($color, colorWhite);
+        border: 2px solid map-get($color, blue500);
+      }
+    }
   }
 }
 
