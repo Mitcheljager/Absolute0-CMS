@@ -12,13 +12,13 @@
   background: map-get($color, colorWhite);
   bottom: 0;
   left: 0;
-  width: 380px;
+  width: 370px;
   height: calc(100% - 65px);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease;
 
   .menu {
-    width: 80px;
+    width: 70px;
     height: 100%;
     position: relative;
     float: left;
@@ -43,8 +43,8 @@
     }
 
     li {
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -68,7 +68,7 @@
   h2 {
     color: map-get($color, blue500);
     font-size: 30px;
-    padding-bottom: 29px;
+    padding-bottom: 19px;
     border-bottom: 1px solid darken(map-get($color, colorWhite), 8%);
     width: 100%;
     display: block;
