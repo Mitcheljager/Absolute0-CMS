@@ -86,7 +86,7 @@ var app = new Vue({
       var parentDiv = $(evt.to);
       var updatedOrder = [];
 
-      $('.menu .menu__item').each(function(i) {
+      $('.menuList .sortable-list .menuItem').each(function(i) {
         console.log($(parentDiv).data('menu-id'));
         updatedOrder.push({ id: $(this).data('page-id'), menu_id: $(this).parent().data('menu-id'), position: i+1 });
       });
