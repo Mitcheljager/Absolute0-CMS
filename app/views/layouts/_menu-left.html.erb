@@ -16,12 +16,12 @@
 
       <h2>Page's</h2>
       <ul class="menuList">
-        <li v-for="menu in pages" class="menu__item">
+        <li v-for="menu in pages" class="menuItem">
           <h3>{{ menu.name }}</h3>
           <ul>
             <draggable v-on:end="onUpdateOfPageDrag" :options="{group:'pages'}" v-bind:data-menu-id="menu.id" class="sortable-list">
-              <li v-for="page in menu.pages" class="menu__item" v-bind:data-page-id="page.id">
-                <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
+              <li v-for="page in menu.pages" class="menuItem" v-bind:data-page-id="page.id">
+                <a class="menuLink" @click="currentPage = page.id">{{ page.title }}</a>
                 <a data-confirm="Are you sure?" class="media-item__action-link" data-remote="true" rel="nofollow" data-method="delete" v-bind:href="'/pages/' + page.id" v-on:click="reloadSidebar('Page Deleted')">Delete</a>
               </li>
             </draggable>
@@ -47,12 +47,12 @@
       <div v-if="currentTab === 'pages'" class="tab">
         <%= render '/menus/form' %>
         <ul>
-          <li v-for="menu in pages" class="menu__item">
+          <li v-for="menu in pages" class="menuItem">
             <h3>{{ menu.name }}</h3>
             <ul>
               <draggable v-on:end="onUpdateOfPageDrag" :options="{group:'pages'}" v-bind:data-menu-id="menu.id" class="menu sortable-list">
-                <li v-for="page in menu.pages" class="menu__item" v-bind:data-page-id="page.id">
-                  <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
+                <li v-for="page in menu.pages" class="menuItem" v-bind:data-page-id="page.id">
+                  <a class="menuLink" @click="currentPage = page.id">{{ page.title }}</a>
                   <a data-confirm="Are you sure?" class="media-item__action-link" data-remote="true" rel="nofollow" data-method="delete" v-bind:href="'/pages/' + page.id" v-on:click="reloadSidebar('Page Deleted')">Delete</a>
                 </li>
               </draggable>
