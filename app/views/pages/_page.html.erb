@@ -1,3 +1,5 @@
+<loader v-if="pageLoading"></loader>
+
 <article v-if="currentPage" v-for="page in currentPageData" class="page" v-bind:data-page="page.id" v-bind:class="{isDragStateActive : globalDragState}">
   <h1>{{ page.title }}</h1>
 
