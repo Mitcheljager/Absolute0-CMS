@@ -37,14 +37,12 @@
   }
 }
 
-.loader-enter,
-.loader-leave {
-  opacity: 1;
+.loader-enter, .loader-leave-to{
+  opacity: 0;
 }
 
-.loader-enter-active, .loader-leave-active {
-  opacity: 0;
-  transition: opacity 300ms ease;
+.loader-enter-to, .loader-leave{
+  opacity: 1;
 }
 
 .circleBackground {
