@@ -40,36 +40,11 @@
 .loader-enter,
 .loader-leave {
   opacity: 0;
-  transition-delay: 0;
 }
 
-.loader-enter-active {
-  .circleBackground {
-
-  }
-}
-
-.loader-leave-active {
-  transition-delay: 1300ms;
-
-  .circleLoader{
-    width: 30px;
-    transition: width 300ms ease;
-  }
-
-  .circleBackground {
-    width: 2000px;
-    height: 2000px;
-    transition: all 1300ms ease;
-  }
-}
-
-.loader-leave-to {
-  transition-delay: 0;
-
-  .circleBackground {
-    transition-delay: 0;
-  }
+.loader-enter-active, .loader-leave-active {
+  opacity: 0;
+  transition: opacity 300ms ease;
 }
 
 .circleBackground {
