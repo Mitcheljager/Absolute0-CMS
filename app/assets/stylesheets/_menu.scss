@@ -73,86 +73,93 @@
     width: 100%;
     display: block;
   }
+}
 
-  .menuList {
-    display: block;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+.menuList {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  margin-top: 20px;
+
+  > .menuItem{
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-weight: 500;
+    padding: 0 23px;
+
+    &:before{
+      content: "";
+      width: 3px;
+      height: calc(100% - 26px);
+      background:map-get($color, blue500);
+      position: absolute;
+      top: 14px;
+      left: 2px;
+    }
+
+    &:after{
+      content: "";
+      width: 9px;
+      height: 9px;
+      position: absolute;
+      left: -1px;
+      top: 6px;
+      background:map-get($color, blue500);
+      border-radius: 100%;
+    }
+  }
+
+  ul {
+    margin-top: 10px;
     list-style-type: none;
-    margin-top: 20px;
 
-    > .menuItem{
-      position: relative;
-      margin-bottom: 20px;
-    }
-
-    h3 {
-      font-weight: 500;
-      padding: 0 23px;
-
-      &:before{
-        content: "";
-        width: 3px;
-        height: calc(100% - 26px);
-        background:map-get($color, blue500);
-        position: absolute;
-        top: 14px;
-        left: 2px;
-      }
-
-      &:after{
-        content: "";
-        width: 9px;
-        height: 9px;
-        position: absolute;
-        left: -1px;
-        top: 6px;
-        background:map-get($color, blue500);
-        border-radius: 100%;
-      }
-    }
-
-    ul {
-      margin-top: 10px;
+    li {
       list-style-type: none;
-
-      li {
-        list-style-type: none;
-      }
     }
-    a.menuLink {
-      padding: 5px 0;
-      display: inline-block;
-      position: relative;
-      cursor: pointer;
-      transition: all 300ms ease;
+  }
+}
 
-      &:hover{
-        color: map-get($color, blue500);
-      }
+a.menuLink {
+  padding: 5px 0;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  line-height: 21px;
+  transition: color 300ms ease;
 
-      &:before {
-        content: "";
-        position: absolute;
-        left: -36px;
-        top: 15px;
-        width: 20px;
-        height: 3px;
-        background: map-get($color, blue500);
-      }
+  &:hover,
+  .isActive & {
+    color: map-get($color, blue500);
+  }
 
-      &:after {
-        content: "";
-        width: 5px;
-        height: 5px;
-        position: absolute;
-        left: -18px;
-        top: 12px;
-        border-radius: 100%;
-        background: map-get($color, colorWhite);
-        border: 2px solid map-get($color, blue500);
-      }
+  &:before {
+    content: "";
+    position: absolute;
+    left: -36px;
+    top: 15px;
+    width: 20px;
+    height: 3px;
+    background: map-get($color, blue500);
+  }
+
+  &:after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    left: -18px;
+    top: 12px;
+    border-radius: 100%;
+    background: map-get($color, colorWhite);
+    border: 2px solid map-get($color, blue500);
+
+    .isActive & {
+      background: map-get($color, blue500);
     }
   }
 }
