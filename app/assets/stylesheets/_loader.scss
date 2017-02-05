@@ -56,15 +56,19 @@
     width: 30px;
     transition: width 300ms ease;
   }
+
+  .circleBackground {
+    width: 2000px;
+    height: 2000px;
+    transition: all 1300ms ease;
+  }
 }
 
 .loader-leave-to {
   transition-delay: 0;
 
   .circleBackground {
-    width: 2000px;
-    height: 2000px;
-    transition: all 1300ms ease;
+    transition-delay: 0;
   }
 }
 
