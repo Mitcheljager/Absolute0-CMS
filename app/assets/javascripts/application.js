@@ -24,5 +24,6 @@
 //= require modal
 //= require menu
 //= require alert
+//= require loader
 
 //= require app

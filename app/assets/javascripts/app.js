@@ -34,12 +34,19 @@ var app = new Vue({
     loadPage: function() {
       var self = this;
 
+      $(".loader").addClass('loadingPage');
+
       $.getJSON('/pages/template/'+ self.currentPage +'.json', function(json){
         setTimeout(function() {
           self.currentPageData = json;
         }, 100);  // FIXME Using Timeout is stupid, as the time required is not set.
 
         console.log('Page Loaded');
+        $(".loader").addClass('pageLoaded');
+
+        setTimeout(function(){
+          $(".loader").removeClass('loadingPage').removeClass('pageLoaded');
+        },1300);
       });
     },
     tabClick: function(target){
