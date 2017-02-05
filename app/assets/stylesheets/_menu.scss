@@ -118,18 +118,26 @@
       list-style-type: none;
 
       li {
-        padding: 5px 0;
         list-style-type: none;
       }
     }
     a.menuLink {
+      padding: 5px 0;
+      display: inline-block;
       position: relative;
+      cursor: pointer;
+      transition: all 300ms ease;
+
+      &:hover{
+        color: map-get($color, blue500);
+        font-weight: 500;
+      }
 
       &:before {
         content: "";
         position: absolute;
         left: -36px;
-        top: 10px;
+        top: 15px;
         width: 20px;
         height: 3px;
         background: map-get($color, blue500);
@@ -141,7 +149,7 @@
         height: 5px;
         position: absolute;
         left: -18px;
-        top: 7px;
+        top: 12px;
         border-radius: 100%;
         background: map-get($color, colorWhite);
         border: 2px solid map-get($color, blue500);
