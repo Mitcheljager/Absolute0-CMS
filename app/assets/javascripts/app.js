@@ -17,7 +17,7 @@ var app = new Vue({
     globalDragState: false,
     forgotPassword: false,
     pageLoading: false,
-    showNewPageModal: false,
+    showModal: false,
   },
   beforeCreate: function() {
     var self = this;

@@ -1,13 +1,13 @@
 Vue.component('Modal', {
   template: '#modal-template',
   methods: {
-  },
-  ready: function () {
-    document.addEventListener("keydown", (e) => {
-      if (this.show && e.keyCode == 27) {
-        this.onClose();
-      }
-    });
+    ready: function () {
+      document.addEventListener('keydown', (e) => {
+        if (this.show && e.keyCode == 27) {
+          this.onClose();
+        }
+      });
+    }
   }
 });
 
@@ -15,7 +15,7 @@ Vue.component('NewPageModal', {
   template: '#new-page-modal-template',
   methods: {
     close: function() {
-      app.showNewPageModal = false;
+      app.showModal = false;
     },
     createPage: function() {
       app.showModal = false;
