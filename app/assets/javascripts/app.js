@@ -10,7 +10,7 @@ var app = new Vue({
     currentPageData: [],
     page: this.currentPageData,
     newPage: false,
-    columnFullSize: 0,
+    columnFullSize: '',
     flashMessage: '',
     menuVisible: true,
     currentTab: 'pages',

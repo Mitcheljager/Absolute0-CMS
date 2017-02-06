@@ -35,7 +35,6 @@
           <!-- <%= render '/menus/form' %> -->
           <a>Create Menu</a>
           <a id="show-modal" @click="showModal = true">Create page</a>
-          <!-- <a id="show-modal" class="button" @click="showModal = true">New Page</a> -->
         </div>
       </div>
     </transtion>
@@ -74,17 +73,17 @@
                 <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
                   <li>
                     <div class="icon">
-                      <i class="material-icons">text_fields</i>
+                      <i class="material-icons">fingerprint</i>
                     </div>
-                    <a href="#">Article</a>
+                    <a href="#">Fingerprint</a>
                   </li>
                 </draggable>
                 <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
                   <li>
                     <div class="icon">
-                      <i class="material-icons">ondemand_video</i>
+                      <i class="material-icons">view_carousel</i>
                     </div>
-                    <a href="#">Video player</a>
+                    <a href="#">Corousel</a>
                   </li>
                 </draggable>
                 <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
