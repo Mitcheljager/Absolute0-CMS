@@ -12,8 +12,7 @@
   </div>
   <div class="edit">
     <transition name="tabswap">
-      <div class="tab" v-if="currentTab === 'pages'" >
-
+      <div v-if="currentTab === 'pages'" class="tab">
         <h2>Page's</h2>
         <div class="tabContent">
           <ul class="menuList">
@@ -34,10 +33,10 @@
         <div class="tabAction">
           <!-- <%= render '/menus/form' %> -->
           <a>Create Menu</a>
-          <a id="show-modal" @click="showModal = true">Create page</a>
+          <a id="show-modal" @click="showModal = 'newPage'">Create page</a>
         </div>
       </div>
-    </transtion>
+    </transition>
     <transition name="tabswap">
       <div class="tab" v-if="currentTab === 'components'">
         <h2>Components</h2>
