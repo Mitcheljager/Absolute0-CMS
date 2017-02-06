@@ -1,8 +1,8 @@
 <div class="menuEdit" v-bind:class="{expand: !menuVisible}">
   <div class="menu">
     <ul>
-      <li v-on:click="tabClick('pages')" v-bind:class="{ active : currentTab === 'pages' }"><i class="material-icons">add_to_queue</i></li>
-      <li v-on:click="tabClick('components')" v-bind:class="{ active : currentTab === 'components' }"><i class="material-icons">widgets</i></li>
+      <li v-on:click="tabClick('pages')" v-bind:class="{ active : currentTab === 'pages' }"><i class="material-icons">menu</i></li>
+      <li v-on:click="tabClick('components')" v-bind:class="{ active : currentTab === 'components' }"><i class="material-icons">view_quilt</i></li>
     </ul>
     <ul class="bottom">
       <li><i class="material-icons">slideshow</i></li>
@@ -43,9 +43,12 @@
       <div class="tab" v-if="currentTab === 'components'">
         <h2>Components</h2>
         <div class="tabContent">
-          <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+          <ul>
+            <li></li>
+          </ul>
+          <!-- <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
             <a href="#">Add Block</a>
-          </draggable>
+          </draggable> -->
         </div>
         <div class="tabAction">
           <a class="full">Upload new component</a>
