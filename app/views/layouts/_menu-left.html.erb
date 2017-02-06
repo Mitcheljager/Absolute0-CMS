@@ -1,90 +1,56 @@
 <div class="menuEdit" v-bind:class="{expand: !menuVisible}">
   <div class="menu">
     <ul>
-      <li><i class="material-icons">add_to_queue</i></li>
-      <li><i class="material-icons">widgets</i></li>
+      <li v-on:click="tabClick('pages')" v-bind:class="{ active : currentTab === 'pages' }"><i class="material-icons">add_to_queue</i></li>
+      <li v-on:click="tabClick('components')" v-bind:class="{ active : currentTab === 'components' }"><i class="material-icons">widgets</i></li>
     </ul>
     <ul class="bottom">
+      <li><i class="material-icons">slideshow</i></li>
+      <li><i class="material-icons">publish</i></li>
       <li><i class="material-icons">settings</i></li>
     </ul>
   </div>
   <div class="edit">
-    <div class="tab">
-      <!-- <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
-        <a href="#">Add Block</a>
-      </draggable> -->
+    <transition name="tabswap">
+      <div class="tab" v-if="currentTab === 'pages'" >
 
-      <h2>Page's</h2>
-      <ul class="menuList">
-        <li v-for="menu in pages" class="menuItem">
-          <h3>{{ menu.name }}</h3>
-          <ul>
-            <draggable v-on:end="onUpdateOfPageDrag" :options="{group:'pages'}" v-bind:data-menu-id="menu.id" class="sortable-list">
-              <li v-for="page in menu.pages" class="menuItem" v-bind:data-page-id="page.id" v-bind:class="{'isActive' : currentPage === page.id}">
-                <a class="menuLink" @click="currentPage = page.id">{{ page.title }}</a>
-                <a data-confirm="Are you sure?" class="media-item__action-link" data-remote="true" rel="nofollow" data-method="delete" v-bind:href="'/pages/' + page.id" v-on:click="reloadSidebar('Page Deleted')">Delete</a>
-              </li>
-            </draggable>
+        <h2>Page's</h2>
+        <div class="tabContent">
+          <ul class="menuList">
+            <li v-for="menu in pages" class="menuItem">
+              <h3>{{ menu.name }}</h3>
+              <ul>
+                <draggable v-on:end="onUpdateOfPageDrag" :options="{group:'pages'}" v-bind:data-menu-id="menu.id" class="sortable-list">
+                  <li v-for="page in menu.pages" class="menuItem" v-bind:data-page-id="page.id" v-bind:class="{'isActive' : currentPage === page.id}">
+                    <a class="menuLink" @click="currentPage = page.id">{{ page.title }}</a>
+                    <a data-confirm="Are you sure?" class="media-item__action-link" data-remote="true" rel="nofollow" data-method="delete" v-bind:href="'/pages/' + page.id" v-on:click="reloadSidebar('Page Deleted')">Delete</a>
+                  </li>
+                </draggable>
+              </ul>
+            </li>
           </ul>
-        </li>
-      </ul>
+        </div>
 
-      <div class="tabAction">
-        <!-- <%= render '/menus/form' %> -->
-        <a href="#">Create Menu</a>
-        <a id="show-modal" @click="showModal = true" href="#">Create page</a>
-        <!-- <a id="show-modal" class="button" @click="showModal = true">New Page</a> -->
+        <div class="tabAction">
+          <!-- <%= render '/menus/form' %> -->
+          <a>Create Menu</a>
+          <a id="show-modal" @click="showModal = true">Create page</a>
+          <!-- <a id="show-modal" class="button" @click="showModal = true">New Page</a> -->
+        </div>
       </div>
-    </div>
+    </transtion>
+    <transition name="tabswap">
+      <div class="tab" v-if="currentTab === 'components'">
+        <h2>Components</h2>
+        <div class="tabContent">
+          <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+            <a href="#">Add Block</a>
+          </draggable>
+        </div>
+        <div class="tabAction">
+          <a class="full">Upload new component</a>
+        </div>
+      </div>
+    </transition>
   </div>
-  <!-- <div class="tabs">
-    <div class="tabsTitles">
-      <span v-on:click="tabClick('pages')" class="tabTitle" v-bind:class="{ active : currentTab === 'pages' }">Pages</span>
-      <span v-on:click="tabClick('components')" class="tabTitle" v-bind:class="{ active : currentTab === 'components' }">Components</span>
-    </div>
-
-    <transition name="tabswap">
-      <div v-if="currentTab === 'pages'" class="tab">
-        <%= render '/menus/form' %>
-        <ul>
-          <li v-for="menu in pages" class="menuItem">
-            <h3>{{ menu.name }}</h3>
-            <ul>
-              <draggable v-on:end="onUpdateOfPageDrag" :options="{group:'pages'}" v-bind:data-menu-id="menu.id" class="menu sortable-list">
-                <li v-for="page in menu.pages" class="menuItem" v-bind:data-page-id="page.id">
-                  <a class="menuLink" @click="currentPage = page.id">{{ page.title }}</a>
-                  <a data-confirm="Are you sure?" class="media-item__action-link" data-remote="true" rel="nofollow" data-method="delete" v-bind:href="'/pages/' + page.id" v-on:click="reloadSidebar('Page Deleted')">Delete</a>
-                </li>
-              </draggable>
-            </ul>
-          </li>
-        </ul>
-        <a id="show-modal" class="button" @click="showNewPageModal = true">New Page</a>
-      </div>
-    </transition>
-
-    <transition name="tabswap">
-      <div v-if="currentTab === 'components'" class="tab">
-
-        <div class="compGroup">
-          <span class="title">Opmaak</span>
-          <div class="comp">Title</div>
-          <div class="comp">Text</div>
-          <div class="comp">Button</div>
-        </div>
-        <div class="compGroup">
-          <span class="title">Video components</span>
-          <div class="comp">Video</div>
-          <div class="comp">Youtube</div>
-          <div class="comp">Vimeo</div>
-          <div class="comp">Brightcove</div>
-        </div>
-        <div class="compGroup">
-          <span class="title">Iets anders</span>
-          <div class="comp">Column control</div>
-          <div class="comp">Templated Section</div>
-        </div>
-      </div>
-    </transition>
-  </div> -->
 </div>

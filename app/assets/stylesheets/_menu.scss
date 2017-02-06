@@ -43,13 +43,18 @@
     }
 
     li {
-      width: 70px;
-      height: 70px;
+      width: 69px;
+      height: 69px;
       display: flex;
       justify-content: center;
       align-items: center;
       border-bottom: 1px solid darken(map-get($color, colorWhite), 8%);
       cursor: pointer;
+      transition: background 300ms ease;
+
+      &:hover, &.active{
+        background: darken(map-get($color, colorWhite), 3%);
+      }
     }
 
     i {
@@ -72,7 +77,16 @@
     border-bottom: 1px solid darken(map-get($color, colorWhite), 8%);
     width: 100%;
     display: block;
+    padding: 21px 25px;
+    height: 69px;
   }
+}
+
+.tabContent{
+  position: relative;
+  height: calc(100% - 138px);
+  overflow: auto;
+  padding:25px;
 }
 
 .menuList {
@@ -81,11 +95,14 @@
   padding: 0;
   margin: 0;
   list-style-type: none;
-  margin-top: 20px;
 
   > .menuItem{
     position: relative;
     margin-bottom: 20px;
+
+    &:last-of-type{
+      margin-bottom: 0px;
+    }
   }
 
   h3 {
@@ -95,7 +112,7 @@
     &:before{
       content: "";
       width: 3px;
-      height: calc(100% - 26px);
+      height: calc(100% - 27px);
       background:map-get($color, blue500);
       position: absolute;
       top: 14px;
@@ -144,7 +161,7 @@ a.menuLink {
     top: 15px;
     width: 20px;
     height: 3px;
-    background: map-get($color, blue500);
+    background: linear-gradient(to right, map-get($color, blue500) 0%, darken(map-get($color, light-grey), 13%) 55%);
   }
 
   &:after {
@@ -156,10 +173,11 @@ a.menuLink {
     top: 12px;
     border-radius: 100%;
     background: map-get($color, colorWhite);
-    border: 2px solid map-get($color, blue500);
+    border: 2px solid darken(map-get($color, light-grey), 13%);
+    transition: background 300ms ease;
 
     .isActive & {
-      background: map-get($color, blue500);
+      background: darken(map-get($color, light-grey), 13%);
     }
   }
 }

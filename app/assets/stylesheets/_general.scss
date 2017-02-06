@@ -33,6 +33,10 @@ body {
     left:0;
     width: 100%;
   }
+
+  h1{
+    color: map-get($color, blue500);
+  }
 }
 
 .sortable-list {

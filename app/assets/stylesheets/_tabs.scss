@@ -53,7 +53,6 @@
 
 .tab {
   width: 100%;
-  padding: 25px 25px 80px;
   transition: opacity 500ms, transform 500ms;
   overflow: auto;
   height: 100%;
@@ -66,20 +65,32 @@
   width: 100%;
   background: map-get($color, colorWhite);
   border-top: 1px solid darken(map-get($color, colorWhite), 8%);
-  height: 70px;
+  height: 69px;
   display: flex;
   align-items: center;
+
   a{
     float: left;
     width: 50%;
     text-align: center;
     text-decoration: none;
     border-right: 1px solid darken(map-get($color, colorWhite), 8%);
-    height: 70px;
+    height: 69px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 10px;
+    transition: background 300ms ease;
+    cursor: pointer;
+
+    &.full{
+      width:100%;
+    }
+
+    &:hover{
+      background: darken(map-get($color, colorWhite), 3%);
+    }
+
     &:last-of-type{
       border-right: 0px;
     }
@@ -112,18 +123,12 @@
 }
 
 .tabswap-enter-active {
-  padding: 0;
-  height: 0;
-  overflow: hidden;
   opacity: 0;
-  transform: translateY(-50px);
-  transition-delay: 500ms;
-  transition: opacity 500ms, transform 500ms, height 0ms, padding 0ms;
+  transition: opacity 500ms linear;
 }
 
 .tabswap-leave-active {
   opacity: 0;
-  transform: translateY(50px);
 }
 
 .tabswap-leave {
