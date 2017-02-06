@@ -11,7 +11,7 @@
   <div class="board">
     <div class="boardLogo" v-if="!currentPage">
       <h1>Absolute0</h1>
-      <h2>To edit a page select the page inside the menu on the left.</h2>
+      <h2>To edit a page, select the page inside the menu on the left.</h2>
     </div>
     <%= render 'pages/page' %>
     <alert v-if="flashMessage" v-bind:content="flashMessage"></alert>
