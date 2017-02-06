@@ -1,3 +1,4 @@
+<%= render 'layouts/modal' %>
 <%= render 'modal-new' %>
 <%= render 'loader' %>
 
@@ -16,4 +17,5 @@
     <h3 slot="header">custom header</h3>
   </modal>
 
+  <new-page-modal v-if="showNewPageModal"></new-post-modal>
 </div>
