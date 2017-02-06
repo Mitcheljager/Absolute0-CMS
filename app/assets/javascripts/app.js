@@ -16,7 +16,7 @@ var app = new Vue({
     currentTab: 'pages',
     globalDragState: false,
     forgotPassword: false,
-    showNewPageModal: false,
+    showModal: false,
   },
   beforeCreate: function() {
     var self = this;

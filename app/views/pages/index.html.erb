@@ -12,5 +12,5 @@
     <alert v-if="flashMessage" v-bind:content="flashMessage"></alert>
   </div>
 
-  <new-page-modal v-if="showNewPageModal"></new-post-modal>
+  <new-page-modal v-if="showModal === 'newPage'"></new-post-modal>
 </div>
