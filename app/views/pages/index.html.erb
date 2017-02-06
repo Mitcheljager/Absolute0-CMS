@@ -1,5 +1,6 @@
 <%= render 'layouts/modal' %>
 <%= render 'modal-new' %>
+<%= render 'loader' %>
 
 <div class="app app--loading">
 
@@ -7,7 +8,11 @@
 
   <%= render 'layouts/menu-left' %>
 
-  <div class="board" v-bind:class="{expand : !menuVisible}">
+  <div class="board">
+    <div class="boardLogo" v-if="!currentPage">
+      <h1>Absolute0</h1>
+      <h2>To edit a page, select the page inside the menu on the left.</h2>
+    </div>
     <%= render 'pages/page' %>
     <alert v-if="flashMessage" v-bind:content="flashMessage"></alert>
   </div>

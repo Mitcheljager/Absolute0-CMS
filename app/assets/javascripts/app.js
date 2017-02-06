@@ -10,12 +10,13 @@ var app = new Vue({
     currentPageData: [],
     page: this.currentPageData,
     newPage: false,
-    columnFullSize: 0,
+    columnFullSize: '',
     flashMessage: '',
     menuVisible: true,
     currentTab: 'pages',
     globalDragState: false,
     forgotPassword: false,
+    pageLoading: false,
     showModal: false,
   },
   beforeCreate: function() {
@@ -34,9 +35,12 @@ var app = new Vue({
     loadPage: function() {
       var self = this;
 
+      self.pageLoading = true;
+
       $.getJSON('/pages/template/'+ self.currentPage +'.json', function(json){
         setTimeout(function() {
           self.currentPageData = json;
+          self.pageLoading = false;
         }, 100);  // FIXME Using Timeout is stupid, as the time required is not set.
 
         console.log('Page Loaded');
@@ -86,7 +90,7 @@ var app = new Vue({
       var parentDiv = $(evt.to);
       var updatedOrder = [];
 
-      $('.menu .menu__item').each(function(i) {
+      $('.menuList .sortable-list .menuItem').each(function(i) {
         console.log($(parentDiv).data('menu-id'));
         updatedOrder.push({ id: $(this).data('page-id'), menu_id: $(this).parent().data('menu-id'), position: i+1 });
       });

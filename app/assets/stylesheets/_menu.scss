@@ -6,108 +6,272 @@
   }
 }
 
-.leftMenu {
+.menuEdit {
   position: fixed;
   z-index: 2;
   background: map-get($color, colorWhite);
-  top: 0;
+  bottom: 0;
   left: 0;
-  width: 300px;
-  height: 100%;
+  width: 370px;
+  height: calc(100% - 65px);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease;
-  &.expand{
-    transform: translateX(-100%);
-  }
-  a {
-    color:black;
-  }
-}
 
-.LoggedUser {
-  width: 100%;
-  height: 170px;
-  @include blueGradient();
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.6;
-    background: url('bg-seamless.png');
-    background-size: 253px;
-  }
-}
-
-.infoUser {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userImage {
-  width: 70px;
-  height: 70px;
-  background: map-get($color, colorWhite);
-  border-radius: 100%;
-}
-
-.userName {
-  font-size: 12px;
-  font-weight: bold;
-  color: map-get($color, colorWhite);
-}
-
-.topMenu {
-  position:fixed;
-  z-index: 2;
-  background: map-get($color, colorWhite);
-  top: 0;
-  right: 0;
-  width: calc(100% - 300px);
-  height: 70px;
-  box-shadow: 6px 0px 5px rgba(0, 0, 0, 0.1);
-  transition: width 0.5s ease;
-  &.expand{
-    width: calc(100%);
-  }
-  
-  .actions {
+  .menu {
+    width: 70px;
     height: 100%;
     position: relative;
     float: left;
+    background: map-get($color, colorWhite);
+    border-right:1px solid darken(map-get($color, colorWhite), 8%);
     display: flex;
-    align-items: center;
-    padding: 0px 40px;
-    
-    button {
-      border: 0;
-      background: darken(map-get($color, light-grey), 3%);
-      padding: 12px 25px;
-      color: map-get($color, dark-grey);
-      font-weight: bold;
-      font-size: 14px;
-      border-radius: 2px;
-      margin-right: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      list-style-type: none;
+
+      &.bottom {
+        li {
+          border-top: 1px solid darken(map-get($color, colorWhite), 8%);
+          border-bottom:0;
+        }
+      }
+    }
+
+    li {
+      width: 69px;
+      height: 69px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid darken(map-get($color, colorWhite), 8%);
       cursor: pointer;
-      
-      &.blue{
-        @include blueGradient();
-        color: map-get($color, colorWhite);
+      transition: background 300ms ease;
+
+      &:hover, &.active{
+        background: darken(map-get($color, colorWhite), 3%);
       }
-      
-      &:focus{
-        outline:none;
+    }
+
+    i {
+      font-size: 28px;
+      color: map-get($color, dark-grey);
+    }
+  }
+
+  .edit {
+    width:300px;
+    height: 100%;
+    float:left;
+    position: relative;
+  }
+
+  h2 {
+    color: map-get($color, blue500);
+    font-size: 30px;
+    padding-bottom: 19px;
+    border-bottom: 1px solid darken(map-get($color, colorWhite), 8%);
+    width: 100%;
+    display: block;
+    padding: 21px 25px;
+    height: 69px;
+  }
+}
+
+.tabContent{
+  position: relative;
+  height: calc(100% - 138px);
+  overflow: auto;
+  padding:25px;
+}
+
+.menuList {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+
+  > .menuItem{
+    position: relative;
+    margin-bottom: 20px;
+
+    &:last-of-type{
+      margin-bottom: 0px;
+    }
+  }
+
+  h3 {
+    font-weight: 500;
+    padding: 0 23px;
+
+    &:before{
+      content: "";
+      width: 3px;
+      height: calc(100% - 27px);
+      background:map-get($color, blue500);
+      position: absolute;
+      top: 14px;
+      left: 2px;
+    }
+
+    &:after{
+      content: "";
+      width: 9px;
+      height: 9px;
+      position: absolute;
+      left: -1px;
+      top: 6px;
+      background:map-get($color, blue500);
+      border-radius: 100%;
+    }
+  }
+
+  ul {
+    margin-top: 10px;
+    list-style-type: none;
+
+    li {
+      list-style-type: none;
+    }
+  }
+}
+
+.componentList{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0;
+  border: 1px solid darken(map-get($color, colorWhite), 8%);
+  margin-bottom: 20px;
+  &:last-of-type{
+    margin-bottom: 0;
+  }
+  ul{
+    list-style-type: none;
+    margin:0px;
+    padding:20px 20px 10px;
+    li{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      margin-bottom: 10px;
+      border: 1px solid darken(map-get($color, colorWhite), 8%);
+      background: map-get($color, colorWhite);
+      cursor: pointer;
+      a{
+        display: inline-block;
+        width: 100%;
+        text-decoration: none;
+        padding: 0 10px;
+        font-size: 15px;
       }
+    }
+    .icon{
+      display: inline-block;
+      width: 50px;
+    }
+    i{
+      width:50px;
+      height:50px;
+      background: map-get($color, blue500);
+      color: map-get($color, colorWhite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  h3{
+    border-bottom: 1px solid darken(map-get($color, colorWhite), 8%);
+    padding: 13px 20px;
+    font-weight: 500;
+  }
+}
+
+a.menuLink {
+  padding: 5px 0;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  line-height: 21px;
+  transition: color 300ms ease;
+
+  &:hover,
+  .isActive & {
+    color: map-get($color, blue500);
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: -36px;
+    top: 15px;
+    width: 20px;
+    height: 3px;
+    background: linear-gradient(to right, map-get($color, blue500) 0%, darken(map-get($color, light-grey), 13%) 55%);
+  }
+
+  &:after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    left: -18px;
+    top: 12px;
+    border-radius: 100%;
+    background: map-get($color, colorWhite);
+    border: 2px solid darken(map-get($color, light-grey), 13%);
+    transition: background 300ms ease;
+
+    .isActive & {
+      background: darken(map-get($color, light-grey), 13%);
+    }
+  }
+}
+
+.menuUsers {
+  position:fixed;
+  z-index: 20;
+  background: map-get($color, blue500);
+  top: 0;
+  right: 0;
+  color: map-get($color, colorWhite);
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  height: 65px;
+  padding: 0 23px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &.menuAdmin{
+    border-bottom: 1px solid map-get($color, blue500);
+  }
+
+  span {
+    font-weight: 500;
+    font-size:15px;
+    color: map-get($color, colorWhite);
+
+    &.account {
+      font-weight: 300;
+    }
+
+    a {
+      color: map-get($color, colorWhite);
+      text-decoration: none;
+      border: 1px solid map-get($color, colorWhite);
+      border-radius: 2px;
+      padding: 8px 20px;
+      margin-left: 15px;
+      font-weight: 500;
     }
   }
 }

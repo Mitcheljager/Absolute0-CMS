@@ -1,61 +1,112 @@
-<div class="leftMenu" v-bind:class="{expand: !menuVisible}">
-  <div class="LoggedUser">
-    <div class="overlay"></div>
-    <div class="infoUser">
-      <div class="userImage" style="background:url(https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1017px-Starbucks_Corporation_Logo_2011.svg.png) center; background-size:cover;"></div>
-      <span class="compName"><%= current_user.companyname %></span>
-      <span class="userName">(<%= current_user.name %>)</span>
-    </div>
+<div class="menuEdit" v-bind:class="{expand: !menuVisible}">
+  <div class="menu">
+    <ul>
+      <li v-on:click="tabClick('pages')" v-bind:class="{ active : currentTab === 'pages' }"><i class="material-icons">menu</i></li>
+      <li v-on:click="tabClick('components')" v-bind:class="{ active : currentTab === 'components' }"><i class="material-icons">view_quilt</i></li>
+    </ul>
+    <ul class="bottom">
+      <li><i class="material-icons">slideshow</i></li>
+      <li><i class="material-icons">publish</i></li>
+      <li><i class="material-icons">settings</i></li>
+    </ul>
   </div>
-  <div class="tabs">
-    <div class="tabsTitles">
-      <span v-on:click="tabClick('pages')" class="tabTitle" v-bind:class="{ active : currentTab === 'pages' }">Pages</span>
-      <span v-on:click="tabClick('components')" class="tabTitle" v-bind:class="{ active : currentTab === 'components' }">Components</span>
-    </div>
-
+  <div class="edit">
     <transition name="tabswap">
       <div v-if="currentTab === 'pages'" class="tab">
-        <%= render '/menus/form' %>
-        <ul>
-          <li v-for="menu in pages" class="menu__item">
-            <h3>{{ menu.name }}</h3>
-            <ul>
-              <draggable v-on:end="onUpdateOfPageDrag" :options="{group:'pages'}" v-bind:data-menu-id="menu.id" class="menu sortable-list">
-                <li v-for="page in menu.pages" class="menu__item" v-bind:data-page-id="page.id">
-                  <a class="menu__link" @click="currentPage = page.id">{{ page.title }}</a>
-                  <a data-confirm="Are you sure?" class="media-item__action-link" data-remote="true" rel="nofollow" data-method="delete" v-bind:href="'/pages/' + page.id" v-on:click="reloadSidebar('Page Deleted')">Delete</a>
-                </li>
-              </draggable>
-            </ul>
-          </li>
-        </ul>
-        <a id="show-modal" class="button" @click="showModal = 'newPage'">New Page</a>
+        <h2>Page's</h2>
+        <div class="tabContent">
+          <ul class="menuList">
+            <li v-for="menu in pages" class="menuItem">
+              <h3>{{ menu.name }}</h3>
+              <ul>
+                <draggable v-on:end="onUpdateOfPageDrag" :options="{group:'pages'}" v-bind:data-menu-id="menu.id" class="sortable-list">
+                  <li v-for="page in menu.pages" class="menuItem" v-bind:data-page-id="page.id" v-bind:class="{'isActive' : currentPage === page.id}">
+                    <a class="menuLink" @click="currentPage = page.id">{{ page.title }}</a>
+                    <a data-confirm="Are you sure?" class="media-item__action-link" data-remote="true" rel="nofollow" data-method="delete" v-bind:href="'/pages/' + page.id" v-on:click="reloadSidebar('Page Deleted')">Delete</a>
+                  </li>
+                </draggable>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="tabAction">
+          <!-- <%= render '/menus/form' %> -->
+          <a>Create Menu</a>
+          <a id="show-modal" @click="showModal = 'newPage'">Create page</a>
+        </div>
       </div>
     </transition>
-
     <transition name="tabswap">
-      <div v-if="currentTab === 'components'" class="tab">
-        <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
-          <a href="#">Add Block</a>
-        </draggable>
+      <div class="tab" v-if="currentTab === 'components'">
+        <h2>Components</h2>
+        <div class="tabContent">
+          <ul class="componentList">
+            <li>
+              <h3>Group name</h3>
+              <ul>
+                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+                  <li>
+                    <div class="icon">
+                      <i class="material-icons">text_fields</i>
+                    </div>
+                    <a href="#">Article</a>
+                  </li>
+                </draggable>
+                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+                  <li>
+                    <div class="icon">
+                      <i class="material-icons">ondemand_video</i>
+                    </div>
+                    <a href="#">Video player</a>
+                  </li>
+                </draggable>
+              </ul>
+            </li>
+          </ul>
 
-        <div class="compGroup">
-          <span class="title">Opmaak</span>
-          <div class="comp">Title</div>
-          <div class="comp">Text</div>
-          <div class="comp">Button</div>
+          <ul class="componentList">
+            <li>
+              <h3>Group name</h3>
+              <ul>
+                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+                  <li>
+                    <div class="icon">
+                      <i class="material-icons">fingerprint</i>
+                    </div>
+                    <a href="#">Fingerprint</a>
+                  </li>
+                </draggable>
+                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+                  <li>
+                    <div class="icon">
+                      <i class="material-icons">view_carousel</i>
+                    </div>
+                    <a href="#">Corousel</a>
+                  </li>
+                </draggable>
+                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+                  <li>
+                    <div class="icon">
+                      <i class="material-icons">blur_on</i>
+                    </div>
+                    <a href="#">Blur</a>
+                  </li>
+                </draggable>
+                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+                  <li>
+                    <div class="icon">
+                      <i class="material-icons">camera</i>
+                    </div>
+                    <a href="#">Take picture</a>
+                  </li>
+                </draggable>
+              </ul>
+            </li>
+          </ul>
         </div>
-        <div class="compGroup">
-          <span class="title">Video components</span>
-          <div class="comp">Video</div>
-          <div class="comp">Youtube</div>
-          <div class="comp">Vimeo</div>
-          <div class="comp">Brightcove</div>
-        </div>
-        <div class="compGroup">
-          <span class="title">Iets anders</span>
-          <div class="comp">Column control</div>
-          <div class="comp">Templated Section</div>
+        <div class="tabAction">
+          <a class="full">Upload new component</a>
         </div>
       </div>
     </transition>
