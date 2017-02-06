@@ -2,7 +2,6 @@ var app = new Vue({
   el: '.app',
   data: {
     title: 'Absolute 0 CMS',
-    showModal: false,
     pages: [],
     blocks: [],
     columns: [],
@@ -16,7 +15,8 @@ var app = new Vue({
     menuVisible: true,
     currentTab: 'pages',
     globalDragState: false,
-    forgotPassword: false
+    forgotPassword: false,
+    showNewPageModal: false,
   },
   beforeCreate: function() {
     var self = this;
