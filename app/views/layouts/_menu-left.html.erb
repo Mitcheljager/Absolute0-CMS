@@ -43,12 +43,69 @@
       <div class="tab" v-if="currentTab === 'components'">
         <h2>Components</h2>
         <div class="tabContent">
-          <ul>
-            <li></li>
+          <ul class="componentList">
+            <li>
+              <h3>Group name</h3>
+              <ul>
+                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+                  <li>
+                    <div class="icon">
+                      <i class="material-icons">text_fields</i>
+                    </div>
+                    <a href="#">Article</a>
+                  </li>
+                </draggable>
+                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+                  <li>
+                    <div class="icon">
+                      <i class="material-icons">ondemand_video</i>
+                    </div>
+                    <a href="#">Video player</a>
+                  </li>
+                </draggable>
+              </ul>
+            </li>
           </ul>
-          <!-- <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
-            <a href="#">Add Block</a>
-          </draggable> -->
+
+          <ul class="componentList">
+            <li>
+              <h3>Group name</h3>
+              <ul>
+                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+                  <li>
+                    <div class="icon">
+                      <i class="material-icons">text_fields</i>
+                    </div>
+                    <a href="#">Article</a>
+                  </li>
+                </draggable>
+                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+                  <li>
+                    <div class="icon">
+                      <i class="material-icons">ondemand_video</i>
+                    </div>
+                    <a href="#">Video player</a>
+                  </li>
+                </draggable>
+                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+                  <li>
+                    <div class="icon">
+                      <i class="material-icons">blur_on</i>
+                    </div>
+                    <a href="#">Blur</a>
+                  </li>
+                </draggable>
+                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+                  <li>
+                    <div class="icon">
+                      <i class="material-icons">camera</i>
+                    </div>
+                    <a href="#">Take picture</a>
+                  </li>
+                </draggable>
+              </ul>
+            </li>
+          </ul>
         </div>
         <div class="tabAction">
           <a class="full">Upload new component</a>

@@ -141,6 +141,56 @@
   }
 }
 
+.componentList{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0;
+  border: 1px solid darken(map-get($color, colorWhite), 8%);
+  margin-bottom: 20px;
+  &:last-of-type{
+    margin-bottom: 0;
+  }
+  ul{
+    list-style-type: none;
+    margin:0px;
+    padding:20px 20px 10px;
+    li{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      margin-bottom: 10px;
+      border: 1px solid darken(map-get($color, colorWhite), 8%);
+      background: map-get($color, colorWhite);
+      a{
+        display: inline-block;
+        width: 100%;
+        text-decoration: none;
+        padding: 0 10px;
+        font-size: 15px;
+      }
+    }
+    .icon{
+      display: inline-block;
+      width: 50px;
+    }
+    i{
+      width:50px;
+      height:50px;
+      background: map-get($color, blue500);
+      color: map-get($color, colorWhite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  h3{
+    border-bottom: 1px solid darken(map-get($color, colorWhite), 8%);
+    padding: 13px 20px;
+    font-weight: 500;
+  }
+}
+
 a.menuLink {
   padding: 5px 0;
   display: inline-block;
