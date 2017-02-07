@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170130153031) do
 
-  create_table "blocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "blocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "page_id"
     t.text     "components", limit: 65535
     t.datetime "created_at",               null: false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170130153031) do
     t.integer  "priority"
   end
 
-  create_table "columns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "columns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "block_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,20 +28,20 @@ ActiveRecord::Schema.define(version: 20170130153031) do
     t.integer  "priority"
   end
 
-  create_table "components", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "components", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "column_id"
     t.text     "content",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
 
-  create_table "menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.string   "title"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20170130153031) do
     t.string   "urlname"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20170130153031) do
     t.string   "companyname"
   end
 
-  create_table "website_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "website_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "homepage_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
