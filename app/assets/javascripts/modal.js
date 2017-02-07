@@ -27,7 +27,7 @@ Vue.component('NewPageModal', {
     },
     createPage: function() {
       app.showModal = false;
-      app.flashMessage = 'Page Created';
+      app.flashMessage = 'Page is successfully created';
 
       setTimeout(function() {
         $.getJSON('/pages/json/list.json', (json) => {
