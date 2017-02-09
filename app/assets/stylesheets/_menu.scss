@@ -71,7 +71,7 @@
   }
 
   h2 {
-    color: map-get($color, blue500);
+    color: map-get($color, material-color);
     font-size: 30px;
     padding-bottom: 19px;
     border-bottom: 1px solid darken(map-get($color, colorWhite), 8%);
@@ -113,7 +113,7 @@
       content: "";
       width: 3px;
       height: calc(100% - 27px);
-      background:map-get($color, blue500);
+      background:map-get($color, material-color);
       position: absolute;
       top: 14px;
       left: 2px;
@@ -126,7 +126,7 @@
       position: absolute;
       left: -1px;
       top: 6px;
-      background:map-get($color, blue500);
+      background:map-get($color, material-color);
       border-radius: 100%;
     }
   }
@@ -178,7 +178,7 @@
     i{
       width:50px;
       height:50px;
-      background: map-get($color, blue500);
+      background: map-get($color, material-color);
       color: map-get($color, colorWhite);
       display: flex;
       align-items: center;
@@ -202,7 +202,7 @@ a.menuLink {
 
   &:hover,
   .isActive & {
-    color: map-get($color, blue500);
+    color: map-get($color, material-color);
   }
 
   &:before {
@@ -212,7 +212,7 @@ a.menuLink {
     top: 15px;
     width: 20px;
     height: 3px;
-    background: linear-gradient(to right, map-get($color, blue500) 0%, darken(map-get($color, light-grey), 13%) 55%);
+    background: linear-gradient(to right, map-get($color, material-color) 0%, darken(map-get($color, light-grey), 13%) 55%);
   }
 
   &:after {
@@ -236,7 +236,7 @@ a.menuLink {
 .menuUsers {
   position:fixed;
   z-index: 20;
-  background: map-get($color, blue500);
+  background: map-get($color, material-color);
   top: 0;
   right: 0;
   color: map-get($color, colorWhite);
@@ -252,7 +252,7 @@ a.menuLink {
   justify-content: space-between;
 
   &.menuAdmin{
-    border-bottom: 1px solid map-get($color, blue500);
+    border-bottom: 1px solid map-get($color, material-color);
   }
 
   span {

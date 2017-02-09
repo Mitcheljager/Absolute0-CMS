@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: map-get($color, blue500);
+  background: map-get($color, material-color);
 
   h2 {
     margin-bottom: 50px;
@@ -121,7 +121,7 @@
     }
 
     .loginLink {
-      color: map-get($color, blue500);
+      color: map-get($color, material-color);
       font-weight: 400;
       cursor: pointer;
       font-size: 15px;

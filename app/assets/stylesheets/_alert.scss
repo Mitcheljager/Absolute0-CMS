@@ -61,12 +61,12 @@
     color: map-get($color, colorWhite);
     font-weight: 500;
     font-size: 20px;
-    background: map-get($color, blue500);
+    background: map-get($color, material-color);
   }
   span{
     padding: 0px 25px 25px;
     color: map-get($color, colorWhite);
-    background: map-get($color, blue500);
+    background: map-get($color, material-color);
     font-weight: 500;
     display: block;
     font-size: 15px;
@@ -75,7 +75,7 @@
 }
 
 .alertDanger {
-  background: map-get($color, red500);
+  background: map-get($color, material-error);
   color: #fff;
 }
 
@@ -84,7 +84,7 @@
 }
 
 .errorInput{
-  border:1px solid map-get($color, red500) !important;
+  border:1px solid map-get($color, material-error) !important;
   transform: translateX(0px);
   animation: shakeAlert 500ms forwards linear;
 }
