@@ -14,3 +14,7 @@ $color: (
 	material-error: #F44336
 );
 // @usage map-get($color, color-primary001) will output #f48c00.
+
+$pixel: (
+  rectangleHeight: 65px,
+);

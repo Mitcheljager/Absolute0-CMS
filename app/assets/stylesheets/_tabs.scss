@@ -65,7 +65,7 @@
   width: 100%;
   background: map-get($color, colorWhite);
   border-top: 1px solid darken(map-get($color, colorWhite), 8%);
-  height: 69px;
+  height: map-get($pixel, rectangleHeight);
   display: flex;
   align-items: center;
 
@@ -75,7 +75,7 @@
     text-align: center;
     text-decoration: none;
     border-right: 1px solid darken(map-get($color, colorWhite), 8%);
-    height: 69px;
+    height: map-get($pixel, rectangleHeight);
     display: flex;
     justify-content: center;
     align-items: center;

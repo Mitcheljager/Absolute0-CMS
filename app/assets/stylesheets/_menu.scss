@@ -12,13 +12,13 @@
   background: map-get($color, colorWhite);
   bottom: 0;
   left: 0;
-  width: 370px;
-  height: calc(100% - 65px);
+  width: calc(300px + #{map-get($pixel, rectangleHeight)});
+  height: calc(100% - #{map-get($pixel, rectangleHeight)});
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease;
 
   .menu {
-    width: 70px;
+    width: map-get($pixel, rectangleHeight);
     height: 100%;
     position: relative;
     float: left;
@@ -43,8 +43,8 @@
     }
 
     li {
-      width: 69px;
-      height: 69px;
+      width: map-get($pixel, rectangleHeight);
+      height: map-get($pixel, rectangleHeight);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -72,13 +72,13 @@
 
   h2 {
     color: map-get($color, material-color);
-    font-size: 30px;
+    font-size: 26px;
     padding-bottom: 19px;
     border-bottom: 1px solid darken(map-get($color, colorWhite), 8%);
     width: 100%;
     display: block;
-    padding: 21px 25px;
-    height: 69px;
+    padding: 18px 25px;
+    height: map-get($pixel, rectangleHeight);
   }
 }
 
@@ -242,7 +242,7 @@ a.menuLink {
   color: map-get($color, colorWhite);
   width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.28);
-  height: 65px;
+  height: map-get($pixel, rectangleHeight);
   padding: 0 23px;
   display: flex;
   align-items: center;
@@ -252,7 +252,20 @@ a.menuLink {
   justify-content: space-between;
 
   &.menuAdmin{
-    border-bottom: 1px solid map-get($color, material-color);
+    border-bottom: 0px;
+    padding: 0 23px 0 0;
+  }
+
+  .userContent{
+    display: flex;
+    align-items: center;
+  }
+
+  .userImage{
+    width: map-get($pixel, rectangleHeight);
+    height: map-get($pixel, rectangleHeight);
+    float:left;
+    margin-right: 23px;
   }
 
   span {
