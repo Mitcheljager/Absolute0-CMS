@@ -34,11 +34,11 @@ body {
     width: 100%;
   }
 
-  h1{
+  h1 {
     color: map-get($color, blue500);
   }
 
-  .boardLogo{
+  .boardLogo {
     position: absolute;
     top: 0;
     left: 0;
@@ -48,12 +48,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    h1{
+
+    h1 {
       font-weight: 500;
       color: darken(map-get($color, background-color), 15%);
       font-size: 60px;
     }
-    h2{
+
+    h2 {
       color: darken(map-get($color, background-color), 15%);
     }
   }
@@ -70,30 +72,26 @@ body {
   font-style: italic;
 }
 
-h1{
-  color: map-get($color, colorWhite);
-  font-weight: 300;
+h1 {
   font-size: 40px;
   margin: 0;
   padding: 0;
 }
-h2{
-  color: map-get($color, colorWhite);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 25px;
+
+h2 {
   margin: 0;
   padding: 0;
 }
-h3{
-  font-weight: 400;
-  font-size: 16px;
+
+h3 {
   margin: 0;
   padding: 0;
 }
-a{
+
+a {
   color: map-get($color, dark-grey);
 }
-strong{
+
+strong {
   font-weight: 500;
 }

@@ -8,9 +8,7 @@
         <draggable v-on:end="onUpdateOfColumnDrag" class="columns-list">
           <section v-for="column in block.columns" class="column" v-bind:data-column-id="column.id" v-bind:class="'column--' + column.size">
             <div v-for="component in column.components" class="component">
-              <div v-for="(value, key) in component.content">
-                {{ value }}
-              </div>
+              {{ component.content }}
             </div>
             <%= render 'columns/edit-handle' %>
             <%= render 'components/new-component' %>
