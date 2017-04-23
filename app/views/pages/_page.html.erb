@@ -8,7 +8,22 @@
         <draggable v-on:end="onUpdateOfColumnDrag" class="columns-list">
           <section v-for="column in block.columns" class="column" v-bind:data-column-id="column.id" v-bind:class="'column--' + column.size">
             <div v-for="component in column.components" class="component">
-              {{ component.content }}
+              <component v-bind:content="component.content" v-bind:layout="component.layout" inline-template>
+                <div>
+                  <% a = Dir.entries(Rails.root.join("app/views/components/items/admin")) %>
+                  <% a -= ['.', '..'] %>
+                  <% b = ["_",".html.erb"] %>
+                  <% a.each do |p| %>
+                    <% b.each {|x| p.slice!(x) } %>
+                  <% end %>
+
+                  <% a.each do |l| %>
+                    <div v-if="layout === '<%= l %>'" v-for="component in content">
+                      <%= render 'components/items/admin/' + l %>
+                    </div>
+                  <% end %>
+                </div>
+              </component>
             </div>
             <%= render 'columns/edit-handle' %>
             <%= render 'components/new-component' %>
