@@ -1,16 +1,22 @@
 @keyframes flyInAlert {
-  from {
-    transform: translateY(calc(100% + 50px)) translateX(-50%);
-  } to {
-    transform: translateY(0) translateX(-50%);
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
 @keyframes flyOutAlert {
-  from {
-    transform: translateY(0) translateX(-50%);
-  } to {
-    transform: translateY(calc(100% + 50px)) translateX(-50%);
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.85);
   }
 }
 
@@ -44,17 +50,32 @@
 .alert {
   position: fixed;
   z-index: 50;
-  width: auto;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 50px;
-  padding: 10px;
-  background: #4db2fc;
+  right: 20px;
+  bottom: 20px;
   animation: flyInAlert 500ms forwards;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  h3{
+    padding: 17px 25px;
+    color: map-get($color, colorWhite);
+    font-weight: 500;
+    font-size: 20px;
+    background: map-get($color, material-color);
+  }
+  span{
+    padding: 0px 25px 25px;
+    color: map-get($color, colorWhite);
+    background: map-get($color, material-color);
+    font-weight: 500;
+    display: block;
+    font-size: 15px;
+    height: 100px;
+  }
 }
 
 .alertDanger {
-  background: map-get($color, red500);
+  background: map-get($color, material-error);
   color: #fff;
 }
 
@@ -63,7 +84,7 @@
 }
 
 .errorInput{
-  border:1px solid map-get($color, red500) !important;
+  border:1px solid map-get($color, material-error) !important;
   transform: translateX(0px);
   animation: shakeAlert 500ms forwards linear;
 }
