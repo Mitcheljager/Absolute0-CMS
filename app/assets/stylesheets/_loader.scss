@@ -50,7 +50,7 @@
   width: 0px;
   height: 0px;
   border-radius: 100%;
-  background: map-get($color, material-color);
+  background: map-get($color, amber500);
   transition: width 0ms 300ms ease, height 0ms 300ms ease;
 }
 
@@ -66,5 +66,5 @@
   right: 0;
   z-index: 1;
   margin: auto;
-  stroke: map-get($color, material-color);
+  stroke: map-get($color, blue500);
 }

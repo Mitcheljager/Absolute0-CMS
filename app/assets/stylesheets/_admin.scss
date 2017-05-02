@@ -9,7 +9,7 @@
 
 .editHandleAction {
   display: block;
-  background: map-get($color, material-color);
+  background: #2196F3;
   padding: 5px;
   color: #fff;
   text-decoration: none;
@@ -18,11 +18,11 @@
 }
 
 .editHandleActionDanger {
-  background: map-get($color, material-error);
+  background: #E53935;
 }
 
 .column:hover {
-  box-shadow: 0 0 0 3px map-get($color, material-color);
+  box-shadow: 0 0 0 3px #2196F3;
 
   .editHandle {
     display: flex;

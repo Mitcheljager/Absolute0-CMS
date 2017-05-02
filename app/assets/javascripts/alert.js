@@ -1,6 +1,6 @@
 Vue.component('alert', {
   props: ['content'],
-  template: '<div class="alert"><h3>Notification</h3><span>{{ content }}</span></div>',
+  template: '<div class="alert">{{ content }}</div>',
   created: function() {
     setTimeout(function() {
       $('.alert').addClass('alert--is-flying-out');

@@ -75,10 +75,10 @@ var app = new Vue({
         url: '/admin/blocks/sort',
         data: { order: updatedOrder },
         success: function(data) {
-          console.log('Success');
+          console.log('Success')
         },
         error: function(data) {
-          console.log('Error');
+          console.log('Error')
         }
       });
 
@@ -100,10 +100,10 @@ var app = new Vue({
         url: '/admin/pages/sort',
         data: { order: updatedOrder },
         success: function(data) {
-          console.log('Success');
+          console.log('Success')
         },
         error: function(data) {
-          console.log('Error');
+          console.log('Error')
         }
       });
 
@@ -125,10 +125,10 @@ var app = new Vue({
         url: '/admin/columns/sort',
         data: { order: updatedOrder },
         success: function(data) {
-          console.log('Success');
+          console.log('Success')
         },
         error: function(data) {
-          console.log('Error');
+          console.log('Error')
         }
       });
 

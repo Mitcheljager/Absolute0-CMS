@@ -1,8 +1,8 @@
 <div class="form">
   <%= form_for(@page, :remote => true, :html => {'@submit' => 'createPage'}) do |f| %>
-    <%= f.text_field :title, placeholder: 'Page Name', class: 'form__field form__field--large' %><br />
-    <%= f.text_field :urlname, placeholder: 'Page Urlname', class: 'form__field form__field--large' %><br />
+    <%= f.text_field :title, placeholder: 'Title', class: 'form__field form__field--large' %><br />
+    <%= f.text_field :urlname, placeholder: 'Urlname', class: 'form__field form__field--large' %><br />
     <%= f.collection_select :menu_id, @menus, :id, :name, :include_blank => 'No Menu' %>
-    <div class="submitField"><%= f.submit class: 'btn btn--large' %></div>
+    <%= f.submit class: 'btn btn--large' %>
   <% end %>
 </div>

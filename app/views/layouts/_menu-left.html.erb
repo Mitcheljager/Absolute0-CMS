@@ -1,4 +1,4 @@
-<div class="menuEdit">
+<div class="menuEdit" v-bind:class="{expand: !menuVisible}">
   <div class="menu">
     <ul>
       <li v-on:click="tabClick('pages')" v-bind:class="{ active : currentTab === 'pages' }"><i class="material-icons">menu</i></li>
@@ -33,7 +33,7 @@
         <div class="tabAction">
           <!-- <%= render '/menus/form' %> -->
           <a>Create Menu</a>
-          <a id="show-modal" class="createPageModal" @click="showModal = 'newPage'">Create page</a>
+          <a id="show-modal" @click="showModal = 'newPage'">Create page</a>
         </div>
       </div>
     </transition>

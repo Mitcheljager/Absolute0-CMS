@@ -4,14 +4,14 @@ $color: (
 	colorBlack: #000, /*black*/
 
   background-color: #f7f7f7,
+  light-blue: #1bbcbe,
+  dark-blue: #0081b3,
   light-grey: #fcfcfc,
 	dark-grey: #464646,
 
   //Material colors
-  material-color: #2196F3,
-	material-error: #F44336
+  blue500: #2196F3,
+  amber500: #FFC107,
+	red500: #F44336
 );
-
-$pixel: (
-  rectangleHeight: 65px,
-);
+// @usage map-get($color, color-primary001) will output #f48c00.

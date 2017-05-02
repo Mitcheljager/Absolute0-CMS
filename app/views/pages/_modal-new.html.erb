@@ -1,12 +1,17 @@
 <script type="x/template" id="new-page-modal-template">
   <modal>
     <div class="modal__header">
-      <h3>Create a new page</h3>
-      <i class="material-icons" @click="close">cancel</i>
+      <h3>New Post</h3>
     </div>
 
     <div class="modal__body">
       <%= render 'form' %>
+    </div>
+
+    <div class="modal__footer">
+      <button class="modal-default-button" @click="close">
+        Close
+      </button>
     </div>
   </modal>
 </script>
