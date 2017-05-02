@@ -1,0 +1,1308 @@
+/* line 1, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+::selection {
+  background: #FFC107;
+  color: #fff;
+}
+
+/* line 5, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+::-moz-selection {
+  background: #FFC107;
+  color: #fff;
+}
+
+/* line 10, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 14, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  background: #f7f7f7;
+}
+
+/* line 22, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+.board {
+  position: fixed;
+  z-index: 1;
+  top: 65px;
+  left: 370px;
+  width: calc(100% - 370px);
+  height: calc(100% - 65px);
+  overflow: auto;
+  transition: left 0.5s ease, width 0.5s ease;
+}
+/* line 32, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+.board.expand {
+  left: 0;
+  width: 100%;
+}
+/* line 37, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+.board h1 {
+  color: #2196F3;
+}
+/* line 41, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+.board .boardLogo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* line 52, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+.board .boardLogo h1 {
+  font-weight: 500;
+  color: #d1d1d1;
+  font-size: 60px;
+}
+/* line 58, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+.board .boardLogo h2 {
+  color: #d1d1d1;
+}
+
+/* line 64, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+.sortable-list {
+  min-height: 20px;
+}
+
+/* line 68, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+.sortable-list:empty::before {
+  display: block;
+  content: 'Drag stuff in me.';
+  color: #d7d7d7;
+  font-style: italic;
+}
+
+/* line 75, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+h1 {
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 81, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 86, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 91, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+a {
+  color: #464646;
+}
+
+/* line 95, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_general.scss */
+strong {
+  font-weight: 500;
+}
+
+/* line 1, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_buttons.scss */
+.button {
+  border: 1px solid #555;
+  padding: 5px;
+  display: block;
+  margin-top: 10px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+@keyframes flyInAlert {
+  from {
+    transform: translateY(calc(100% + 50px)) translateX(-50%);
+  }
+  to {
+    transform: translateY(0) translateX(-50%);
+  }
+}
+@keyframes flyOutAlert {
+  from {
+    transform: translateY(0) translateX(-50%);
+  }
+  to {
+    transform: translateY(calc(100% + 50px)) translateX(-50%);
+  }
+}
+@keyframes shakeAlert {
+  0% {
+    transform: translateX(0px);
+  }
+  15% {
+    transform: translateX(-10px);
+  }
+  30% {
+    transform: translateX(10px);
+  }
+  45% {
+    transform: translateX(-10px);
+  }
+  60% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  90% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+/* line 44, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_alert.scss */
+.alert {
+  position: fixed;
+  z-index: 50;
+  width: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50px;
+  padding: 10px;
+  background: #4db2fc;
+  animation: flyInAlert 500ms forwards;
+}
+
+/* line 56, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_alert.scss */
+.alertDanger {
+  background: #F44336;
+  color: #fff;
+}
+
+/* line 61, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_alert.scss */
+.alert--is-flying-out {
+  animation: flyOutAlert 500ms forwards;
+}
+
+/* line 65, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_alert.scss */
+.errorInput {
+  border: 1px solid #F44336 !important;
+  transform: translateX(0px);
+  animation: shakeAlert 500ms forwards linear;
+}
+
+@keyframes moveInColumn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* line 9, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column {
+  flex-grow: 0;
+  min-height: 20px;
+  position: relative;
+  animation: moveInColumn 500ms forwards;
+  padding: 0 15px;
+  border-right: 1px solid #d7d7d7;
+}
+
+/* line 19, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column--1 {
+  width: 8.33333%;
+  min-width: 8.33333%;
+}
+
+/* line 19, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column--2 {
+  width: 16.66667%;
+  min-width: 16.66667%;
+}
+
+/* line 19, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column--3 {
+  width: 25%;
+  min-width: 25%;
+}
+
+/* line 19, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column--4 {
+  width: 33.33333%;
+  min-width: 33.33333%;
+}
+
+/* line 19, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column--5 {
+  width: 41.66667%;
+  min-width: 41.66667%;
+}
+
+/* line 19, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column--6 {
+  width: 50%;
+  min-width: 50%;
+}
+
+/* line 19, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column--7 {
+  width: 58.33333%;
+  min-width: 58.33333%;
+}
+
+/* line 19, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column--8 {
+  width: 66.66667%;
+  min-width: 66.66667%;
+}
+
+/* line 19, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column--9 {
+  width: 75%;
+  min-width: 75%;
+}
+
+/* line 19, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column--10 {
+  width: 83.33333%;
+  min-width: 83.33333%;
+}
+
+/* line 19, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column--11 {
+  width: 91.66667%;
+  min-width: 91.66667%;
+}
+
+/* line 19, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column--12 {
+  width: 100%;
+  min-width: 100%;
+}
+
+/* line 25, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column:first-of-type {
+  padding-left: 0;
+}
+
+/* line 29, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.column:last-of-type {
+  padding-right: 0;
+  border-right: 0;
+}
+
+/* line 34, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.columns-list {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+}
+
+/* line 43, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.new_column {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  display: none;
+}
+
+/* line 51, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_columns.scss */
+.block:hover .new_column {
+  display: block;
+}
+
+@keyframes moveInBlock {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* line 9, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_blocks.scss */
+.block {
+  min-height: 20px;
+  padding: 20px 0;
+  border-top: 1px solid #d7d7d7;
+  animation: moveInBlock 500ms forwards;
+  position: relative;
+}
+
+/* line 17, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_blocks.scss */
+.block:first-child {
+  border-top: 0;
+}
+
+/* line 1, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_components.scss */
+.component {
+  min-height: 10px;
+}
+
+/* line 5, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_components.scss */
+.new_component {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: none;
+}
+
+/* line 12, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_components.scss */
+.column:hover .new_component {
+  display: block;
+}
+
+/* line 5, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_pages.scss */
+.app {
+  opacity: 1;
+  transition: opacity 1200ms;
+}
+/* line 9, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_pages.scss */
+.app--loading {
+  opacity: 0;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* line 22, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_pages.scss */
+.page {
+  animation: fadeInPage 300ms;
+  transition: opacity 300ms, transform 300ms;
+  position: relative;
+  max-width: 960px;
+  padding: 20px;
+  margin: 0 auto;
+  background: #fff;
+  z-index: 1;
+}
+/* line 32, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_pages.scss */
+.page--fade-out {
+  opacity: 0;
+}
+
+/* line 1, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_modal.scss */
+.modal__mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity .3s ease;
+}
+
+/* line 13, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_modal.scss */
+.modal__wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 18, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_modal.scss */
+.modal__container {
+  width: 300px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all .3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* line 29, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_modal.scss */
+.modal__header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+/* line 34, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_modal.scss */
+.modal__body {
+  margin: 20px 0;
+}
+
+/* line 38, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_modal.scss */
+.modal__default-button {
+  float: right;
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+/* line 51, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_modal.scss */
+.modal-enter {
+  opacity: 0;
+}
+
+/* line 55, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_modal.scss */
+.modal-leave-active {
+  opacity: 0;
+}
+
+/* line 59, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_modal.scss */
+.modal-enter .modal__container,
+.modal-leave-active .modal__container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+@keyframes slideInMenu {
+  from {
+    transform: translateX(-200px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+/* line 9, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuEdit {
+  position: fixed;
+  z-index: 2;
+  background: #fff;
+  bottom: 0;
+  left: 0;
+  width: 370px;
+  height: calc(100% - 65px);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease;
+}
+/* line 20, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuEdit .menu {
+  width: 70px;
+  height: 100%;
+  position: relative;
+  float: left;
+  background: #fff;
+  border-right: 1px solid #ebebeb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* line 31, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuEdit .menu ul {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  list-style-type: none;
+}
+/* line 38, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuEdit .menu ul.bottom li {
+  border-top: 1px solid #ebebeb;
+  border-bottom: 0;
+}
+/* line 45, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuEdit .menu li {
+  width: 69px;
+  height: 69px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #ebebeb;
+  cursor: pointer;
+  transition: background 300ms ease;
+}
+/* line 55, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuEdit .menu li:hover, .menuEdit .menu li.active {
+  background: #f7f7f7;
+}
+/* line 60, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuEdit .menu i {
+  font-size: 28px;
+  color: #464646;
+}
+/* line 66, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuEdit .edit {
+  width: 300px;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+/* line 73, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuEdit h2 {
+  color: #2196F3;
+  font-size: 30px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid #ebebeb;
+  width: 100%;
+  display: block;
+  padding: 21px 25px;
+  height: 69px;
+}
+
+/* line 85, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.tabContent {
+  position: relative;
+  height: calc(100% - 138px);
+  overflow: auto;
+  padding: 25px;
+}
+
+/* line 92, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuList {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+/* line 99, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuList > .menuItem {
+  position: relative;
+  margin-bottom: 20px;
+}
+/* line 103, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuList > .menuItem:last-of-type {
+  margin-bottom: 0px;
+}
+/* line 108, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuList h3 {
+  font-weight: 500;
+  padding: 0 23px;
+}
+/* line 112, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuList h3:before {
+  content: "";
+  width: 3px;
+  height: calc(100% - 27px);
+  background: #2196F3;
+  position: absolute;
+  top: 14px;
+  left: 2px;
+}
+/* line 122, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuList h3:after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  position: absolute;
+  left: -1px;
+  top: 6px;
+  background: #2196F3;
+  border-radius: 100%;
+}
+/* line 134, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuList ul {
+  margin-top: 10px;
+  list-style-type: none;
+}
+/* line 138, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuList ul li {
+  list-style-type: none;
+}
+
+/* line 144, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.componentList {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0;
+  border: 1px solid #ebebeb;
+  margin-bottom: 20px;
+}
+/* line 150, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.componentList:last-of-type {
+  margin-bottom: 0;
+}
+/* line 153, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.componentList ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 20px 20px 10px;
+}
+/* line 157, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.componentList ul li {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  border: 1px solid #ebebeb;
+  background: #fff;
+  cursor: pointer;
+}
+/* line 166, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.componentList ul li a {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  padding: 0 10px;
+  font-size: 15px;
+}
+/* line 174, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.componentList ul .icon {
+  display: inline-block;
+  width: 50px;
+}
+/* line 178, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.componentList ul i {
+  width: 50px;
+  height: 50px;
+  background: #2196F3;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* line 188, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.componentList h3 {
+  border-bottom: 1px solid #ebebeb;
+  padding: 13px 20px;
+  font-weight: 500;
+}
+
+/* line 195, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+a.menuLink {
+  padding: 5px 0;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  line-height: 21px;
+  transition: color 300ms ease;
+}
+/* line 203, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+a.menuLink:hover, .isActive a.menuLink {
+  color: #2196F3;
+}
+/* line 208, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+a.menuLink:before {
+  content: "";
+  position: absolute;
+  left: -36px;
+  top: 15px;
+  width: 20px;
+  height: 3px;
+  background: linear-gradient(to right, #2196F3 0%, #dbdbdb 55%);
+}
+/* line 218, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+a.menuLink:after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  left: -18px;
+  top: 12px;
+  border-radius: 100%;
+  background: #fff;
+  border: 2px solid #dbdbdb;
+  transition: background 300ms ease;
+}
+/* line 230, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.isActive a.menuLink:after {
+  background: #dbdbdb;
+}
+
+/* line 236, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuUsers {
+  position: fixed;
+  z-index: 20;
+  background: #2196F3;
+  top: 0;
+  right: 0;
+  color: #fff;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  height: 65px;
+  padding: 0 23px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* line 254, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuUsers.menuAdmin {
+  border-bottom: 1px solid #2196F3;
+}
+/* line 258, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuUsers span {
+  font-weight: 500;
+  font-size: 15px;
+  color: #fff;
+}
+/* line 263, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuUsers span.account {
+  font-weight: 300;
+}
+/* line 267, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_menu.scss */
+.menuUsers span a {
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  padding: 8px 20px;
+  margin-left: 15px;
+  font-weight: 500;
+}
+
+/* line 1, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #2196F3;
+}
+/* line 13, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login h1 {
+  color: #fff;
+}
+/* line 17, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login h2 {
+  color: #fff;
+  margin-bottom: 50px;
+  margin-top: 13px;
+  width: 100%;
+  font-size: 16px;
+}
+/* line 25, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login .background {
+  position: absolute;
+  background: url(/assets/bg-login-1026d2fa2c59c9b899c9c42f57758ec3c18b142056dedf7ca4698ac1a1f7885c.jpg);
+  background-size: cover;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.08;
+}
+/* line 36, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login .loginWrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* line 48, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login .loginWrapper.forgotPassword .password_field {
+  overflow: hidden;
+  height: 0px;
+  transform: translateY(25px);
+}
+/* line 54, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login .loginWrapper.forgotPassword .btn {
+  opacity: 0;
+}
+/* line 57, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login .loginWrapper.forgotPassword .btn.resend {
+  opacity: 1;
+}
+/* line 62, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login .loginWrapper.forgotPassword .backToLogin {
+  opacity: 1;
+  visibility: visible;
+}
+/* line 67, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login .loginWrapper.forgotPassword .forgotPassword {
+  opacity: 0;
+  visibility: hidden;
+}
+/* line 72, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login .loginWrapper.forgotPassword .title {
+  opacity: 0;
+  visibility: hidden;
+}
+/* line 77, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login .loginWrapper.forgotPassword .passwordTitle {
+  opacity: 1;
+  visibility: visible;
+}
+/* line 84, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login .title {
+  opacity: 1;
+  visibility: visible;
+  transition: all 300ms ease;
+}
+/* line 90, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login .passwordTitle {
+  margin-top: -135px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease;
+}
+/* line 97, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login form {
+  position: relative;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.19);
+  background: #fff;
+  padding: 35px 30px 25px;
+  max-width: 500px;
+  width: 100%;
+}
+/* line 105, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login form .password_field {
+  height: 60px;
+  transform: scale(1) translateY(0px);
+  transition: transform 0.4s ease, height 0.4s ease;
+}
+/* line 111, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login form input {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #ededed;
+  padding: 16px 20px;
+  border-radius: 2px;
+  font-size: 14px;
+  transition: border 300ms ease;
+}
+/* line 120, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login form input:focus {
+  outline: none;
+  border: 1px solid #FFC107;
+}
+/* line 126, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login form .submitField {
+  position: relative;
+  margin-top: 20px;
+  background: #FFC107;
+  border-radius: 2px;
+  overflow: hidden;
+}
+/* line 133, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login form .submitField:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 0px;
+  height: 0px;
+  background: #f4b700;
+  z-index: 1;
+  border-radius: 100%;
+  opacity: 0;
+  transition: opacity 300ms ease, margin-left 0s 300ms ease, margin-top 0s 300ms ease, width 0s 300ms ease, height 0s 300ms ease;
+}
+/* line 151, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login form .submitField:hover:before {
+  margin-left: -250px;
+  margin-top: -250px;
+  width: 500px;
+  height: 500px;
+  opacity: 1;
+  transition: width 600ms ease, height 600ms ease, margin-top 600ms ease, margin-left 600ms ease;
+}
+/* line 163, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login form .btn {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  padding: 15px 20px;
+  color: #fff;
+  font-weight: bold;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  background: none;
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+/* line 177, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login form .btn:focus {
+  outline: none;
+  border: 0;
+}
+/* line 182, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login form .btn.resend {
+  margin-top: -46px;
+  display: block;
+  opacity: 0;
+}
+/* line 189, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login form .backToLogin {
+  display: block;
+  font-size: 15px;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  margin-top: -32px;
+  margin-bottom: 14px;
+  transition: all 300ms ease;
+}
+/* line 200, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login form .forgotPassword {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  display: inline-block;
+  opacity: 1;
+  visibility: visible;
+  transition: all 300ms ease;
+}
+/* line 209, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.login form .loginLink {
+  color: #2196F3;
+  font-weight: 400;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* line 218, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.loginHeader {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  height: 65px;
+  padding: 0 23px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* line 231, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.loginHeader span {
+  font-weight: 500;
+  font-size: 15px;
+  color: #fff;
+}
+/* line 236, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.loginHeader span.account {
+  font-weight: 300;
+}
+/* line 239, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_login.scss */
+.loginHeader span.account a {
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  padding: 8px 20px;
+  margin-left: 15px;
+  font-weight: 500;
+}
+
+/* line 1, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabs {
+  position: relative;
+  height: calc(100% - 170px);
+  width: 100%;
+  overflow: auto;
+  animation: fadeInTab 500ms forwards;
+}
+
+/* line 9, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabsTitles {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 16, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabTitle {
+  display: block;
+  width: 50%;
+  padding: 20px;
+  background: #fcfcfc;
+  color: #464646;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #ededed;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+/* line 29, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabTitle.active {
+  background: #fff;
+  color: #0081b3;
+  border: 1px solid #fff;
+  cursor: auto;
+}
+/* line 35, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabTitle.active:hover {
+  background: #fff;
+}
+/* line 40, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabTitle:hover {
+  background: #f8f8f8;
+}
+/* line 44, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabTitle:last-of-type {
+  border-right: 0;
+  border-top: 0;
+}
+/* line 48, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabTitle:first-of-type {
+  border-left: 0;
+  border-top: 0;
+}
+
+/* line 54, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tab {
+  width: 100%;
+  transition: opacity 500ms, transform 500ms;
+  overflow: auto;
+  height: 100%;
+}
+
+/* line 61, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabAction {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #ebebeb;
+  height: 69px;
+  display: flex;
+  align-items: center;
+}
+/* line 72, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabAction a {
+  float: left;
+  width: 50%;
+  text-align: center;
+  text-decoration: none;
+  border-right: 1px solid #ebebeb;
+  height: 69px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  transition: background 300ms ease;
+  cursor: pointer;
+}
+/* line 86, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabAction a.full {
+  width: 100%;
+}
+/* line 90, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabAction a:hover {
+  background: #f7f7f7;
+}
+/* line 94, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabAction a:last-of-type {
+  border-right: 0px;
+}
+
+/* line 100, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.compGroup {
+  width: 100%;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #0081b3 0%, #1bbcbe 100%);
+}
+/* line 105, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.compGroup .comp {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #d6d6d6;
+  border-top: 0;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #0081b3;
+  cursor: move;
+}
+/* line 117, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.compGroup .title {
+  color: #fff;
+  font-size: 14px;
+  padding: 16px 17px;
+  display: block;
+}
+
+/* line 125, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabswap-enter {
+  opacity: 0;
+}
+
+/* line 129, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabswap-enter-active {
+  position: absolute;
+  top: 0;
+}
+
+/* line 134, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabswap-enter-to {
+  transition-delay: 500ms;
+  opacity: 1;
+}
+
+/* line 139, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabswap-leave {
+  opacity: 1;
+}
+
+/* line 143, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabswap-leave-active {
+  top: 0;
+  position: absolute;
+}
+
+/* line 148, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_tabs.scss */
+.tabswap-leave-to {
+  opacity: 0;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes googleLoader {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+/* line 20, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_loader.scss */
+.loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 3;
+  transition: opacity 300ms ease;
+}
+/* line 31, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_loader.scss */
+.loader .path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: googleLoader 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+/* line 39, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_loader.scss */
+.loader-enter, .loader-leave-to {
+  opacity: 0;
+}
+
+/* line 43, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_loader.scss */
+.loader-enter-to, .loader-leave {
+  opacity: 1;
+}
+
+/* line 47, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_loader.scss */
+.circleBackground {
+  position: absolute;
+  z-index: 2;
+  width: 0px;
+  height: 0px;
+  border-radius: 100%;
+  background: #FFC107;
+  transition: width 0ms 300ms ease, height 0ms 300ms ease;
+}
+
+/* line 57, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_loader.scss */
+.circleLoader {
+  animation: rotate 2s linear infinite;
+  height: 100px;
+  transform-origin: center center;
+  width: 100px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  margin: auto;
+  stroke: #2196F3;
+}
+
+/* line 1, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_admin.scss */
+.admin .editHandle {
+  position: absolute;
+  top: 0;
+  right: -3px;
+  display: none;
+  flex-direction: row;
+  transform: translateY(-100%);
+}
+/* line 10, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_admin.scss */
+.admin .editHandleAction {
+  display: block;
+  background: #2196F3;
+  padding: 5px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  margin-left: auto;
+}
+/* line 20, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_admin.scss */
+.admin .editHandleActionDanger {
+  background: #E53935;
+}
+/* line 24, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_admin.scss */
+.admin .column:hover {
+  box-shadow: 0 0 0 3px #2196F3;
+}
+/* line 27, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_admin.scss */
+.admin .column:hover .editHandle {
+  display: flex;
+}
+/* line 36, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_admin.scss */
+.admin .blockDragMarker {
+  text-align: center;
+  transition: height 300ms, margin 300ms;
+}
+/* line 41, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_admin.scss */
+.admin .isDragStateActive .blockDragMarker {
+  height: 100%;
+  border: 3px dashed #e7e7e7;
+  margin: 5px 0;
+}
+
+/* line 1, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_theme.scss */
+.theme .title {
+  margin-bottom: 20px;
+}
+/* line 5, /Users/mitchel/Development/apps/Absolute0-CMS/app/assets/stylesheets/_theme.scss */
+.theme .center {
+  text-align: center;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+

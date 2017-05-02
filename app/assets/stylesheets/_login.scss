@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: map-get($color, blue500);
+  background: map-get($color, material-color);
 
   h1 {
     color: #fff;
@@ -94,96 +94,16 @@
     transition: all 300ms ease;
   }
 
-  form {
+  form{
     position: relative;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.19);
     background: map-get($color, colorWhite);
     padding: 35px 30px 25px;
-    max-width: 500px;
-    width: 100%;
 
     .password_field {
       height: 60px;
       transform: scale(1) translateY(0px);
       transition: transform 0.4s ease, height 0.4s ease;
-    }
-
-    input {
-      width: 100%;
-      margin-bottom: 10px;
-      border: 1px solid darken(map-get($color, light-grey), 6%);
-      padding: 16px 20px;
-      border-radius: 2px;
-      font-size: 14px;
-      transition: border 300ms ease;
-
-      &:focus {
-        outline: none;
-        border: 1px solid map-get($color, amber500);
-      }
-    }
-
-    .submitField{
-      position: relative;
-      margin-top: 20px;
-      background: map-get($color, amber500);
-      border-radius: 2px;
-      overflow: hidden;
-
-      &:before{
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-left: 0px;
-        margin-top: 0px;
-        width: 0px;
-        height: 0px;
-        background: darken(map-get($color, amber500), 3.5%);
-        z-index: 1;
-        border-radius: 100%;
-        opacity: 0;
-
-        //Transition hover off
-        transition: opacity 300ms ease, margin-left 0s 300ms ease, margin-top 0s 300ms ease, width 0s 300ms ease, height 0s 300ms ease;
-      }
-
-      &:hover:before {
-        margin-left: -250px;
-        margin-top: -250px;
-        width: 500px;
-        height: 500px;
-        opacity: 1;
-
-        //Transition hover on
-        transition: width 600ms ease, height 600ms ease, margin-top 600ms ease, margin-left 600ms ease;
-      }
-    }
-
-    .btn {
-      position: relative;
-      z-index: 2;
-      cursor: pointer;
-      padding: 15px 20px;
-      color: map-get($color, colorWhite);
-      font-weight: bold;
-      border: 0;
-      border-radius: 0;
-      margin-bottom: 0;
-      background: none;
-      opacity: 1;
-      transition: opacity 300ms ease;
-
-      &:focus{
-        outline:none;
-        border:0;
-      }
-
-      &.resend{
-        margin-top: -46px;
-        display: block;
-        opacity: 0;
-      }
     }
 
     .backToLogin {
@@ -207,7 +127,7 @@
     }
 
     .loginLink {
-      color: map-get($color, blue500);
+      color: map-get($color, material-color);
       font-weight: 400;
       cursor: pointer;
       font-size: 15px;
