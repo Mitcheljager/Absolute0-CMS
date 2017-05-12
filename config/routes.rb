@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # Root
   root to: 'pages#home'
-  get 'admin' => 'pages#index'
+  get 'admin' => 'pages#admin'
 
   # Login
   get '/login' => 'sessions#new'

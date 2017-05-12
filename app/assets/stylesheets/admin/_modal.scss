@@ -1,0 +1,73 @@
+.modal__mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .40);
+  transition: opacity .3s ease;
+}
+
+.modal__container {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 400px;
+  height: 500px;
+  background-color: map-get($color, colorWhite);
+  box-shadow: 0 0px 10px rgba(0, 0, 0, .25);
+  transition: opacity .3s ease;
+  &:before{
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 15px;
+    width: 0;
+    height: 0;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 13px solid map-get($color, colorWhite);
+  }
+}
+
+.modal__header{
+  width: 100%;
+  max-width: 400px;
+  margin-top: 0;
+  color: map-get($color, colorWhite);
+  height: 65px;
+  padding:0 25px;
+  display: block;
+  background: map-get($color, material-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h3, i {
+    margin:0px;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  i{
+    cursor: pointer;
+    font-size:23px;
+  }
+}
+
+.modal__body {
+  padding: 25px;
+  height: calc(100% - 65px);
+  overflow: auto;
+}
+
+.modal__default-button {
+  float: right;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}

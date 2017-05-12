@@ -1,8 +1,0 @@
-[
-<% @components.each_with_index do |component, index| %>
-  {
-    "id": <%= component.id %>,
-    "column_id": "<%= component.column_id %>"
-  }<% unless index == @components.size - 1 %>,<% end %>
-<% end %>
-]

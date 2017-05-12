@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_action :authorize, except: [:show, :home]
   layout 'admin', except: [:show, :home]
 
-  def index
+  def admin
     @pages = Page.all.order(priority: :asc)
     @page = Page.new
     @block = Block.new

@@ -17,13 +17,13 @@
 //= require sortable
 //= require vuedraggable
 
-//= require pages
-//= require blocks
-//= require columns
-//= require components
-//= require modal
-//= require menu
-//= require alert
-//= require loader
+//= require elements/pages
+//= require elements/blocks
+//= require elements/columns
+//= require elements/components
+//= require elements/modal
+//= require elements/menu
+//= require elements/alert
+//= require elements/loader
 
 //= require app
