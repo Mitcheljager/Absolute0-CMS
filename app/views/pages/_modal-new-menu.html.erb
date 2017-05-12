@@ -1,0 +1,12 @@
+<script type="x/template" id="new-menu-modal-template">
+  <modal>
+    <div class="modal__header">
+      <h3>Create a new menu</h3>
+      <i class="material-icons" @click="close">cancel</i>
+    </div>
+
+    <div class="modal__body">
+      <%= render 'menus/form' %>
+    </div>
+  </modal>
+</script>

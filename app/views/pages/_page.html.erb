@@ -24,14 +24,22 @@
                   <% end %>
                 </div>
               </component>
+
             </div>
+
+            <div v-if="column.components.length == 0" class="placeholder">
+              Add content.
+            </div>
+
             <%= render 'columns/edit-handle' %>
             <%= render 'components/new-component' %>
 
             <draggable class="blockDragMarker" :options="{name:'people'}"></draggable>
           </section>
         </draggable>
-
+        <div v-if="block.columns.length == 0" class="placeholder">
+          This block is empty, add some columns!
+        </div>
         <%= render 'columns/new-column' %>
       </section>
 

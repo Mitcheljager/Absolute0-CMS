@@ -1,5 +1,6 @@
 <%= render 'layouts/modal' %>
-<%= render 'modal-new' %>
+<%= render 'modal-new-page' %>
+<%= render 'modal-new-menu' %>
 <%= render 'loader' %>
 
 <div class="app app--loading">
@@ -18,4 +19,5 @@
   </div>
 
   <new-page-modal v-if="showModal === 'newPage'"></new-page-modal>
+  <new-menu-modal v-if="showModal === 'newMenu'"></new-menu-modal>
 </div>
