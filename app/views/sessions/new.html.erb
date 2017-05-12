@@ -16,7 +16,7 @@
       <h2>Enter your <strong>email address</strong> below.</h2>
     </div>
 
-    <%= form_tag '/login' do %>
+    <%= form_tag '/login', class: "form" do %>
       <% if flash[:error] %>
         <%= text_field_tag :email, '', placeholder: 'Email', class: 'form__field errorInput' %>
       <% else %>

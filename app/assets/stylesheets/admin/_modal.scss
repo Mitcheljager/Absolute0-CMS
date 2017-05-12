@@ -58,103 +58,11 @@
   padding: 25px;
   height: calc(100% - 65px);
   overflow: auto;
-
-  form {
-    max-width: 500px;
-    width: 100%;
-
-    input, select {
-      width: 100%;
-      margin-bottom: 10px;
-      border: 1px solid darken(map-get($color, light-grey), 6%);
-      padding: 16px 20px;
-      border-radius: 2px;
-      font-size: 14px;
-      transition: border 300ms ease;
-
-      &:focus {
-        outline: none;
-        border: 1px solid map-get($color, material-color);
-      }
-    }
-
-    .submitField {
-      position: relative;
-      margin-top: 20px;
-      background: map-get($color, material-color);
-      border-radius: 2px;
-      overflow: hidden;
-
-      &:before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-left: 0px;
-        margin-top: 0px;
-        width: 0px;
-        height: 0px;
-        background: darken(map-get($color, material-color), 3.5%);
-        z-index: 1;
-        border-radius: 100%;
-        opacity: 0;
-
-        //Transition hover off
-        transition: opacity 300ms ease, margin-left 0s 300ms ease, margin-top 0s 300ms ease, width 0s 300ms ease, height 0s 300ms ease;
-      }
-
-      &:hover:before {
-        margin-left: -250px;
-        margin-top: -250px;
-        width: 500px;
-        height: 500px;
-        opacity: 1;
-
-        //Transition hover on
-        transition: width 600ms ease, height 600ms ease, margin-top 600ms ease, margin-left 600ms ease;
-      }
-    }
-
-    .btn {
-      position: relative;
-      z-index: 2;
-      cursor: pointer;
-      padding: 15px 20px;
-      color: map-get($color, colorWhite);
-      font-weight: bold;
-      border: 0;
-      border-radius: 0;
-      margin-bottom: 0;
-      background: none;
-      opacity: 1;
-      transition: opacity 300ms ease;
-
-      &:focus {
-        outline:none;
-        border:0;
-      }
-
-      &.resend {
-        margin-top: -46px;
-        display: block;
-        opacity: 0;
-      }
-    }
-  }
 }
 
 .modal__default-button {
   float: right;
 }
-
-/*
- * The following styles are auto-applied to elements with
- * transition="modal" when their visibility is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
 
 .modal-enter {
   opacity: 0;
