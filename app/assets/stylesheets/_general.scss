@@ -29,16 +29,12 @@ body {
   overflow: auto;
   transition: left 0.5s ease, width 0.5s ease;
 
-  &.expand{
+  &.expand {
     left:0;
     width: 100%;
   }
 
-  h1{
-    color: map-get($color, material-color);
-  }
-
-  .boardLogo{
+  .boardLogo {
     position: absolute;
     top: 0;
     left: 0;
@@ -48,12 +44,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    h1{
+
+    h1 {
       font-weight: 500;
       color: darken(map-get($color, background-color), 15%);
       font-size: 60px;
     }
-    h2{
+
+    h2 {
       color: darken(map-get($color, background-color), 15%);
     }
   }
@@ -70,114 +68,27 @@ body {
   font-style: italic;
 }
 
-h1{
-  color: map-get($color, colorWhite);
-  font-weight: 300;
+h1 {
   font-size: 40px;
+  margin: 0 0 40px;
+  padding: 0;
+  color: map-get($color, material-color);
+}
+
+h2 {
   margin: 0;
   padding: 0;
 }
-h2{
-  color: map-get($color, colorWhite);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 25px;
+
+h3 {
   margin: 0;
   padding: 0;
 }
-h3{
-  font-weight: 400;
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
-}
-a{
+
+a {
   color: map-get($color, dark-grey);
 }
-strong{
+
+strong {
   font-weight: 500;
-}
-
-
-form {
-  max-width: 500px;
-  width: 100%;
-
-  input, select {
-    width: 100%;
-    margin-bottom: 10px;
-    border: 1px solid darken(map-get($color, light-grey), 6%);
-    padding: 16px 20px;
-    border-radius: 2px;
-    font-size: 14px;
-    transition: border 300ms ease;
-
-    &:focus {
-      outline: none;
-      border: 1px solid map-get($color, material-color);
-    }
-  }
-
-  .submitField{
-    position: relative;
-    margin-top: 20px;
-    background: map-get($color, material-color);
-    border-radius: 2px;
-    overflow: hidden;
-
-    &:before{
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      margin-left: 0px;
-      margin-top: 0px;
-      width: 0px;
-      height: 0px;
-      background: darken(map-get($color, material-color), 3.5%);
-      z-index: 1;
-      border-radius: 100%;
-      opacity: 0;
-
-      //Transition hover off
-      transition: opacity 300ms ease, margin-left 0s 300ms ease, margin-top 0s 300ms ease, width 0s 300ms ease, height 0s 300ms ease;
-    }
-
-    &:hover:before {
-      margin-left: -250px;
-      margin-top: -250px;
-      width: 500px;
-      height: 500px;
-      opacity: 1;
-
-      //Transition hover on
-      transition: width 600ms ease, height 600ms ease, margin-top 600ms ease, margin-left 600ms ease;
-    }
-  }
-
-  .btn {
-    position: relative;
-    z-index: 2;
-    cursor: pointer;
-    padding: 15px 20px;
-    color: map-get($color, colorWhite);
-    font-weight: bold;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    background: none;
-    opacity: 1;
-    transition: opacity 300ms ease;
-
-    &:focus{
-      outline:none;
-      border:0;
-    }
-
-    &.resend{
-      margin-top: -46px;
-      display: block;
-      opacity: 0;
-    }
-  }
 }

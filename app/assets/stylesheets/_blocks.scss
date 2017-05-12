@@ -7,13 +7,9 @@
 }
 
 .block {
-  min-height: 20px;
-  padding: 20px 0;
+  min-height: 60px;
+  padding: 40px 0;
   border-top: 1px solid #d7d7d7;
   animation: moveInBlock 500ms forwards;
   position: relative;
-}
-
-.block:first-child {
-  border-top: 0;
 }

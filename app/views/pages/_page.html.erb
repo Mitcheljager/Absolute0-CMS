@@ -8,19 +8,39 @@
         <draggable v-on:end="onUpdateOfColumnDrag" class="columns-list">
           <section v-for="column in block.columns" class="column" v-bind:data-column-id="column.id" v-bind:class="'column--' + column.size">
             <div v-for="component in column.components" class="component">
-              <div v-for="(value, key) in component.content">
-                {{ value }}
-              </div>
+              <component v-bind:content="component.content" v-bind:layout="component.layout" inline-template>
+                <div>
+                  <% a = Dir.entries(Rails.root.join("app/views/components/items/admin")) %>
+                  <% a -= ['.', '..'] %>
+                  <% b = ["_",".html.erb"] %>
+                  <% a.each do |p| %>
+                    <% b.each {|x| p.slice!(x) } %>
+                  <% end %>
+
+                  <% a.each do |l| %>
+                    <div v-if="layout === '<%= l %>'" v-for="component in content">
+                      <%= render 'components/items/admin/' + l %>
+                    </div>
+                  <% end %>
+                </div>
+              </component>
+
             </div>
+
+            <div v-if="column.components.length == 0" class="placeholder">
+              Add content.
+            </div>
+
             <%= render 'columns/edit-handle' %>
             <%= render 'components/new-component' %>
+
+            <draggable class="blockDragMarker" :options="{name:'people'}"></draggable>
           </section>
         </draggable>
-
-
+        <div v-if="block.columns.length == 0" class="placeholder">
+          This block is empty, add some columns!
+        </div>
         <%= render 'columns/new-column' %>
-
-        <div class="blockDragMarker"></div>
       </section>
 
 

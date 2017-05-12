@@ -31,8 +31,7 @@
         </div>
 
         <div class="tabAction">
-          <!-- <%= render '/menus/form' %> -->
-          <a>Create Menu</a>
+          <a id="show-modal" class="createMenuModal" @click="showModal = 'newMenu'">Create menu</a>
           <a id="show-modal" class="createPageModal" @click="showModal = 'newPage'">Create page</a>
         </div>
       </div>
@@ -45,22 +44,21 @@
             <li>
               <h3>Group name</h3>
               <ul>
-                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
-                  <li>
-                    <div class="icon">
-                      <i class="material-icons">text_fields</i>
-                    </div>
-                    <a href="#">Article</a>
-                  </li>
-                </draggable>
-                <draggable v-on:start="globalDragState = true" v-on:end="globalDragState = false">
-                  <li>
-                    <div class="icon">
-                      <i class="material-icons">ondemand_video</i>
-                    </div>
-                    <a href="#">Video player</a>
-                  </li>
-                </draggable>
+                <% a = Dir.entries(Rails.root.join("app/views/components/items/form")) %>
+                <% a -= ['.', '..'] %>
+                <% b = ["_",".html.erb"] %>
+                <% a.each do |p| %>
+                  <% b.each {|x| p.slice!(x) } %>
+                <% end %>
+
+                <% a.each do |l| %>
+                  <draggable :options="{group:{name:'components', pull:'clone', put:false }}" v-on:start="globalDragState = true" v-on:end="globalDragState = false">
+                    <li>
+                      <a href="#"><%= l %></a>
+                      <%= render 'components/items/form/' + l %>
+                    </li>
+                  </draggable>
+                <% end %>
               </ul>
             </li>
           </ul>

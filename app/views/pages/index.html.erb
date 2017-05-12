@@ -1,5 +1,6 @@
 <%= render 'layouts/modal' %>
-<%= render 'modal-new' %>
+<%= render 'modal-new-page' %>
+<%= render 'modal-new-menu' %>
 <%= render 'loader' %>
 
 <div class="app app--loading">
@@ -8,7 +9,7 @@
 
   <%= render 'layouts/menu-left' %>
 
-  <div class="board">
+  <div class="board theme">
     <div class="boardLogo" v-if="!currentPage">
       <h1>Absolute0</h1>
       <h2>To edit a page, select the page inside the menu on the left.</h2>
@@ -18,4 +19,5 @@
   </div>
 
   <new-page-modal v-if="showModal === 'newPage'"></new-page-modal>
+  <new-menu-modal v-if="showModal === 'newMenu'"></new-menu-modal>
 </div>

@@ -37,3 +37,30 @@ Vue.component('NewPageModal', {
     }
   }
 });
+
+Vue.component('NewMenuModal', {
+  template: '#new-menu-modal-template',
+  created: function() {
+    setTimeout(function(){
+      var positionLeft = $(".createMenuModal")[0].getBoundingClientRect().left,
+          positionTop = $(".createMenuModal")[0].getBoundingClientRect().top;
+
+      $(".modal__container").css({"left": positionLeft, "top": positionTop - 520});
+    });
+  },
+  methods: {
+    close: function() {
+      app.showModal = false;
+    },
+    createPage: function() {
+      app.showModal = false;
+      app.flashMessage = 'Menu is successfully created';
+
+      setTimeout(function() {
+        $.getJSON('/pages/json/list.json', (json) => {
+          app.pages = json;
+        });
+      }, 100); // FIXME Using Timeout is stupid, as the time required is not set.
+    }
+  }
+});

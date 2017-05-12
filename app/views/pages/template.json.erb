@@ -20,7 +20,8 @@
               {
                 "id": <%= component.id %>,
                 "column_id": <%= component.column_id %>,
-                "content": {"content": "<%= component.content %>" }
+                "layout": "<%= component.layout %>",
+                "content": [<%= raw(component.content.to_json) %>]
               }<% unless index == @components.where(:column_id => column.id).size - 1 %>,<% end %>
               <% end %>
             ]
