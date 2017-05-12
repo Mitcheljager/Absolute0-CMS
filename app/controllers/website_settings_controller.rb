@@ -1,18 +1,18 @@
 class WebsiteSettingsController < ApplicationController
   def new
-    @menu = Menu.new
+    @website_setting = WebsiteSetting.new
   end
 
   def create
-    @menu = Menu.new(menu_params)
+    @website_setting = WebsiteSetting.new(website_setting_params)
 
-    if @menu.save
+    if @website_setting.save
       flash[:notice] = 'Website successfully saved'
   end
 
   private
 
-  def menu_params
+  def website_setting_params
     params.require(:website_settings).permit(:homepage_id)
   end
 end
