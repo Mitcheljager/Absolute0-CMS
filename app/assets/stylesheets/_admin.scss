@@ -21,11 +21,13 @@
   background: map-get($color, material-error);
 }
 
-.column:hover {
-  box-shadow: 0 0 0 3px map-get($color, material-color);
+.column {
+  &:hover {
+    box-shadow: 0 0 0 3px map-get($color, material-color);
 
-  .editHandle {
-    display: flex;
+    .editHandle {
+      display: flex;
+    }
   }
 }
 
@@ -42,4 +44,11 @@
   height: 100%;
   border: 3px dashed #e7e7e7;
   margin: 5px 0;
+}
+
+.new_column {
+  right: 0;
+  left: auto;
+  top: auto;
+  bottom: 0;
 }
