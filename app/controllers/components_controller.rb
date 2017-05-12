@@ -26,6 +26,7 @@ class ComponentsController < ApplicationController
   private
 
   def component_params
-    params.require(:component).permit(:column_id, :content)
+    content = :content
+    params.require(:component).permit(:column_id, content, :layout)
   end
 end

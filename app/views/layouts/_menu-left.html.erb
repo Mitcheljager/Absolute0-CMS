@@ -44,14 +44,7 @@
             <li>
               <h3>Group name</h3>
               <ul>
-                <% a = Dir.entries(Rails.root.join("app/views/components/items/form")) %>
-                <% a -= ['.', '..'] %>
-                <% b = ["_",".html.erb"] %>
-                <% a.each do |p| %>
-                  <% b.each {|x| p.slice!(x) } %>
-                <% end %>
-
-                <% a.each do |l| %>
+                <% componentsList("app/views/components/items/form").each do |l| %>
                   <draggable :options="{group:{name:'components', pull:'clone', put:false }}" v-on:start="globalDragState = true" v-on:end="globalDragState = false">
                     <li>
                       <a href="#"><%= l %></a>
