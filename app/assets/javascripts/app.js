@@ -3,14 +3,9 @@ var app = new Vue({
   data: {
     title: 'Absolute 0 CMS',
     pages: [],
-    blocks: [],
-    columns: [],
-    items: [],
     currentPage: 0,
     currentPageData: [],
     page: this.currentPageData,
-    newPage: false,
-    columnFullSize: '',
     flashMessage: '',
     menuVisible: true,
     currentTab: 'pages',
@@ -42,8 +37,6 @@ var app = new Vue({
           self.currentPageData = json;
           self.pageLoading = false;
         }, 100);  // FIXME Using Timeout is stupid, as the time required is not set.
-
-        console.log('Page Loaded');
       });
     },
     tabClick: function(target){
@@ -73,16 +66,8 @@ var app = new Vue({
       $.ajax({
         type: 'POST',
         url: '/admin/blocks/sort',
-        data: { order: updatedOrder },
-        success: function(data) {
-          console.log('Success');
-        },
-        error: function(data) {
-          console.log('Error');
-        }
+        data: { order: updatedOrder }
       });
-
-      console.log(updatedOrder);
     },
     onUpdateOfPageDrag: function(evt) {
       var self = this;
@@ -98,17 +83,8 @@ var app = new Vue({
       $.ajax({
         type: 'POST',
         url: '/admin/pages/sort',
-        data: { order: updatedOrder },
-        success: function(data) {
-          console.log('Success');
-        },
-        error: function(data) {
-          console.log('Error');
-        }
+        data: { order: updatedOrder }
       });
-
-      console.log(evt);
-      console.log(updatedOrder);
     },
     onUpdateOfColumnDrag: function(evt) {
       var self = this;
@@ -123,16 +99,8 @@ var app = new Vue({
       $.ajax({
         type: 'POST',
         url: '/admin/columns/sort',
-        data: { order: updatedOrder },
-        success: function(data) {
-          console.log('Success');
-        },
-        error: function(data) {
-          console.log('Error');
-        }
+        data: { order: updatedOrder }
       });
-
-      console.log(updatedOrder);
     },
     reloadSidebar: function(message) {
       var self = this;
