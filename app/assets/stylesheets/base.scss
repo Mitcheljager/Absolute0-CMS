@@ -1,22 +1,20 @@
 @import 'variables',
         'mixins',
         'general',
-        'buttons',
-        'alert',
         'columns',
         'blocks',
         'components',
-        'pages',
-        'modal',
         'menu',
-        'login',
-        'tabs',
-        'loader';
-
-// Admin
+        'pages';
 
 .admin {
-  @import 'admin';
+  @import 'admin/admin',
+          'admin/alert',
+          'admin/loader',
+          'admin/login',
+          'admin/tabs',
+          'admin/buttons',
+          'admin/modal';
 }
 
 .theme {

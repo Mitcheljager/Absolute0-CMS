@@ -1,13 +1,13 @@
-<%= render 'layouts/modal' %>
-<%= render 'modal-new-page' %>
-<%= render 'modal-new-menu' %>
-<%= render 'loader' %>
+<%= render 'application/modals/modal' %>
+<%= render 'application/modals/modal-new-page' %>
+<%= render 'application/modals/modal-new-menu' %>
+<%= render 'application/loader' %>
 
 <div class="app app--loading">
 
-  <%= render 'layouts/menu-top' %>
+  <%= render 'layouts/menus/menu-top' %>
 
-  <%= render 'layouts/menu-left' %>
+  <%= render 'layouts/menus/menu-left' %>
 
   <div class="board theme">
     <div class="boardLogo" v-if="!currentPage">
